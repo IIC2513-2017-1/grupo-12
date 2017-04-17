@@ -3,3 +3,14 @@
   <%= gravatar_for @user %>
   <%= @user.fullname %>
 </h1>
+
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+<% if logged_in?%>
+  <% if current_user.following?(@user) %>
+    <%= render 'shared/unfollow' %>
+  <% elsif current_user.id != @user.id %>
+    <%= render 'shared/follow' %>
+  <% end %>
+<% end %>

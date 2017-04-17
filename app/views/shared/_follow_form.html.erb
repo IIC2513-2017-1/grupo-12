@@ -1,0 +1,5 @@
+<% if current_user.following?(@user) %>
+    <%= render 'shared/unfollow' %>
+  <% else %>
+    <%= render 'shared/follow' %>
+  <% end %>

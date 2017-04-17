@@ -24,3 +24,11 @@ User.create(firstname: 'Juan Pablo', lastname: 'Jofré', email: 'jbjofre@uc.cl',
                password: password, birthdate: birthday,
                password_confirmation: password)
 end
+
+# Following relationships
+users = User.all
+user  = users.first
+following = users[3..10]
+followers = users[2..8]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

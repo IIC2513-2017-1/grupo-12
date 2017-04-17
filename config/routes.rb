@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   get '/signup', to: 'users#new'
-  resources :users
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: %i[create destroy]
 end
