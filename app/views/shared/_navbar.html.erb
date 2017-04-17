@@ -1,11 +1,13 @@
 <ul class="navbar">
   <li class="<%= active_class('welcome', 'index') %>"><a href="/">Home</a></li>
-  <li class="<%#= active_class('users', 'index') %>"><%= link_to "Users", root_path%></li>
-  <%# if logged_in? %>
-    <%#ide = current_user.id%>
-    <li class="<%#= active_class('users', 'show', ide) %>"><%= link_to "Profile", root_path %></li>
-    <li><%#= link_to "Log out", logout_path, method: :delete %></li>
-  <%# else %>
-    <li class="<%#= active_class('sessions', 'new') %>"><%= link_to "Login", root_path%></li>
-    <li class="<%#= active_class('users', 'new') %>"><%= link_to "Signup", root_path%></li>
+  <li class="<%= active_class('users', 'index') %>"><%= link_to "Users", users_path%></li>
+  <% if logged_in? %>
+    <%ide = current_user.id%>
+    <li class="<%= active_class('users', 'show', ide) %>"><%= link_to "Profile", current_user %></li>
+    <li><%= link_to "Log out", logout_path, method: :delete %></li>
+  <% else %>
+    <li class="<%= active_class('sessions', 'new') %>"><%= link_to "Login", login_path%></li>
+    <li class="<%= active_class('users', 'new') %>"><%= link_to "Signup", signup_path%></li>
+  <% end %>
+
 </ul>
