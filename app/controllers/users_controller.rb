@@ -42,6 +42,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def saved
+    @title = 'Saved'
+    @user = User.find(params[:id])
+    @projects = @user.saving
+    #render 'show_save'
+  end
+
   private
 
   # Allowed parameters for user creation

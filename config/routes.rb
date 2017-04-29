@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :donations
   resources :comments
-  resources :projects
   root 'welcome#index'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -9,8 +8,14 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :saved
+    end
+  end
+  resources :projects do
+    member do
+      get :savers
     end
   end
   resources :relationships, only: %i[create destroy]
+  resources :project_relationships, only: %i[create destroy]
 end
