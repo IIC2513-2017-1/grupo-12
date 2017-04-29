@@ -61,6 +61,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def savers
+    @title = 'Savers'
+    @project = Project.find(params[:id])
+    @users = @project.savers
+    #render 'show_save'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
