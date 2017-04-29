@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :donations
+  resources :comments
+  resources :projects
   root 'welcome#index'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'

@@ -20,6 +20,9 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :projects
+  has_many :donations
+  has_many :comments
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname

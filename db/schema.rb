@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417173057) do
+ActiveRecord::Schema.define(version: 20170429161153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_comments_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_donations_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.text     "brief"
+    t.text     "description"
+    t.datetime "funding_duration"
+    t.integer  "funding_goal"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -37,4 +68,9 @@ ActiveRecord::Schema.define(version: 20170417173057) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
+  add_foreign_key "donations", "projects"
+  add_foreign_key "donations", "users"
+  add_foreign_key "projects", "users"
 end
