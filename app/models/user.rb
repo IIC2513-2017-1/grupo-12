@@ -30,7 +30,8 @@ class User < ApplicationRecord
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname
-    firstname.humanize + ' ' + lastname.humanize
+    name = firstname + ' ' + lastname
+    name.split.map(&:capitalize).join(' ')
   end
 
   # Returns the hash digest of the given string.
