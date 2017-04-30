@@ -6,15 +6,24 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :donations
-  has_many :passive_project_relationships, class_name:  "ProjectRelationship",
-                                foreign_key: "saved_id",
-                                dependent:   :destroy
+  has_many :categorizations
+  has_many :categories, through: :categorizations
+  has_many :passive_project_relationships, class_name:  'ProjectRelationship',
+                                           foreign_key: 'saved_id',
+                                           dependent:   :destroy
   has_many :savers, through: :passive_project_relationships, source: :saver
   validates_associated :comments
   validates_associated :donations
 
   def saver?(user)
-  	savers.include?(user)
+    savers.include?(user)
   end
 
+  def add_category(category)
+    categories << category unless categories.include?category
+  end
+
+  def remove_category(category)
+    categories.delete(category)
+  end
 end
