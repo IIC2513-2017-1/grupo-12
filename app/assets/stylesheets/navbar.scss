@@ -55,6 +55,14 @@ div.navbar-container {
     li:last-child a{
         padding-right: 30px;
     }
+    li.nav-right-img{
+      img {
+        margin-top: 6px;
+      }
+      a{
+        padding-right: 0px;
+      }
+    }
   }
   #brand a{
     font-family: 'Oleo Script', cursive;

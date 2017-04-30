@@ -6,11 +6,12 @@
   <ul class="navbar navbar-right">
     <% if logged_in? %>
       <%ide = current_user.id%>
+      <li class="nav-right-img"><%= link_to gravatar_for(current_user, 40), current_user, {:class => "wide " + active_class('users', 'show', ide)}%></li>
+      <li class="nav-right"><%= link_to current_user.fullname, current_user, {:class => "wide " + active_class('users', 'show', ide)}%></li>
       <li class="nav-right"><%= link_to "Log out", logout_path, {:class => "wide", method: :delete}%></li>
-      <li class="nav-right"><%= link_to "Profile", current_user, {:class => "wide " + active_class('users', 'show', ide)}%></li>
     <% else %>
-      <li class="nav-right"><%= link_to "Signup", signup_path, {:class => "wide " + active_class('users', 'new')}%></li>
       <li class="nav-right"><%= link_to "Login", login_path, {:class => "wide " + active_class('sessions', 'new')}%></li>
+      <li class="nav-right"><%= link_to "Signup", signup_path, {:class => "wide " + active_class('users', 'new')}%></li>
     <% end %>
   </ul>
 </div>

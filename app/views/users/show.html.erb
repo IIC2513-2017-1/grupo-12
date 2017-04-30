@@ -1,16 +1,25 @@
 <% provide(:title, @user.firstname) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.fullname %>
-</h1>
 
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<% if logged_in?%>
-  <% if current_user.following?(@user) %>
-    <%= render 'shared/unfollow' %>
-  <% elsif current_user.id != @user.id %>
-    <%= render 'shared/follow' %>
-  <% end %>
-<% end %>
+
+<div class="flexbox-container">
+  <div id="user-pic">
+    <%= gravatar_for @user, 150 %>
+  </div>
+  <div id="user-title">
+    <%= @user.fullname %>
+  </div>
+  <div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </div>
+  <div>
+    <% if logged_in?%>
+      <% if current_user.following?(@user) %>
+        <%= render 'shared/unfollow' %>
+      <% elsif current_user.id != @user.id %>
+        <%= render 'shared/follow' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
