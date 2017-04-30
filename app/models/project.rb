@@ -14,6 +14,8 @@ class Project < ApplicationRecord
   validates :funding_goal, presence: true, allow_blank: false
                                 dependent:   :destroy
   has_many :savers, through: :passive_project_relationships, source: :saver
+  validates_associated :comments
+  validates_associated :donations
 
   def saver?(user)
   	savers.include?(user)
