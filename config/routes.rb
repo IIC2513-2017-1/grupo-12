@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :savers
     end
   end
+  resources :donations, only: %i[index new create show]
   resources :relationships, only: %i[create destroy]
   resources :project_relationships, only: %i[create destroy]
 end
