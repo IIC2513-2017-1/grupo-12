@@ -3,7 +3,7 @@ class CreateDonations < ActiveRecord::Migration[5.0]
     create_table :donations do |t|
       t.references :user, foreign_key: true
       t.references :project, foreign_key: true
-      t.integer :amount
+      t.integer :amount, null: false
 
       t.timestamps
     end
