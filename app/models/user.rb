@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :projects
   has_many :donations
   has_many :comments
+  validates_associated :projects
+  validates_associated :donations
+  validates_associated :comments
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname
