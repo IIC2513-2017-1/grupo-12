@@ -40,9 +40,9 @@ end
 
 # PROJECT CREATION
 
-12.times do |_n|
-  description = Faker::Lorem.paragraph
-  brief = Faker::Lorem.sentence
+12.times do |n|
+  description = Faker::Hipster.paragraph
+  brief = "Project #{n + 1}: #{Faker::LordOfTheRings.location}"
   user = rand(1..num).to_i
   date = Faker::Date.forward(120)
   Project.create!(brief: brief,
