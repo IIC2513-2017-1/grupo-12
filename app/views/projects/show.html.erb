@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Brief:</strong>
-  <%= @project.brief %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<div class="flexbox-container">
+  <h1><%= @project.brief %></h1>
 
-<p>
-  <strong>Funding duration:</strong>
-  <%= @project.funding_duration %>
-</p>
+  <h3>
+    <%= @project.description %>
+  </h3>
 
-<p>
-  <strong>Funding goal:</strong>
-  <%= @project.funding_goal %>
-</p>
+  <p>
+    <strong>Funding duration:</strong>
+    <%= distance_of_time_in_words(Time.now, @project.funding_duration) %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user %>
-</p>
+  <p>
+    <strong>Funding goal:</strong>
+    <%= number_to_currency(@project.funding_goal) %>
+  </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <p>
+    <strong>Creator:</strong>
+    <%= link_to @project.user.fullname, @project.user %>
+  </p>
+
+  <%= link_to 'Edit', edit_project_path(@project) %> 
+  <%= link_to 'Back', projects_path %>
+
+</div>
