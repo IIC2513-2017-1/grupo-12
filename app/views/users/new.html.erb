@@ -4,22 +4,22 @@
 <div class="row">
     <%= form_for(@user) do |f| %>
       <%= f.label :firstname %>
-      <%= f.text_field :firstname %>
+      <%= f.text_field :firstname, required: true %>
 
       <%= f.label :lastname %>
-      <%= f.text_field :lastname %>
+      <%= f.text_field :lastname, required: true %>
 
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, required: true %>
 
       <%= f.label :description %>
       <%= f.text_field :description %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, required: true %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, required: true %>
 
       <%= f.submit "Create my account" %>
     <% end %>
