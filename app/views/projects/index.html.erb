@@ -22,7 +22,7 @@
         <td><%= project.description %></td>
         <td><%= distance_of_time_in_words(Time.now, project.funding_duration) %></td>
         <td><%= number_to_currency(project.funding_goal) %></td>
-        <td><%= project.categories.to_a.join(", ")%></td>
+        <td><%= project.categories.map(&:name).to_a.join(", ")%></td>
         <td><%= link_to project.user.fullname, project.user%></td>
       </tr>
     <% end %>
