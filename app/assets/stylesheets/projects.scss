@@ -1,3 +1,42 @@
-// Place all the styles related to the Projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$mustard: #FFEB3B;
+$licorice: #131515;
+$charleston-grey: #2b2c28;
+$zomp: #339989;
+$egg-blue: #7de2d1;
+$baby-powder: #fcfcfc;
+
+
+.project-grid-container {
+  display: flex;
+  justify-content: center;
+	text-decoration: none;
+}
+
+.project-grid {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+	flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+.project-grid-item {
+  border: 1px solid #fff;
+  width: 100px;
+  height: 100px;
+	background-color: $charleston-grey;
+	a {
+	  width: 100px;
+		text-decoration: none;
+		color: $baby-powder;
+	}
+}
+
+h1.projects-title {
+    font-family: 'Sarala', sans-serif;
+    font-size: 50px;
+    color: $zomp;
+		text-align: center;
+}

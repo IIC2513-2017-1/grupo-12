@@ -16,6 +16,42 @@ $baby-powder: #fcfcfc;
 		justify-content: center;
 }
 
+h1.user-title {
+    font-family: 'Sarala', sans-serif;
+    font-size: 50px;
+    color: $zomp;
+		text-align: center;
+}
+
+.photo-grid-container {
+  display: flex;
+  justify-content: center;
+	text-decoration: none;
+}
+
+.photo-grid {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+	flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+.photo-grid-item {
+  border: 1px solid #fff;
+  width: 100px;
+  height: 100px;
+	background-color: $charleston-grey;
+	a {
+	  width: 100px;
+	  line-height: 40px;
+		text-decoration: none;
+		color: $baby-powder;
+	}
+}
+
 div#user-title {
 	font-family: 'Sarala', sans-serif;
 	font-size: 40px;
