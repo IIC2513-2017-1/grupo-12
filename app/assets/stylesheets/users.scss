@@ -23,13 +23,13 @@ h1.user-title {
 		text-align: center;
 }
 
-.photo-grid-container {
+.user-grid-container {
   display: flex;
   justify-content: center;
 	text-decoration: none;
 }
 
-.photo-grid {
+.user-grid {
   width: 80%;
   display: flex;
   justify-content: flex-start;
@@ -39,7 +39,7 @@ h1.user-title {
   text-align: center;
 }
 
-.photo-grid-item {
+.user-grid-item {
   border: 1px solid #fff;
   width: 100px;
   height: 100px;

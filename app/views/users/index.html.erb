@@ -2,10 +2,10 @@
 
 <h1 class ="user-title">Users Index</h1>
 
-<div class='photo-grid-container'>
-  <div class='photo-grid'>
+<div class='user-grid-container'>
+  <div class='user-grid'>
     <% @users.each do |user|%>
-      <div class='photo-grid-item'>
+      <div class='user-grid-item'>
         <%= link_to user.fullname, user %>
       </div>
     <% end%>
