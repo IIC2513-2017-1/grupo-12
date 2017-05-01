@@ -19,6 +19,11 @@
   </p>
 
   <p>
+    <strong>Currently funded:</strong>
+    <%= number_to_currency(@donated) %>
+  </p>
+
+  <p>
     <strong>Creator:</strong>
     <%= link_to @project.user.fullname, @project.user %>
   </p>

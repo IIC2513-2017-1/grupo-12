@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: %i[show edit update destroy]
 
   # GET /projects
   # GET /projects.json
@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @comments = @project.comments
+    @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
   end
 
   # GET /projects/new
@@ -19,8 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /projects
   # POST /projects.json
@@ -66,24 +66,25 @@ class ProjectsController < ApplicationController
     @title = 'Savers'
     @project = Project.find(params[:id])
     @users = @project.savers
-    #render 'show_save'
+    # render 'show_save'
   end
 
   def categories
     @title = 'Categories'
-    @project  = Project.find(params[:id])
+    @project = Project.find(params[:id])
     @categories = @project.categories
     # render 'show_follow'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:brief, :description, :funding_duration, :funding_goal, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:brief, :description, :funding_duration, :funding_goal, :user_id)
+  end
 end
