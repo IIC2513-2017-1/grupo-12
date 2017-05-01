@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[show edit update destroy]
+  before_action :set_project, only: %i[show edit update destroy, save]
 
   # GET /projects
   # GET /projects.json
@@ -68,6 +68,15 @@ class ProjectsController < ApplicationController
     @users = @project.savers
     # render 'show_save'
   end
+
+  def save
+    @user = current_user
+    @comments = @project.comments
+    @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
+    @user.save_project(@project)
+    redirect_to :action => "show"
+  end
+
 
   def categories
     @title = 'Categories'

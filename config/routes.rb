@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :projects do
     member do
-      get :savers
+      get :savers, :save
     end
   end
   resources :donations, only: %i[index new create show]

@@ -18,9 +18,9 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  'Relationship',
                                    foreign_key: 'followed_id',
                                    dependent:   :destroy
-  has_many :active_project_relationships, class_name:  "ProjectRelationship",
-                                foreign_key: "saver_id",
-                                dependent:   :destroy
+  has_many :active_project_relationships, class_name:  'ProjectRelationship',
+                                          foreign_key: 'saver_id',
+                                          dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :saving, through: :active_project_relationships, source: :saved
@@ -60,11 +60,10 @@ class User < ApplicationRecord
   end
 
   def save_project(project)
-    saving << project
+    saving << project unless saving.include? project
   end
 
   def saving?(project)
     saving.include?(project)
   end
-
 end
