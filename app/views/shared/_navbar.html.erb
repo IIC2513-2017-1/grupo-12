@@ -2,7 +2,13 @@
   <ul class="navbar navbar-left">
     <li id="brand"><%= link_to "DreamFunder", root_path, {:class => "wide " + active_class('welcome', 'index')}%></li>
     <li><%= link_to "Users", users_path, {:class => "wide " + active_class('users', 'index')}%></li>
-    <li><%= link_to "Projects", projects_path, {:class => "wide " + active_class('projects', 'index')}%></li>
+    <li><%= link_to "Explore", projects_path, {:class => "wide " + active_class('projects', 'index')}%></li>
+    <% if logged_in? %>
+      <%ide = current_user.id%>
+      <li><%= link_to "My Projects", owned_user_path(current_user), {:class => "wide " + active_class('users', 'owned', ide)}%></li>
+      <li><%= link_to "Funded Projects", funded_user_path(current_user), {:class => "wide " + active_class('users', 'funded', ide)}%></li>
+      <li><%= link_to "Saved Projects", saved_user_path(current_user), {:class => "wide " + active_class('users', 'saved', ide)}%></li>
+    <%end %>
   </ul>
   <ul class="navbar navbar-right">
     <% if logged_in? %>

@@ -17,6 +17,25 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def owned
+    @title = 'Owned'
+    @user = current_user
+    @projects = @user.projects
+  end
+
+  def funded
+    @title = 'Funded'
+    @user = current_user
+    @projects = @user.donations
+  end
+
+  def saved
+    @title = 'Saved'
+    @user = current_user
+    @projects = @user.saving
+    # render 'show_save'
+  end
+
   def index
     @users = User.all
   end
@@ -52,13 +71,6 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
-  end
-
-  def saved
-    @title = 'Saved'
-    @user = User.find(params[:id])
-    @projects = @user.saving
-    # render 'show_save'
   end
 
   private
