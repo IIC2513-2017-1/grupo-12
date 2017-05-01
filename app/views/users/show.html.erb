@@ -22,4 +22,18 @@
       <% end %>
     <% end %>
   </div>
+  <% if !@user.description.blank?%>
+    <div class="user_data">Biography: <%= @user.description %></div>
+  <% else %>
+    <div class="user_data">Biography Not Available</div>
+  <% end %>
+  <div class="user_data">Contact: <%= @user.email %></div>
+  <% if !@user.birthdate.blank?%>
+    <div class="user_data">Birthdate: <%= @user.birthdate %></div>
+  <% end %>
+  <% if logged_in? && @user == current_user%>
+    <div>
+      <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  </div>
+  <% end %>
 </div>

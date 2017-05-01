@@ -1,2 +1,25 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% provide(:title, 'Edit Profile') %>
+<h1>Sign up</h1>
+
+<div class="row">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :firstname %>
+      <%= f.text_field :firstname, required: true %>
+
+      <%= f.label :lastname %>
+      <%= f.text_field :lastname, required: true %>
+
+      <%= f.hidden_field :email, :value => @user.email%>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, required: true %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, required: true %>
+
+      <%= f.submit "Save Changes" %>
+    <% end %>
+</div>
