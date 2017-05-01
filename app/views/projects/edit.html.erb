@@ -1,0 +1,15 @@
+<div class="flexbox-container">
+  <h1>Editing Project</h1>
+  <div>
+    <%= render 'form', project: @project %>
+  </div>
+  <div>
+    <%= link_to 'Show', @project %> |
+  </div>
+  <div>
+    <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <div>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>

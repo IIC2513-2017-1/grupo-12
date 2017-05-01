@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="flexbox-container">
+  <h1><%= @project.brief %></h1>
+
+  <h3>
+    <%= @project.description %>
+  </h3>
+
+  <p>
+    <strong>Funding duration:</strong>
+    <%= distance_of_time_in_words(Time.now, @project.funding_duration) %>
+  </p>
+
+  <p>
+    <strong>Funding goal:</strong>
+    <%= number_to_currency(@project.funding_goal) %>
+  </p>
+
+  <p>
+    <strong>Creator:</strong>
+    <%= link_to @project.user.fullname, @project.user %>
+  </p>
+
+  <p>
+    <strong>Categories: </strong>
+    <%= @project.categories.map(&:name).to_a.join(", ")%>
+  </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comments</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.user.firstname+" "+comment.user.lastname %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <br>
+  <br>
+  <%= link_to 'Edit', edit_project_path(@project) %>
+  <%= link_to "New Comment", new_comment_path%>
+  <%= link_to "New Donation", new_donation_path%>
+  <%= link_to 'Back', projects_path %>
+</div>

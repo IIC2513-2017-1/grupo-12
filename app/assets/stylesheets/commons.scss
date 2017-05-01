@@ -1,0 +1,31 @@
+$mustard: #FFEB3B;
+$licorice: #131515;
+$charleston-grey: #2b2c28;
+$zomp: #339989;
+$egg-blue: #7de2d1;
+$baby-powder: #fcfcfc;
+
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: $baby-powder;
+  #welcome {
+    font-family: 'Sarala', sans-serif;
+    h1 {
+      font-size: 50px;
+      color: $zomp;
+    }
+  }
+}
+
+main {
+  margin: 0 15px;
+  padding-top: 35px;
+}

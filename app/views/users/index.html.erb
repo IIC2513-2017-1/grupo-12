@@ -1,10 +1,13 @@
 <% provide(:title, 'Users') %>
 
-<h1>Users Index</h1>
-<ul>
-<% @users.each do |user|%>
-  <li>
-    <%= link_to user.fullname, user %>
-  </li>
-<% end%>
-</ul>
+<h1 class ="user-title">Users Index</h1>
+
+<div class='user-grid-container'>
+  <div class='user-grid'>
+    <% @users.each do |user|%>
+      <div class='user-grid-item'>
+        <%= link_to user.fullname, user %>
+      </div>
+    <% end%>
+  </div>
+</div>

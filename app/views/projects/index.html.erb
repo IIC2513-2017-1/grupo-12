@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="projects-title">Projects</h1>
+
+
+<div class='project-grid-container'>
+  <div class='project-grid'>
+    <% @projects.each do |project|%>
+      <div class='project-grid-item'>
+        <%= link_to project.brief, project%>
+      </div>
+    <% end%>
+  </div>
+</div>
+
+<br>
+<p style="text-align: center; font-size: 25px;">
+  <%= link_to 'New Project', new_project_path, {:style => "text-decoration: none;"}%>
+</p>

@@ -1,16 +1,39 @@
 <% provide(:title, @user.firstname) %>
-<h1>
-  <%= gravatar_for @user %>
-  <%= @user.fullname %>
-</h1>
 
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<% if logged_in?%>
-  <% if current_user.following?(@user) %>
-    <%= render 'shared/unfollow' %>
-  <% elsif current_user.id != @user.id %>
-    <%= render 'shared/follow' %>
+
+<div class="flexbox-container">
+  <div id="user-pic">
+    <%= gravatar_for @user, 150 %>
+  </div>
+  <div id="user-title">
+    <%= @user.fullname %>
+  </div>
+  <div>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </div>
+  <div>
+    <% if logged_in?%>
+      <% if current_user.following?(@user) %>
+        <%= render 'shared/unfollow' %>
+      <% elsif current_user.id != @user.id %>
+        <%= render 'shared/follow' %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if !@user.description.blank?%>
+    <div class="user_data">Biography: <%= @user.description %></div>
+  <% else %>
+    <div class="user_data">Biography Not Available</div>
   <% end %>
-<% end %>
+  <div class="user_data">Contact: <%= @user.email %></div>
+  <% if !@user.birthdate.blank?%>
+    <div class="user_data">Birthdate: <%= @user.birthdate %></div>
+  <% end %>
+  <% if logged_in? && @user == current_user%>
+    <div>
+      <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  </div>
+  <% end %>
+</div>

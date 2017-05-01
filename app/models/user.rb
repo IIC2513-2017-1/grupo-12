@@ -18,12 +18,23 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  'Relationship',
                                    foreign_key: 'followed_id',
                                    dependent:   :destroy
+  has_many :active_project_relationships, class_name:  "ProjectRelationship",
+                                foreign_key: "saver_id",
+                                dependent:   :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :saving, through: :active_project_relationships, source: :saved
+  has_many :projects
+  has_many :donations
+  has_many :comments
+  validates_associated :projects
+  validates_associated :donations
+  validates_associated :comments
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname
-    firstname.humanize + ' ' + lastname.humanize
+    name = firstname + ' ' + lastname
+    name.split.map(&:capitalize).join(' ')
   end
 
   # Returns the hash digest of the given string.
@@ -47,4 +58,13 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def save_project(project)
+    saving << project
+  end
+
+  def saving?(project)
+    saving.include?(project)
+  end
+
 end
