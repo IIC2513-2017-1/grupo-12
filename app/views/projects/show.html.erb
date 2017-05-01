@@ -28,7 +28,28 @@
     <%= @project.categories.map(&:name).to_a.join(", ")%>
   </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Comments</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.user.firstname+" "+comment.user.lastname %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  <br>
+  <br>
   <%= link_to 'Edit', edit_project_path(@project) %>
   <%= link_to 'Back', projects_path %>
-
+  <%= link_to "New Comment", new_comment_path%>
+  <%= link_to "New Donation", new_donation_path%>
 </div>
