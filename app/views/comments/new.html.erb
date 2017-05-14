@@ -1,5 +1,4 @@
 <h1>New Comment</h1>
-
-<%= render 'form', comment: @comment %>
+<%= render 'form', {comment: @comment, project_id: @project_id}%>
 
 <%= link_to 'Back', comments_path %>

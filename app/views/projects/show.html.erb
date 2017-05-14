@@ -49,7 +49,7 @@
   <br>
   <br>
   <%= link_to 'Edit', edit_project_path(@project) %>
-  <%= link_to "New Comment", new_comment_path%>
+  <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
   <%= link_to "New Donation", new_donation_path%>
   <%= link_to 'Back', projects_path %>
 </div>

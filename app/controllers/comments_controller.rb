@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :project_param, only: :new
 
   # GET /comments
   # GET /comments.json
@@ -69,6 +70,10 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:user_id, :project_id, :content)
+      params.require(:comment).permit(:content, :project_id).merge(user_id: current_user.id)
+    end
+
+    def project_param
+      @project_id = params[:project_id] 
     end
 end
