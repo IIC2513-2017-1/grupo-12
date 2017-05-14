@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
+  before_action :project_param, only: :new
 
   # GET /donations
   # GET /donations.json
@@ -49,6 +50,10 @@ class DonationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
-      params.require(:donation).permit(:user_id, :project_id, :amount)
+      params.require(:donation).permit(:project_id, :amount).merge(user_id: current_user.id)
+    end
+
+    def project_param
+      @project_id = params[:project_id] 
     end
 end
