@@ -12,13 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :firstname%>
-  </div>
-
-  <div class="field">
-    <%= f.label :project_id %>
-    <%= f.collection_select :project_id, Project.all, :id, :id%>
+    <%= f.hidden_field :project_id, :value => params[:project_id]%>
   </div>
 
   <div class="field">
