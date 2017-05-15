@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
-<div class="flexbox-container">
-  <h1><%= @project.brief %></h1>
+  <h1 class="page-title"><%= @project.brief %></h1>
 
   <h3>
     <%= @project.description %>
@@ -60,4 +58,3 @@
   <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
   <%= link_to "Save Project", save_project_path%>
   <%= link_to 'Back', projects_path %>
-</div>

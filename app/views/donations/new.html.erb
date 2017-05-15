@@ -1,7 +1,3 @@
-<div class="flexbox-container">
-	<h1>New Donation</h1>
-
-	<%= render 'form', {donation: @donation, project_id: @project_id} %>
-
-	<%= link_to 'Back', donations_path %>
-</div>
+<h1 class="page-title">New Donation</h1>
+<%= render 'form', {donation: @donation, project_id: @project_id} %>
+<%= link_to 'Back', donations_path %>
