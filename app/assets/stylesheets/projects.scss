@@ -71,14 +71,13 @@
   background-color: $red;
   border: none;
   text-align: center;
-  display: inline;
+  display: inline-block;
   font-size: 20px;
   width: 200px;
   height: 60px;
   margin: 0;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 0;
 }
 
 .button a {
@@ -87,7 +86,6 @@
   position: relative;
   transition: 0.5s;
   color: $baby-powder;
-  width: 100%;
   text-decoration: none;
   font-family: 'Open Sans', sans-serif;
   line-height: 60px;
