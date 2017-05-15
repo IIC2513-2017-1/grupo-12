@@ -1,16 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<% if @projects.size != 0 %>
 
+<% if @projects.size != 0 %>
 <h1 class="page-title">THIS ARE YOUR PROJECTS</h1>
-<div class="button"><%= link_to "Start a Project!",new_project_path %></div>
-  <div class='project-grid-container'>
-    <div class='project-grid'>
-      <% @projects.each do |project|%>
-        <%= render 'projects/preview', project: project %>
-      <% end%>
-    </div>
-  </div>
 <% else %>
-<h1 class="page-title"><%= @user.fullname %> hasn't created any projects yet</h1>
+  <h1 class="page-title"><%= @user.fullname %> hasn't created any projects yet</h1>
+<% end %>
+<div class="button"><%= link_to "Start a Project!",new_project_path %></div>
+<% if @projects.size > 0 %>
+    <div class='project-grid-container'>
+      <div class='project-grid'>
+        <% @projects.each do |project|%>
+          <%= render 'projects/preview', project: project %>
+        <% end%>
+      </div>
+    </div>
 <% end %>
