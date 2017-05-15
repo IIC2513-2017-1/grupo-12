@@ -2,18 +2,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= @comment.user %>
+  <%= @comment.user.fullname %>
 </p>
 
 <p>
   <strong>Project:</strong>
-  <%= @comment.project %>
+  <%= @comment.project.brief %>
 </p>
 
 <p>
   <strong>Content:</strong>
   <%= @comment.content %>
 </p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %>
-<%= link_to 'Back', comments_path %>

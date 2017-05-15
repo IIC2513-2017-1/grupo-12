@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
+  include Secured
   before_action :set_project, only: %i[show edit update destroy, save]
   before_action :project_params, only: %i[creat update]
-  before_action :logged_in?, only: %i[new create edit update destroy]
+  before_action :is_logged_in?, only: %i[new create edit update destroy]
 
   # GET /projects
   # GET /projects.json
