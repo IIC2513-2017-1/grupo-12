@@ -4,7 +4,7 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <style>
-      @import url('https://fonts.googleapis.com/css?family=Lobster|Bad+Script|Didact+Gothic|Julius+Sans+One|Kalam|Oleo+Script|Sarala|Shadows+Into+Light+Two|Open+Sans');
+      @import url('https://fonts.googleapis.com/css?family=Lobster|Bad+Script|Didact+Gothic|Julius+Sans+One|Kalam|Oleo+Script|Sarala|Shadows+Into+Light+Two|Open+Sans|Lato');
     </style>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +15,9 @@
       <%= render 'shared/navbar' %>
     </header>
     <main>
-      <%= yield %>
+      <div class="flexbox-container">
+        <%= yield %>
+      </div>
     </main>
     <footer>
       <%= render 'shared/footer' %>

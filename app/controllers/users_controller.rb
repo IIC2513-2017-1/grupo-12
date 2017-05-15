@@ -26,13 +26,13 @@ class UsersController < ApplicationController
   def funded
     @title = 'Funded'
     @user = current_user
-    @projects = @user.donations.map(&:project)
+    @projects = @user.donations.map(&:project).uniq
   end
 
   def saved
     @title = 'Saved'
     @user = current_user
-    @projects = @user.saving
+    @projects = @user.saving.uniq
     # render 'show_save'
   end
 

@@ -1,9 +1,4 @@
-$mustard: #FFEB3B;
-$licorice: #131515;
-$charleston-grey: #2b2c28;
-$zomp: #339989;
-$egg-blue: #7de2d1;
-$baby-powder: #fcfcfc;
+@import 'colors';
 
 .flexbox-container {
 		display: -webkit-flex;
@@ -16,49 +11,66 @@ $baby-powder: #fcfcfc;
 		justify-content: center;
 }
 
-h1.user-title {
-    font-family: 'Sarala', sans-serif;
-    font-size: 50px;
-    color: $zomp;
-		text-align: center;
-}
-
 .user-grid-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 	text-decoration: none;
 }
 
 .user-grid {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
 	flex-wrap: wrap;
   text-decoration: none;
   font-size: 18px;
-  text-align: center;
+  text-align: left;
+  padding: 0;
+  margin: 0 10px;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .user-grid-item {
-  border: 1px solid #fff;
-  width: 100px;
-  height: 100px;
-	background-color: $charleston-grey;
+	background-color: $chalk;
+
+  padding: 5px;
+  width: 150px;
+  height: 50px;
+  margin-top: 20px;
+
+  //line-height: 150px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+
 	a {
 	  width: 100px;
-	  line-height: 40px;
 		text-decoration: none;
-		color: $baby-powder;
+		color: $charleston-grey;
 	}
-}
+  h5.user-name{
+    color: $charleston-grey;
+    font-size: 15px;
+    margin: 0;
 
-div#user-title {
-	font-family: 'Sarala', sans-serif;
-	font-size: 40px;
-	text-decoration: none;
-	a:hover{
-		color: $zomp	;
-	}
+  }
+  p.user-author{
+    color: $charleston-grey;
+    text-align: left;
+    font-size: 15px;
+  }
+  p.user-desc {
+    color: $gray;
+    font-size: 13px;
+    text-align: justify;
+  }
 }
 
 div.user_data {
@@ -90,11 +102,22 @@ section.stats ul{
 			font-size: 17px;
 		}
 		a:hover{
-			color: $zomp	;
+			color: $mustard	;
 		}
 	}
 
 	li:first-child {
 		padding-right: 15px;
 	}
+}
+ul.follow-stats{
+  padding:0;
+  margin: 0;
+}
+
+li.follow-stats {
+  list-style: none;
+  text-align: left;
+  font-size: 10px;
+  display: inline;
 }

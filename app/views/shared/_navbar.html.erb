@@ -6,8 +6,8 @@
     <% if logged_in? %>
       <%ide = current_user.id%>
       <li class="<%= active_class('users', 'owned', ide) %>"><%= link_to "My Projects", owned_user_path(current_user)%></li>
-      <li class="<%= active_class('users', 'funded', ide) %>"><%= link_to "Funded Projects", funded_user_path(current_user)%></li>
-      <li class="<%= active_class('users', 'saved', ide) %>"><%= link_to "Saved Projects", saved_user_path(current_user)%></li>
+      <li class="<%= active_class('users', 'funded', ide) %>"><%= link_to "Financed", funded_user_path(current_user)%></li>
+      <li class="<%= active_class('users', 'saved', ide) %>"><%= link_to "Bookmarks", saved_user_path(current_user)%></li>
     <%end %>
   </ul>
   <ul class="navbar navbar-right">

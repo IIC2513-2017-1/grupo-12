@@ -1,11 +1,4 @@
-$mustard: #FFEB3B;
-$licorice: #131515;
-$charleston-grey: #2b2c28;
-$zomp: #339989;
-$egg-blue: #7de2d1;
-$baby-powder: #fcfcfc;
-
-
+@import 'colors';
 
 body {
   font-family: Helvetica, Arial, sans-serif;
@@ -13,13 +6,14 @@ body {
   margin:0;
   padding:0;
   height:100%;
-  background-color: $baby-powder;
+  background-color: $skin;
   #welcome {
     font-family: 'Sarala', sans-serif;
-    h1 {
-      font-size: 50px;
-      color: $zomp;
-    }
+  }
+  h1 {
+    font-size: 50px;
+    color: $red;
+    text-align: center;
   }
 }
 
@@ -42,10 +36,18 @@ footer {
   bottom: 0;
   padding: 0.5rem;
   width: 100%;
-  background-color: #efefef;
+  background-color: #b9b9b9;
   text-align: center;
   p{
     margin: 3px;
     font-size: 12px;
   }
+}
+
+h1.page-title{
+  color: $red;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-family: 'Lato';
+  margin-top: 0;
 }

@@ -1,0 +1,11 @@
+<div class='project-grid-item'>
+  <h5 class='project-title'>
+    <%= link_to project.brief, project%>
+  </h5>
+    <p class='project-author'>
+      by <%= link_to project.user.fullname, project.user%>
+    </p>
+    <p class='project-desc'>
+      <%= truncate(project.description, :length => 230, :separator => ' ')  %>
+    </p>
+</div>

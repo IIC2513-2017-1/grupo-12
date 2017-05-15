@@ -1,13 +1,12 @@
+<p id="notice"><%= notice %></p>
 <% provide(:title, 'Users') %>
 
-<h1 class ="user-title">Users Index</h1>
+<h1 class ="page-title">GET IN TOUCH WITH OUR <%= @users.count%> USERS COMMUNITY</h1>
 
 <div class='user-grid-container'>
   <div class='user-grid'>
     <% @users.each do |user|%>
-      <div class='user-grid-item'>
-        <%= link_to user.fullname, user %>
-      </div>
-    <% end%>
+      <%= render 'users/preview', user: user %>
+    <% end %>
   </div>
 </div>

@@ -1,7 +1,5 @@
 <% provide(:title, @user.firstname) %>
 
-
-<div class="flexbox-container">
   <div id="user-pic">
     <%= gravatar_for @user, 150 %>
   </div>
@@ -36,4 +34,3 @@
       <%= link_to 'Edit Profile', edit_user_path(@user) %>
   </div>
   <% end %>
-</div>

@@ -1,0 +1,15 @@
+<ul class="follow-stats">
+  <li class="follow-stats">
+    <a href="<%= following_user_path(user) %>">
+      <strong><%= user.following.count %></strong>
+      following
+    </a>
+  </li>
+   |
+  <li class="follow-stats">
+    <a href="<%= followers_user_path(user) %>">
+      <strong><%= user.followers.count %></strong>
+      followers
+    </a>
+  </li>
+</ul>
