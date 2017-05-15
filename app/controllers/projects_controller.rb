@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy, save]
+  before_action :project_params, only: %i[creat update]
 
   # GET /projects
   # GET /projects.json
@@ -25,8 +26,11 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    @category_id = project_params[:category_ids]
+    project_params.delete :category_ids
+    @category = Category.find(project_params[:category_ids])
     @project = Project.new(project_params)
-
+    @project.add_category(@category)
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -41,6 +45,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    @project.remove_category(@project.categories.first)
+    @category = Category.find(project_params[:category_ids])
+    @project.add_category(@category)
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -94,6 +101,7 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:brief, :description, :funding_duration, :funding_goal).merge(user_id: current_user.id)
+    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal).merge(user_id: current_user.id)
   end
+
 end
