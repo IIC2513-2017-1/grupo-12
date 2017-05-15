@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy, save]
   before_action :project_params, only: %i[creat update]
+  before_action :logged_in?, only: %i[new create edit update destroy]
 
   # GET /projects
   # GET /projects.json
@@ -105,5 +106,7 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal).merge(user_id: current_user.id)
   end
+
+
 
 end

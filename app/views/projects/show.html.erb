@@ -51,10 +51,11 @@
 </table>
   <br>
   <br>
-  <% if current_user.id == @project.user_id %>
-    <%= link_to 'Edit', edit_project_path(@project) %>
+  <% if logged_in? %>
+    <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
+    <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
+    <%= link_to "Save Project", save_project_path%>
+    <% if current_user.id == @project.user_id %>
+      <%= link_to 'Edit', edit_project_path(@project) %>
+    <% end %>
   <% end %>
-  <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
-  <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
-  <%= link_to "Save Project", save_project_path%>
-  <%= link_to 'Back', projects_path %>

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :donations
-  resources :comments
   root 'welcome#index'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -19,4 +17,5 @@ Rails.application.routes.draw do
   resources :donations, only: %i[index new create show]
   resources :relationships, only: %i[create destroy]
   resources :project_relationships, only: %i[create destroy]
+  resources :comments, only: %i[index new create show]
 end

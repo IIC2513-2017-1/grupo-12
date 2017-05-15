@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :logged_in?, only: %i[edit update destroy following followers owned funded saved]
+  before_action :set_user, only: %i[show edit update destroy following followers owned funded saved]
+  before_action :is_current_user?, only: %i[edit update destroy saved funded]
+
   def new
     @user = User.new
   end
@@ -14,24 +18,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def owned
     @title = 'Owned'
-    @user = current_user
     @projects = @user.projects
   end
 
   def funded
     @title = 'Funded'
-    @user = current_user
     @projects = @user.donations.map(&:project).uniq
   end
 
   def saved
     @title = 'Saved'
-    @user = current_user
     @projects = @user.saving.uniq
     # render 'show_save'
   end
@@ -61,14 +61,12 @@ class UsersController < ApplicationController
 
   def following
     @title = 'Following'
-    @user  = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
     @title = 'Followers'
-    @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
   end
@@ -79,5 +77,13 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:firstname, :lastname, :email, :password,
                                  :password_confirmation, :description)
+  end
+
+  def set_user
+    @user = User.includes(followers: :passive_relationships, following: :active_relationships).find(params[:id])
+  end
+
+  def is_current_user?
+    redirect_to(root_path, notice: 'Unauthorized access!') unless @user == current_user
   end
 end
