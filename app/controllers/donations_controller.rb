@@ -1,6 +1,5 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
-  before_action :project_param, only: :new
 
   # GET /donations
   # GET /donations.json
@@ -53,7 +52,5 @@ class DonationsController < ApplicationController
       params.require(:donation).permit(:project_id, :amount).merge(user_id: current_user.id)
     end
 
-    def project_param
-      @project_id = params[:project_id] 
-    end
+
 end

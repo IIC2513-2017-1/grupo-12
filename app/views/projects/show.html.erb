@@ -51,7 +51,9 @@
 </table>
   <br>
   <br>
-  <%= link_to 'Edit', edit_project_path(@project) %>
+  <% if current_user.id == @project.user_id %>
+    <%= link_to 'Edit', edit_project_path(@project) %>
+  <% end %>
   <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
   <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
   <%= link_to "Save Project", save_project_path%>

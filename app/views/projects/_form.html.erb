@@ -22,18 +22,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :funding_duration %>
-    <%= f.datetime_select :funding_duration, required: true %>
+    <%= f.label :category %>
+    <%= f.collection_select :category_ids, Category.all, :id, :name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :funding_ending_year%>
+    <%= f.date_select :funding_duration, order: [:month, :day, :year], start_year: Date.today.year+1, end_year: Date.today.year + 8, discard_day: true, discard_month: true, required: true %>
   </div>
 
   <div class="field">
     <%= f.label :funding_goal %>
-    <%= f.text_field :funding_goal, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :firstname%>
+    <%= f.text_field :funding_goal, required: true%>
   </div>
 
   <div class="actions">
