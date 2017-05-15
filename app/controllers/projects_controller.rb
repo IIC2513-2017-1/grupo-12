@@ -45,7 +45,9 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    @project.remove_category(@project.categories.first)
+    if @project.categories.first != nil
+      @project.remove_category(@project.categories.first)
+    end
     @category = Category.find(project_params[:category_ids])
     @project.add_category(@category)
     respond_to do |format|
