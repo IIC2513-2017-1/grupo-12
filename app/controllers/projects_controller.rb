@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include Secured
-  before_action :set_project, only: %i[show edit update destroy, save]
+  before_action :set_project, only: %i[show edit update destroy save forget]
   before_action :project_params, only: %i[creat update]
   before_action :is_logged_in?, only: %i[new create edit update destroy]
 
@@ -84,10 +84,16 @@ class ProjectsController < ApplicationController
 
   def save
     @user = current_user
-    @comments = @project.comments
-    @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
+    # @comments = @project.comments
+    # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
     @user.save_project(@project)
-    redirect_to :action => "show"
+    redirect_to @project
+  end
+
+  def forget
+    @user = current_user
+    @user.forget_project(@project)
+    redirect_to @project
   end
 
 

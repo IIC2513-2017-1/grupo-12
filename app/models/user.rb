@@ -63,6 +63,10 @@ class User < ApplicationRecord
     saving << project unless saving.include? project
   end
 
+  def forget_project(project)
+    saving.delete(project)
+  end
+
   def saving?(project)
     saving.include?(project)
   end

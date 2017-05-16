@@ -35,14 +35,18 @@
     </div>
       <div class="project-buttons">
         <% if logged_in? %>
-          <li class="project-attr"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></li>
-          <li class="project-attr"><%= link_to "New Donation", new_donation_path(:project_id => @project.id)%></li>
-          <% if current_user.id == @project.user_id %>
-            <li class="project-attr"><%= link_to "Save Project", save_project_path%></li>
-            <li class="project-attr"><%= link_to 'Edit', edit_project_path(@project) %></li>
+          <li class="project-btn"><%= link_to "Support this Project", new_donation_path(:project_id => @project.id)%></li>
+          <% if @project.savers.include? current_user%>
+            <li class="btn"><%= link_to "Unfollow Project", forget_project_path%></li>
+          <%else %>
+            <li class="btn"><%= link_to "Follow Project", save_project_path%></li>
+          <%end %>
+          <% if current_user == @project.user %>
+            <li class="btn"><%= link_to 'Modify', edit_project_path(@project) %></li>
           <% end %>
         <% end %>
       </div>
   </div>
-
 </div>
+
+<li class="btn"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></li>
