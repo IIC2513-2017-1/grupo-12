@@ -1,61 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-  <h1 class="page-title"><%= @project.brief %></h1>
+<div class="title-container">
+  <div class="title-item title-owner">
+    <%= gravatar_for @project.user, 150 %>
+    <div class="user">
+      <span>By <%= link_to @project.user.fullname, @project.user %></span>
+    </div>
+  </div>
+  <div class="title-item title-header">
+    <div class="project-title"> <h1> <%= @project.brief %> </h1> </div>
+    <div class="project-desc"> <h3> <%= @project.description %> </h3> </div>
+  </div>
+</div>
 
-  <h3>
-    <%= @project.description %>
-  </h3>
+<div class="project-main">
+  <div class="project-item project-image">
+    <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
+  </div>
 
-  <p>
-    <strong>Funding duration:</strong>
-    <%= distance_of_time_in_words(Time.now, @project.funding_duration) %>
-  </p>
+  <div class="project-item project-data">
+    <div class="project-details">
+      <li class="project-attr"><%= number_to_currency(@donated, :precision => 0) %></li>
+      <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
+      <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
+      <li class="project-attr-desc">to go</li>
+      <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %> </li>
+      <li class="project-attr-desc">supporting this project</li>
+      <li class="project-attr"><%= pluralize(@followers, 'users') %> </li>
+      <li class="project-attr-desc">following this project</li>
+      <%if !@project.categories.nil?%>
+        <li class="project-attr">Related to</li>
+        <li class="project-attr-desc"><%= @project.categories.map(&:name).to_a.join(", ")%></li>
+        <%end%>
+    </div>
+      <div class="project-buttons">
+        <% if logged_in? %>
+          <li class="project-attr"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></li>
+          <li class="project-attr"><%= link_to "New Donation", new_donation_path(:project_id => @project.id)%></li>
+          <% if current_user.id == @project.user_id %>
+            <li class="project-attr"><%= link_to "Save Project", save_project_path%></li>
+            <li class="project-attr"><%= link_to 'Edit', edit_project_path(@project) %></li>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
 
-  <p>
-    <strong>Funding goal:</strong>
-    <%= number_to_currency(@project.funding_goal) %>
-  </p>
-
-  <p>
-    <strong>Currently funded:</strong>
-    <%= number_to_currency(@donated) %>
-  </p>
-
-  <p>
-    <strong>Creator:</strong>
-    <%= link_to @project.user.fullname, @project.user %>
-  </p>
-
-  <p>
-    <strong>Categories: </strong>
-    <%= @project.categories.map(&:name).to_a.join(", ")%>
-  </p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Comments</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.content %></td>
-        <td><%= comment.user.firstname+" "+comment.user.lastname %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-  <br>
-  <br>
-  <% if logged_in? %>
-    <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
-    <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
-    <%= link_to "Save Project", save_project_path%>
-    <% if current_user.id == @project.user_id %>
-      <%= link_to 'Edit', edit_project_path(@project) %>
-    <% end %>
-  <% end %>
+</div>

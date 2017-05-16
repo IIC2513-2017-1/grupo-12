@@ -15,6 +15,8 @@ class ProjectsController < ApplicationController
   def show
     @comments = @project.comments
     @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
+    @supporters = @project.donations.pluck(:user_id).uniq.count
+    @followers = @project.savers.count
   end
 
   # GET /projects/new
