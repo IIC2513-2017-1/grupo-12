@@ -49,6 +49,18 @@
   </div>
 </section>
 
-<section>
-  <div class="btn"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></div>
+<section class="comments">
+  <h2 class="comments-title" id="comments-section">Comments</h2>
+  <% if logged_in? %>
+    <div class="comment-form">
+      <%= render 'comment_form', {comment: @comment, project: @project}%>
+    </div>
+  <% end %>
+  <div class="comment-container">
+    <% @comments.each do |comment| %>
+      <div class="comment-item">
+        <%= render 'comment_preview', {comment: comment, project: @project}%>
+      </div>
+    <% end %>
+  </div>
 </section>

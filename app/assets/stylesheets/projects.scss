@@ -42,23 +42,27 @@
 	a {
 	  width: 100px;
 		text-decoration: none;
-		color: $charleston-grey;
+		color: $deep-blue;
 	}
 
   h5.project-title {
-    margin: 15px;
+    margin: 10px 10px;
     font-size: 20px;
+    text-align: left;
   }
 
   p.project-author{
-    color: $charleston-grey;
+    color: $dark-blue;
     text-align: left;
-    padding: 8px;
+    padding: 4px 8px;
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
+    a{
+      color: $dark-blue;
+    }
   }
   p.project-desc {
-    color: $gray;
+    color: $dark-gray;
     font-size: 13px;
     padding: 8px;
     margin: 0;
@@ -166,7 +170,7 @@ div.title-owner > img {
     margin: 10px 0px;
     padding-top: 10px ;
     font-size: 55px;
-    color: $red;
+    color: $deep-blue;
   }
   h3 {
     font-size: 15px;
@@ -203,6 +207,7 @@ div.title-owner > img {
   flex-direction: row;
   > * {
     list-style: none;
+    font-family: 'Open Sans';
   }
 }
 
@@ -217,13 +222,13 @@ div.title-owner > img {
 
 .project-attr{
   list-style: none;
-  font-size: 23px;
+  font-size: 22px;
   color: #63a232;
 }
 
 .project-attr-desc{
   margin-bottom: 20px;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 div.btn {
