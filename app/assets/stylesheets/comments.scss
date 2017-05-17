@@ -15,6 +15,7 @@ section.comments{
   margin-bottom: 0.25em;
   border-style: solid;
   border-width: thin;
+  border-radius: 50%;
   border-color: $charleston-grey;
 }
 
@@ -83,7 +84,7 @@ img.profile-pic {
     perspective-origin: 35px 35px;
     transform-origin: 35px 35px;
     border: 0px none $twitter;
-    border-radius: 3px 3px 3px 3px;
+    border-radius: 50%;
     font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
     list-style: none outside none;
     outline: $twitter none 0px;
@@ -94,7 +95,7 @@ img.profile-pic {
     clear: both;
     color: $dark-gray;
     float: right;
-    height: 57px;
+    height: 75px;
     position: relative;
     text-align: left;
     text-decoration: none solid $dark-gray;

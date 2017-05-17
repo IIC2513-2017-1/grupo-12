@@ -39,28 +39,39 @@ cats = Category.count
                password_confirmation: password)
 end
 
-# Following relationships
-num = User.count
-User.all.each do |user|
-  arr = (1..num).to_a.map(&:to_i).shuffle.take(rand(0..8).to_i) - [user.id]
-  arr.each { |followed| user.follow(User.find(followed)) }
-end
-
 # PROJECT CREATION
 
+num = User.count
 12.times do |n|
   description = Faker::Hipster.paragraph
   brief = "Project #{n + 1}: #{Faker::LordOfTheRings.location}"
   user = rand(1..num).to_i
   date = Faker::Date.forward(120)
   proj = Project.create!(brief: brief,
-                  description: description,
-                  funding_duration: date,
-                  funding_goal: rand(1..300).to_i * 1000,
-                  user_id: user)
+                         description: description,
+                         funding_duration: date,
+                         funding_goal: rand(1..300).to_i * 1000,
+                         user_id: user)
   number = rand(1..3).to_i
   number.times do
     categ = rand(1..cats).to_i
     proj.add_category(Category.find(categ))
   end
+end
+
+## Users follow other users and projects
+
+User.all.each do |user|
+  arr = (1..num).to_a.map(&:to_i).shuffle.take(rand(0..8).to_i) - [user.id]
+  arr.each { |followed| user.follow(User.find(followed)) }
+  Project.all.sample(4).map { |e| user.save_project(e) }
+  Project.all.sample(3).map { |e| Donation.create(user: user, project: e, amount: rand(5..e.funding_goal/100)) }
+end
+
+## Random comments
+
+40.times do |x|
+  user = User.all.sample
+  project = Project.all.sample
+  Comment.create(content: Faker::Hobbit.quote, user: user, project: project)
 end

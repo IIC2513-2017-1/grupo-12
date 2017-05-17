@@ -1,6 +1,6 @@
 <li>
 	<div class="comment-main">
-		 <%= link_to(gravatar_for(current_user, 150, :class => "profile-pic"), current_user, :class => "profile-pic")%>
+		 <%= link_to(gravatar_for(comment.user, 150, :class => "profile-pic"), comment.user, :class => "profile-pic")%>
 		<div class="comment-square">
 			<div class="comment-content">
 				<span class="square-arrow"></span>
