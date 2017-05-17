@@ -118,16 +118,17 @@ li.follow-stats {
 input.btn[value="Unfollow"]{
   background-color: $red;
   color: $baby-powder;
+  font-size: 20px;
 }
 input.btn[value="Follow"]{
   background-color: $chalk;
+  font-size: 20px;
 }
 input.btn {
 	  border-radius: 4px;
     border: none;
     text-align: center;
     display: inline-block;
-    font-size: 20px;
     width: 100px;
     padding: 5px 0px;
     cursor: pointer;

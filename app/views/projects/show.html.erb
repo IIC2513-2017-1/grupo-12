@@ -41,6 +41,7 @@
           <%else %>
             <div class="btn" value="Follow"><%= link_to "Follow Project", save_project_path%></div>
           <%end %>
+          <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
           <% if current_user == @project.user %>
             <div class="btn" value="Edit"><%= link_to 'Modify', edit_project_path(@project) %></div>
           <% end %>

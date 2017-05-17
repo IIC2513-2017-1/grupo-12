@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :content, required: true %>
+    <%= f.text_area :content, required: true, placeholder: "Type your message..." %>
   </div>
 
   <div class="field">
     <%= f.hidden_field :project_id, :value => project.id %>
   </div>
 
-  <div class="actions">
+  <div class="comment-actions">
     <%= f.submit "Post", class: "btn btn-primary" %>
   </div>
 <% end %>
