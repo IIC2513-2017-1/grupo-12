@@ -13,6 +13,7 @@
   <ul class="navbar navbar-right">
     <% if logged_in? %>
       <%ide = current_user.id%>
+      <li class="<%= active_class('projects', 'new') %>"><%= link_to "Create Project", new_project_path%></li>
       <li class="<%='nav-right-img ' + active_class('users', 'show', ide)%>"><%= link_to(raw(gravatar_for(current_user, 40) +" "+current_user.fullname), current_user)%></li>
       <li class='nav-right'><%= link_to "Log out", logout_path, {method: :delete}%></li>
     <% else %>

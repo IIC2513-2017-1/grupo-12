@@ -1,61 +1,66 @@
 <p id="notice"><%= notice %></p>
 
-  <h1 class="page-title"><%= @project.brief %></h1>
+<section class="title-container">
+  <div class="title-item title-owner">
+    <%= gravatar_for @project.user, 150 %>
+    <div class="user">
+      <span>By <%= link_to @project.user.fullname, @project.user %></span>
+    </div>
+  </div>
+  <div class="title-item title-header">
+    <div class="project-title"> <h1 class="page-title"> <%= @project.brief %> </h1> </div>
+    <div class="project-desc"> <h3> <%= @project.description %> </h3> </div>
+  </div>
+</section>
 
-  <h3>
-    <%= @project.description %>
-  </h3>
+<section class="project-main">
+  <div class="project-item project-image">
+    <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
+  </div>
 
-  <p>
-    <strong>Funding duration:</strong>
-    <%= distance_of_time_in_words(Time.now, @project.funding_duration) %>
-  </p>
+  <div class="project-item project-data">
+    <div class="project-details">
+      <li class="project-attr"><%= number_to_currency(@donated, :precision => 0) %></li>
+      <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
+      <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
+      <li class="project-attr-desc">to go</li>
+      <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %> </li>
+      <li class="project-attr-desc">supporting this project</li>
+      <li class="project-attr"><%= pluralize(@followers, 'users') %> </li>
+      <li class="project-attr-desc">following this project</li>
+      <%if !@project.categories.nil?%>
+        <li class="project-attr">Related to</li>
+        <li class="project-attr-desc"><%= @project.categories.map(&:name).to_a.join(", ")%></li>
+        <%end%>
+    </div>
+      <div class="project-buttons">
+        <% if logged_in? %>
+          <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
+          <% if @project.savers.include? current_user%>
+            <div class="btn" value="Unfollow"><%= link_to "Unfollow Project", forget_project_path%></div>
+          <%else %>
+            <div class="btn" value="Follow"><%= link_to "Follow Project", save_project_path%></div>
+          <%end %>
+          <% if current_user == @project.user %>
+            <div class="btn" value="Edit"><%= link_to 'Modify', edit_project_path(@project) %></div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</section>
 
-  <p>
-    <strong>Funding goal:</strong>
-    <%= number_to_currency(@project.funding_goal) %>
-  </p>
-
-  <p>
-    <strong>Currently funded:</strong>
-    <%= number_to_currency(@donated) %>
-  </p>
-
-  <p>
-    <strong>Creator:</strong>
-    <%= link_to @project.user.fullname, @project.user %>
-  </p>
-
-  <p>
-    <strong>Categories: </strong>
-    <%= @project.categories.map(&:name).to_a.join(", ")%>
-  </p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Comments</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.content %></td>
-        <td><%= comment.user.firstname+" "+comment.user.lastname %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-  <br>
-  <br>
+<section class="comments">
+  <h2 class="comments-title" id="comments-section">Comments</h2>
   <% if logged_in? %>
-    <%= link_to "New Comment", new_comment_path(:project_id => @project.id)%>
-    <%= link_to "New Donation", new_donation_path(:project_id => @project.id)%>
-    <%= link_to "Save Project", save_project_path%>
-    <% if current_user.id == @project.user_id %>
-      <%= link_to 'Edit', edit_project_path(@project) %>
-    <% end %>
+    <div class="comment-form">
+      <%= render 'comment_form', {comment: @comment, project: @project}%>
+    </div>
   <% end %>
+  <div class="comment-container">
+    <% @comments.each do |comment| %>
+      <div class="comment-item">
+        <%= render 'comment_preview', {comment: comment, project: @project}%>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -5,7 +5,6 @@ body {
   color: #333;
   margin:0;
   padding:0;
-  height:100%;
   background-color: $skin;
   #welcome {
     font-family: 'Sarala', sans-serif;
@@ -22,22 +21,36 @@ header {
   position: fixed;
   width: 100%;
   height: 50px;
+  z-index:1;
 }
 
 main {
-  padding-bottom: 4rem;
   height:100%;
   align-self: center;
   padding-top: 70px;
+  padding-bottom: 100px;
+  margin-bottom: 100px;
+}
+
+
+.flexbox-container {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: column; /* works with row or column */
+		flex-direction: column;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-justify-content: center;
+		justify-content: center;
 }
 
 footer {
-  position: fixed;
   bottom: 0;
   padding: 0.5rem;
   width: 100%;
   background-color: #b9b9b9;
   text-align: center;
+  margin-top: 40px;
   p{
     margin: 3px;
     font-size: 12px;

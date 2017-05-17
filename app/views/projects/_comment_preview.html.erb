@@ -1,0 +1,20 @@
+<li>
+	<div class="comment-main">
+		 <%= link_to(gravatar_for(current_user, 150, :class => "profile-pic"), current_user, :class => "profile-pic")%>
+		<div class="comment-square">
+			<div class="comment-content">
+				<span class="square-arrow"></span>
+				<p class="comment-author">
+					<%= link_to comment.user.fullname, comment.user%><span id="SPAN_21"></span>
+				</p>
+				<p class="comment-date">
+					<%= distance_of_time_in_words(Time.now, comment.created_at)%> ago
+				</p>
+				<div class="spacer"></div>
+				<p class=content-body>
+						<span><%=comment.content%></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</li>

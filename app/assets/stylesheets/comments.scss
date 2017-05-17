@@ -1,3 +1,247 @@
+@import "colors";
+
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+section.comments{
+    overflow: hidden;
+}
+
+.comment-item > img{
+  height: 35px;
+  width: 35px;
+  vertical-align: middle;
+  margin-bottom: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-color: $charleston-grey;
+}
+
+
+div.comment-item > li {
+    color: $dark-gray;
+    height: 100px;
+    position: relative;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 598px;
+    perspective-origin: 299px 71px;
+    transform-origin: 299px 71px;
+    border-top: 0px none $dark-gray;
+    border-right: 0px none $dark-gray;
+    border-bottom: 1px dotted $gray-white;
+    border-left: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 1px;
+    outline: $dark-gray none 0px;
+    padding: 10px 0px;
+}
+
+.comment-main {
+    color: $dark-gray;
+    height: 69px;
+    position: relative;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 598px;
+    perspective-origin: 299px 34.5px;
+    transform-origin: 299px 34.5px;
+    border: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 10px;
+    outline: $dark-gray none 0px;
+}/*#DIV_13*/
+
+a.profile-pic {
+    color: $twitter;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none solid $twitter;
+    text-rendering: optimizelegibility;
+    border: 0px none $twitter;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $twitter none 0px;
+}/*#A_14*/
+
+img.profile-pic {
+    color: $twitter;
+    cursor: pointer;
+    display: block;
+    height: 70px;
+    left: 0px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none solid $twitter;
+    text-rendering: optimizelegibility;
+    top: 0px;
+    width: 70px;
+    perspective-origin: 35px 35px;
+    transform-origin: 35px 35px;
+    border: 0px none $twitter;
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $twitter none 0px;
+}/*#IMG_15*/
+
+.comment-square {
+    box-shadow: rgb(230, 230, 230) 3px 3px 3px 0px;
+    clear: both;
+    color: $dark-gray;
+    float: right;
+    height: 57px;
+    position: relative;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 505px;
+    perspective-origin: 253.5px 29.5px;
+    transform-origin: 253.5px 29.5px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid $gray-white;
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 10px 0px 0px;
+    outline: $dark-gray none 0px;
+}/*#DIV_16*/
+
+.comment-content {
+    color: $dark-gray;
+    height: 41px;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 481px;
+    perspective-origin: 252.5px 28.5px;
+    transform-origin: 252.5px 28.5px;
+    border: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $dark-gray none 0px;
+    padding: 8px 12px;
+}
+
+.square-arrow {
+    background-position: -38px -7659px;
+    color: $dark-gray;
+    display: block;
+    height: 15px;
+    left: -10px;
+    position: absolute;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    top: 10px;
+    width: 10px;
+    perspective-origin: 5px 7.5px;
+    transform-origin: 5px 7.5px;
+    background: rgba(0, 0, 0, 0) url(https://cdn2.f-cdn.com/img/sprite-icons.png?46&amp;v=d5abe806b7a1349737961757737b963a&amp;m=2) repeat scroll -38px -7659px / auto padding-box border-box;
+    border: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $dark-gray none 0px;
+}/*#SPAN_18*/
+
+p.comment-author {
+    color: $dark-gray;
+    float: left;
+    height: 16px;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 102px;
+    perspective-origin: 51px 8px;
+    transform-origin: 51px 8px;
+    border: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 0px;
+    outline: $dark-gray none 0px;
+}/*#P_19*/
+
+p.comment-author > a {
+    color: $twitter;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 16px;
+    text-align: left;
+    text-decoration: none solid $twitter;
+    text-rendering: optimizelegibility;
+    width: 174px;
+    perspective-origin: 37px 8px;
+    transform-origin: 37px 8px;
+    border: 0px none $twitter;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 0px 10px 0px 0px;
+    outline: $twitter none 0px;
+}
+
+p.comment-date {
+    color: $light-gray;
+    float: right;
+    height: 16px;
+    text-align: right;
+    text-decoration: none solid $light-gray;
+    text-rendering: optimizelegibility;
+    width: 150px;
+    perspective-origin: 39.5px 8px;
+    transform-origin: 39.5px 8px;
+    border: 0px none $light-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 0px;
+    outline: $light-gray none 0px;
+}/*#P_22*/
+
+.spacer {
+    clear: both;
+    color: $dark-gray;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 481px;
+    perspective-origin: 240.5px 5px;
+    transform-origin: 240.5px 5px;
+    border: 0px none $dark-gray;
+    font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $dark-gray none 0px;
+    padding: 0px 0px 10px;
+}/*#DIV_23*/
+
+p.content-body {
+    color: $dark-gray;
+    height: 15px;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    width: 481px;
+    perspective-origin: 240.5px 7.5px;
+    transform-origin: 240.5px 7.5px;
+    border: 0px none $dark-gray;
+    font: italic normal normal 12px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    margin: 0px;
+    outline: $dark-gray none 0px;
+}
+
+p.content-body > span {
+    color: $dark-gray;
+    overflow-wrap: break-word;
+    text-align: left;
+    text-decoration: none solid $dark-gray;
+    text-rendering: optimizelegibility;
+    word-wrap: break-word;
+    border: 0px none $dark-gray;
+    font: italic normal normal 12px/normal Arial, Verdana, sans-serif;
+    list-style: none outside none;
+    outline: $dark-gray none 0px;
+}

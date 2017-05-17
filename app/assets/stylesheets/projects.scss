@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
 	text-decoration: none;
-
 }
 
 .project-grid {
@@ -43,23 +42,27 @@
 	a {
 	  width: 100px;
 		text-decoration: none;
-		color: $charleston-grey;
+		color: $deep-blue;
 	}
 
   h5.project-title {
-    margin: 15px;
+    margin: 10px 10px;
     font-size: 20px;
+    text-align: left;
   }
 
   p.project-author{
-    color: $charleston-grey;
+    color: $dark-blue;
     text-align: left;
-    padding: 8px;
+    padding: 4px 8px;
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
+    a{
+      color: $dark-blue;
+    }
   }
   p.project-desc {
-    color: $gray;
+    color: $dark-gray;
     font-size: 13px;
     padding: 8px;
     margin: 0;
@@ -68,7 +71,7 @@
 }
 .button {
   border-radius: 4px;
-  background-color: $red;
+  background-color: $dark-blue;
   border: none;
   text-align: center;
   display: inline-block;
@@ -107,4 +110,159 @@
 .button:hover a:after {
   opacity: 1;
   right: 0;
+}
+
+
+h3.project-desc{
+  margin: 0px 8em;
+  text-align: center;
+}
+
+.project-img {
+}
+
+
+// SHOW VIEW
+
+
+.project-frame{
+  margin: 20px;
+
+  border-radius: 2%;
+  padding: 30px 0px;
+}
+
+.title-container{
+  width: 100%;
+  display: flex;
+}
+
+.title-owner{
+  flex: 0 1 20%;
+  height: 40px;
+  padding: 10px;
+  display:block;
+  margin-top: 36px ;
+  margin-left: 50px ;
+  margin-right: 20px ;
+  div.user > span, div.user span>a {
+      text-decoration: none;
+      font-size: 15px;
+      color: $charleston-grey;
+      font-weight: bold;
+      text-family: 'Sarala', sans-serif;
+  }
+}
+
+div.title-owner > img {
+  height: 50px;
+  width: 50px;
+}
+.title-owner > p{
+  float:left;
+}
+
+.title-header{
+  flex: 0 1 70%;
+  margin-right: 60px;
+  h1 {
+    text-align: left;
+    margin: 10px 0px;
+    padding-top: 10px ;
+    font-size: 55px;
+    color: $deep-blue;
+  }
+  h3 {
+    font-size: 15px;
+    color: $charleston-grey;
+    margin: 0;
+    text-align: justify;
+  }
+}
+
+.project-main {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 10px;
+  height: 400px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.project-item {
+  margin: 0 10px;
+  padding: 10px 15px;
+}
+
+.project-image{
+  flex: 0 3 55%;
+  overflow: hidden;
+  padding: 10px 30px;
+
+}
+
+.project-data{
+  flex: 0 2 45%;
+  display: flex;
+  flex-direction: row;
+  > * {
+    list-style: none;
+    font-family: 'Open Sans';
+  }
+}
+
+.project-details{
+  width: 100%;
+}
+
+.project-buttons{
+  width: 100%;
+  text-align: center;
+}
+
+.project-attr{
+  list-style: none;
+  font-size: 22px;
+  color: #63a232;
+}
+
+.project-attr-desc{
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+div.btn {
+	  border-radius: 4px;
+    border: none;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    width: 200px;
+    padding: 5px 0px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    a{
+      text-decoration: none;
+      color: $baby-powder;
+    }
+}
+
+.btn[value="Unfollow"]{
+  background-color: #d44d30;
+  color: $baby-powder;
+}
+.btn[value="Follow"]{
+  background-color: #679d38;
+}
+
+.btn[value="Save"]{
+  background-color: $dark-blue;
+}
+
+.btn[value="Edit"]{
+  background-color: $mustard;
+  a{
+  color: $charleston-grey;
+  }
 }

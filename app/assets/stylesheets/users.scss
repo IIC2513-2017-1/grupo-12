@@ -1,16 +1,4 @@
 @import 'colors';
-
-.flexbox-container {
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-direction: column; /* works with row or column */
-		flex-direction: column;
-		-webkit-align-items: center;
-		align-items: center;
-		-webkit-justify-content: center;
-		justify-content: center;
-}
-
 .user-grid-container {
   display: flex;
   justify-content: left;
@@ -43,7 +31,7 @@
   padding: 5px;
   width: 150px;
   height: 50px;
-  margin-top: 20px;
+  margin: 20px;
 
   //line-height: 150px;
   color: white;
