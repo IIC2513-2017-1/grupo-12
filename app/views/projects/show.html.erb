@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="title-container">
+<section class="title-container">
   <div class="title-item title-owner">
     <%= gravatar_for @project.user, 150 %>
     <div class="user">
@@ -8,12 +8,12 @@
     </div>
   </div>
   <div class="title-item title-header">
-    <div class="project-title"> <h1> <%= @project.brief %> </h1> </div>
+    <div class="project-title"> <h1 class="page-title"> <%= @project.brief %> </h1> </div>
     <div class="project-desc"> <h3> <%= @project.description %> </h3> </div>
   </div>
-</div>
+</section>
 
-<div class="project-main">
+<section class="project-main">
   <div class="project-item project-image">
     <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
   </div>
@@ -35,18 +35,20 @@
     </div>
       <div class="project-buttons">
         <% if logged_in? %>
-          <li class="project-btn"><%= link_to "Support this Project", new_donation_path(:project_id => @project.id)%></li>
+          <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
           <% if @project.savers.include? current_user%>
-            <li class="btn"><%= link_to "Unfollow Project", forget_project_path%></li>
+            <div class="btn" value="Unfollow"><%= link_to "Unfollow Project", forget_project_path%></div>
           <%else %>
-            <li class="btn"><%= link_to "Follow Project", save_project_path%></li>
+            <div class="btn" value="Follow"><%= link_to "Follow Project", save_project_path%></div>
           <%end %>
           <% if current_user == @project.user %>
-            <li class="btn"><%= link_to 'Modify', edit_project_path(@project) %></li>
+            <div class="btn" value="Edit"><%= link_to 'Modify', edit_project_path(@project) %></div>
           <% end %>
         <% end %>
       </div>
   </div>
-</div>
+</section>
 
-<li class="btn"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></li>
+<section>
+  <div class="btn"><%= link_to "New Comment", new_comment_path(:project_id => @project.id)%></div>
+</section>

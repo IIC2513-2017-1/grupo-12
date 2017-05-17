@@ -67,7 +67,7 @@
 }
 .button {
   border-radius: 4px;
-  background-color: $red;
+  background-color: $dark-blue;
   border: none;
   text-align: center;
   display: inline-block;
@@ -108,9 +108,6 @@
   right: 0;
 }
 
-h1.project-title {
-  font-weight: bold;
-}
 
 h3.project-desc{
   margin: 0px 8em;
@@ -185,6 +182,7 @@ div.title-owner > img {
   margin: 20px 10px;
   height: 400px;
   vertical-align: middle;
+  width: 100%;
 }
 
 .project-item {
@@ -193,14 +191,14 @@ div.title-owner > img {
 }
 
 .project-image{
-  flex: 0 3 60%;
+  flex: 0 3 55%;
   overflow: hidden;
-  padding: 10px 40px;
+  padding: 10px 30px;
 
 }
 
 .project-data{
-  flex: 0 2 40%;
+  flex: 0 2 45%;
   display: flex;
   flex-direction: row;
   > * {
@@ -226,4 +224,40 @@ div.title-owner > img {
 .project-attr-desc{
   margin-bottom: 20px;
   font-size: 17px;
+}
+
+div.btn {
+	  border-radius: 4px;
+    border: none;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    width: 200px;
+    padding: 5px 0px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    a{
+      text-decoration: none;
+      color: $baby-powder;
+    }
+}
+
+.btn[value="Unfollow"]{
+  background-color: #d44d30;
+  color: $baby-powder;
+}
+.btn[value="Follow"]{
+  background-color: #679d38;
+}
+
+.btn[value="Save"]{
+  background-color: $dark-blue;
+}
+
+.btn[value="Edit"]{
+  background-color: $mustard;
+  a{
+  color: $charleston-grey;
+  }
 }
