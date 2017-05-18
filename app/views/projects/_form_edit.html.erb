@@ -1,0 +1,42 @@
+<%= form_for(project) do |f| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brief %>
+    <%= f.text_area :brief, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_select :category_ids, Category.all, :id, :name%>
+  </div>
+
+  <div class="field">
+    <%= f.label :funding_ending_year%>
+    <%= f.date_select :funding_duration, order: [:month, :day, :year], start_year: Date.today.year+1, end_year: Date.today.year + 8, discard_day: true, discard_month: true, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :funding_goal %>
+    <%= f.text_field :funding_goal, required: true%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

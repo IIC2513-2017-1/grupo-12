@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20170430230951) do
   create_table "projects", force: :cascade do |t|
     t.text     "brief",            null: false
     t.text     "description"
-    t.datetime "funding_duration", null: false
+    t.date "funding_duration", null: false
     t.integer  "funding_goal",     null: false
     t.integer  "user_id"
     t.datetime "created_at",       null: false
