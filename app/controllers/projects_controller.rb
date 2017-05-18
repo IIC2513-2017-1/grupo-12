@@ -27,7 +27,9 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1/edit
-  def edit; end
+  def edit
+    @min_date = Date.today + 20.days
+  end
 
   # POST /projects
   # POST /projects.json

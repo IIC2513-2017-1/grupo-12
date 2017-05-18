@@ -1,22 +1,12 @@
 class DonationsController < ApplicationController
   include Secured
-  before_action :set_donation, only: [:show, :edit, :update, :destroy]
+  before_action :set_donation, only: %i[show edit update destroy]
   before_action :is_logged_in?, only: %i[new create edit update destroy]
-
-  # GET /donations
-  # GET /donations.json
-  def index
-    @donations = Donation.all
-  end
-
-  # GET /donations/1
-  # GET /donations/1.json
-  def show
-  end
 
   # GET /donations/new
   def new
     @donation = Donation.new
+    @project = Project.find(params[:project_id])
   end
 
   # GET /donations/1/edit
@@ -28,7 +18,7 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation.project, notice: 'Donation was successfully created.' }
+        format.html { redirect_to project_path(@donation.project), notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: @donation }
       else
         format.html { render :new }
@@ -44,15 +34,14 @@ class DonationsController < ApplicationController
   # DELETE /donations/1.json
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_donation
-      @donation = Donation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def donation_params
-      params.require(:donation).permit(:project_id, :amount).merge(user_id: current_user.id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_donation
+    @donation = Donation.find(params[:id])
+  end
 
-
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def donation_params
+    params.require(:donation).permit(:project_id, :amount).merge(user: current_user)
+  end
 end

@@ -10,33 +10,39 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :brief %>
-    <%= f.text_area :brief, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.collection_select :category_ids, Category.all, :id, :name%>
-  </div>
-
-  <div class="field">
-    <%= f.label :funding_ending_year%>
-    <%= f.date_select :funding_duration, order: [:month, :day, :year], start_year: Date.today.year+1, end_year: Date.today.year + 8, discard_day: true, discard_month: true, required: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :funding_goal %>
-    <%= f.text_field :funding_goal, required: true%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="row">
+    <div class="field">
+      <%= f.text_field :brief, required: true, placeholder: "Project Title" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :description, placeholder: "Description" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :funding_goal, required: true, placeholder: "Funding Goal"%>
+    </div>
+    <div class="group-field">
+      <div class="category-field">
+        <div class="field-title">
+          Category
+        </div>
+        <div class="category-select">
+          <%= f.collection_select :category_ids, Category.all, :id, :name%>
+        </div>
+      </div>
+      <div class="date-field">
+        <div class="field-title">
+          Limit Date
+        </div>
+        <div class="date-select">
+          <%= f.date_select :funding_duration, order: [:day, :month, :year], start_year: min_date.year, default: min_date , required: true %>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save Project", class: "create-btn" %>
+      <div class="delete-btn">
+        <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "project-delete-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
