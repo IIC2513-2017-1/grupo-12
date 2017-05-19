@@ -1,14 +1,15 @@
 @import 'colors';
 
 nav.navbar-container {
-  background-color: $charleston-grey  ;  
+  background-color: $charleston-grey;
+  display: flex;
+  justify-content: space-between;
   ul.navbar{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     align-items: center;
-    display: inline-block;
     vertical-align: middle;
 
     height: 100%;
