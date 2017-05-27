@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users do
+  resources :users, except: [:index] do
     member do
       get :following, :followers, :owned, :saved, :funded
     end
@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :relationships, only: %i[create destroy]
   resources :project_relationships, only: %i[create destroy]
   resources :comments, only: %i[index new create show]
+
+  get '*path' => redirect('/')
 end

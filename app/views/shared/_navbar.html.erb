@@ -1,7 +1,7 @@
 <nav class="navbar-container">
   <ul class="navbar navbar-left">
     <li id="brand" class="<%= active_class('welcome', 'index') %>"><%= link_to "DreamFunder", root_path%></li>
-    <li class="<%= active_class('users', 'index') %>"><%= link_to "Users", users_path%></li>
+    <!--<li class="<%#= active_class('users', 'index') %>"><%#= link_to "Users", users_path%></li>-->
     <li class="<%= active_class('projects', 'index') %>"><%= link_to "Explore", projects_path%></li>
     <% if logged_in? %>
       <%ide = current_user.id%>
