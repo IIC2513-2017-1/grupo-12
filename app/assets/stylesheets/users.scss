@@ -1,7 +1,6 @@
 @import 'colors';
 .user-grid-container {
   display: flex;
-  justify-content: left;
 	text-decoration: none;
 }
 
@@ -12,7 +11,6 @@
 	flex-wrap: wrap;
   text-decoration: none;
   font-size: 18px;
-  text-align: left;
   padding: 0;
   margin: 0 10px;
   list-style: none;
@@ -20,9 +18,7 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
   -webkit-flex-flow: row wrap;
-  justify-content: space-around;
 }
 
 .user-grid-item {
