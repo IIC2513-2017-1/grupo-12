@@ -26,4 +26,13 @@ class Project < ApplicationRecord
   def remove_category(category)
     categories.delete(category)
   end
+
+  def donated
+    donations.map(&:amount).inject(0) { |sum, x| sum + x }
+  end
+
+  def percentage
+    (donated.to_f * 100 / funding_goal.to_f).round
+  end
+
 end

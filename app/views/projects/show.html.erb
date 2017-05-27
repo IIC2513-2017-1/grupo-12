@@ -20,7 +20,7 @@
 
   <div class="project-item project-data">
     <div class="project-details">
-      <li class="project-attr"><%= number_to_currency(@donated, :precision => 0) %></li>
+      <li class="project-attr"><%= number_to_currency(@project.donated, :precision => 0) %></li>
       <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
       <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
       <li class="project-attr-desc">to go</li>

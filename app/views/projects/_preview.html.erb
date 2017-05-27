@@ -1,11 +1,18 @@
 <div class='project-grid-item'>
   <h5 class='project-title'>
-    <%= link_to project.brief, project%>
+    <%= link_to truncate(project.brief, :length => 40, :separator => ' '), project%>
   </h5>
-    <p class='project-author'>
-      <%= link_to "By " + project.user.fullname, project.user%>
-    </p>
-    <p class='project-desc'>
-      <%= truncate(project.description, :length => 230, :separator => ' ')  %>
-    </p>
+  <div class="meter-container">
+  	<span class="meter nostripes">
+      <%percentage = project.percentage%>
+		  <span style="width: <%=percentage%>%"><span></span></span>
+	  </span>
+    <span class="meter-percentage"><%= percentage %>%</span>
+  </div>
+  <p class='project-author'>
+    <%= link_to "By " + project.user.fullname, project.user%>
+  </p>
+  <p class='project-desc'>
+    <%= truncate(project.description, :length => 230, :separator => ' ')  %>
+  </p>
 </div>

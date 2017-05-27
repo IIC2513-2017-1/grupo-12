@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    if @project.categories.first != nil
+    unless @project.categories.first.nil?
       @project.remove_category(@project.categories.first)
     end
     @category = Category.find(project_params[:category_ids])
@@ -100,7 +100,6 @@ class ProjectsController < ApplicationController
     redirect_to @project
   end
 
-
   def categories
     @title = 'Categories'
     @project = Project.find(params[:id])
@@ -119,7 +118,4 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal).merge(user_id: current_user.id)
   end
-
-
-
 end
