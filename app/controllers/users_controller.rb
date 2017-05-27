@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :is_current_user?, only: %i[edit update destroy saved funded]
 
 
+
   def new
     @user = User.new
   end
@@ -78,7 +79,7 @@ class UsersController < ApplicationController
   # Allowed parameters for user creation
   def user_params
     params.require(:user).permit(:firstname, :lastname, :email, :password,
-                                 :password_confirmation, :description)
+                                 :password_confirmation, :description, :avatar)
   end
 
   def set_user

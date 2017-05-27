@@ -83,10 +83,12 @@ input[type="submit"].create-btn:hover, .user-btn:hover{
   transition: all 0.40s ease-out;
 }
 
-form#new_user > div.group-field {
-  display: flex;
-  :first-child {
-    margin-right: 10px;
+form#new_user, form.edit_user {
+  div.group-field {
+    display: flex;
+    :first-child {
+      margin-right: 10px;
+    }
   }
 }
 
@@ -103,7 +105,7 @@ input#user_description {
 
 }
 
-form.new_user {
+form.new_user, form.edit_user {
   width: 350px;
   div{
     width: 100%;

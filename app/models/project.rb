@@ -35,4 +35,8 @@ class Project < ApplicationRecord
     (donated.to_f * 100 / funding_goal.to_f).round
   end
 
+  def remaining
+    funding_goal - donated
+  end
+
 end

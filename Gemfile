@@ -33,11 +33,15 @@ gem 'bcrypt', '~> 3.1.11'
 # Use Faker to generate fake data
 gem 'faker', github: 'stympy/faker'
 
+gem 'json', '~> 1.8', '>= 1.8.3'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use paperclip for file management
 gem 'paperclip', '~> 5.0.0'
+
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

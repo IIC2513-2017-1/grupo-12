@@ -119,9 +119,6 @@ h3.project-desc{
   text-align: center;
 }
 
-.project-img {
-}
-
 
 // SHOW VIEW
 
@@ -202,8 +199,12 @@ div.title-owner > img {
 .project-image{
   flex: 0 3 55%;
   overflow: hidden;
+  height: 400px;
   padding: 10px 30px;
-
+  img {
+     box-shadow: 8px 8px 10px #aaa;
+     opacity: 0.9;
+  }
 }
 
 .project-data{

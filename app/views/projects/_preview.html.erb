@@ -5,7 +5,12 @@
   <div class="meter-container">
   	<span class="meter nostripes">
       <%percentage = project.percentage%>
-		  <span style="width: <%=percentage%>%"><span></span></span>
+      <% if percentage > 100 %>
+        <% max_width = 100 %>
+      <% else %>
+        <% max_width = percentage %>
+      <% end %>
+		  <span style="width: <%=max_width%>%"><span></span></span>
 	  </span>
     <span class="meter-percentage"><%= percentage %>%</span>
   </div>

@@ -17,7 +17,7 @@ nav.navbar-container {
     li {
       color: white;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
       height: 100%;
       text-align: center;
       //display: inline-block;
@@ -26,8 +26,8 @@ nav.navbar-container {
 
     li a{
         color: white;
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 8px;
+        padding-left: 10px;
         text-decoration: none;
         display: block;
         font-family: 'Open Sans', sans-serif;
@@ -50,14 +50,20 @@ nav.navbar-container {
     float: right;
 
     li.nav-right-img{
-      float: left;
-      display: inline-block;
       a{
         padding-right: 16px;
         padding-left: 16px;
-        line-height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
         img {
           vertical-align: middle;
+          height: 40px;
+        }
+        .navbar-user {
+          margin-left: 5px;
         }
       }
     }

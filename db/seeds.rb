@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 srand(100)
 
 # USER CREATION
@@ -41,10 +33,15 @@ end
 
 # PROJECT CREATION
 
+file = File.read(File.join(Rails.root, 'db', 'kickstarter_data.json'))
+data = JSON.parse(file)
+
 num = User.count
-12.times do |n|
-  description = Faker::Hipster.paragraph
-  brief = "Project #{n + 1}: #{Faker::LordOfTheRings.location}"
+25.times do |n|
+  # description = Faker::Hipster.paragraph
+  # brief = "Project #{n + 1}: #{Faker::LordOfTheRings.location}"
+  brief = data[n]['brief']
+  description = data[n]['description']
   user = rand(1..num).to_i
   date = Faker::Date.forward(120)
   proj = Project.create!(brief: brief,
@@ -65,12 +62,12 @@ User.all.each do |user|
   arr = (1..num).to_a.map(&:to_i).shuffle.take(rand(0..8).to_i) - [user.id]
   arr.each { |followed| user.follow(User.find(followed)) }
   Project.all.sample(4).map { |e| user.save_project(e) }
-  Project.all.sample(3).map { |e| Donation.create(user: user, project: e, amount: rand(5..e.funding_goal/100)) }
+  Project.all.sample(3).map { |e| Donation.create(user: user, project: e, amount: rand(5..e.funding_goal / 40)) }
 end
 
 ## Random comments
 
-40.times do |x|
+40.times do |_x|
   user = User.all.sample
   project = Project.all.sample
   Comment.create(content: Faker::Hobbit.quote, user: user, project: project)

@@ -31,6 +31,17 @@ class User < ApplicationRecord
   validates_associated :donations
   validates_associated :comments
 
+  has_attached_file :avatar,
+                    styles: {
+                      thumb: '40x40',
+                      small: '150x150>',
+                      medium: '200x200'
+                    },
+                    content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] },
+                    :default_url => "/default/default_avatar_:style.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_attachment_file_name :avatar, matches: [/png\z/, /jpe?g\z/]
+
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname
     name = firstname + ' ' + lastname
