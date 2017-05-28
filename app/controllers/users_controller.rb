@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy following followers owned funded saved]
   before_action :is_current_user?, only: %i[edit update destroy saved funded]
 
-
-
   def new
     @user = User.new
   end
@@ -13,15 +11,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = 'Please check your email to activate your account.'
+      redirect_to root_url
     else
       render 'new'
     end
   end
 
-  def show
-  end
+  def show; end
 
   def owned
     @title = 'Owned'
