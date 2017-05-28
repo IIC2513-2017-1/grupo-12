@@ -4,11 +4,13 @@ srand(100)
 
 User.create!(firstname: 'Vicente', lastname: 'Fuenzalida',
              email: 'vjfuenzalida@uc.cl', birthdate: Date.parse('13-10-1994'),
-             password: '123123', password_confirmation: '123123')
+             password: '123123', password_confirmation: '123123',
+             activated: true, activated_at: Time.zone.now)
 
 User.create(firstname: 'Juan Pablo', lastname: 'Jofré', email: 'jbjofre@uc.cl',
             birthdate: Date.parse('28-5-1994'),
-            password: '123123', password_confirmation: '123123')
+            password: '123123', password_confirmation: '123123',
+            activated: true, activated_at: Time.zone.now)
 
 # Total: 27 users
 
@@ -28,7 +30,8 @@ cats = Category.count
   password = '123123'
   User.create!(firstname: firstname, lastname: lastname, email: email,
                password: password, birthdate: birthday,
-               password_confirmation: password)
+               password_confirmation: password, activated: true,
+               activated_at: Time.zone.now)
 end
 
 # PROJECT CREATION

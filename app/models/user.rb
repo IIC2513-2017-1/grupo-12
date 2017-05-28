@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  # Emails should be case insensitive
+  attr_accessor :activation_token
   before_save { email.downcase! }
+  before_create :create_activation_digest
   # Model validation
   validates :firstname, presence: true, length: { maximum: 50 }
   validates :lastname, presence: true, length: { maximum: 50 }
@@ -38,7 +39,7 @@ class User < ApplicationRecord
                       medium: '200x200'
                     },
                     content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] },
-                    :default_url => "/default/default_avatar_:style.png"
+                    default_url: '/default/default_avatar_:style.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_attachment_file_name :avatar, matches: [/png\z/, /jpe?g\z/]
 
@@ -80,5 +81,16 @@ class User < ApplicationRecord
 
   def saving?(project)
     saving.include?(project)
+  end
+
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  private
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
