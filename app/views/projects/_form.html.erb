@@ -18,7 +18,7 @@
       <%= f.text_area :description, placeholder: "Description" %>
     </div>
     <div class="field">
-      <%= f.text_field :funding_goal, required: true, placeholder: "Funding Goal"%>
+      <%= f.number_field :funding_goal, min: '1', required: true,  placeholder: "Funding Goal"%>
     </div>
     <div class="group-field">
       <div class="category-field">
