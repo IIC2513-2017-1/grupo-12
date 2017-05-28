@@ -116,7 +116,7 @@ class ProjectsController < ApplicationController
   end
 
   def claim
-    if @project.user_id == current_user.id
+    if @project.user_id == current_user.id and @project.funding_duration <= Date.today
       @project.finished = true
       @project.save
       redirect_to @project
