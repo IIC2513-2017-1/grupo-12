@@ -116,9 +116,13 @@ class ProjectsController < ApplicationController
   end
 
   def claim
-    @project.finished = true
-    @project.save
-    redirect_to @project
+    if @project.user_id == current_user.id
+      @project.finished = true
+      @project.save
+      redirect_to @project
+    else
+      redirect_to @project
+    end
   end
 
   private

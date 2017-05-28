@@ -21,8 +21,13 @@
     <div class="project-details">
       <li class="project-attr"><%= number_to_currency(@project.donated, :precision => 0) %></li>
       <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
+      <%if Date.today <= @project.funding_duration %>
       <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
       <li class="project-attr-desc">to go</li>
+      <%else%>
+       <li class="project-attr"><%= "Status" %></li>
+       <li class="project-attr-desc">Finished</li>
+      <%end%>
       <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %> </li>
       <li class="project-attr-desc">supporting this project</li>
       <li class="project-attr"><%= pluralize(@followers, 'users') %> </li>
