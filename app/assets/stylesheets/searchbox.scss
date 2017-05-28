@@ -1,0 +1,32 @@
+@import 'colors';
+
+li.search-tab form{
+	margin: 0;
+	padding: 0;
+  	display: flex;
+  	justify-content: flex-start;
+	flex-direction: row;
+	width: 300px;
+	:hover {
+		background-color: $charleston-grey;
+	}
+
+	.search-box{
+		width: 100%;
+		display: inline;
+		height: 20%;
+		margin: 5px 10px;
+		background-color: $baby-powder;
+		opacity: 0.9;
+
+	}
+
+}
+
+li.search-tab {
+	height: 50px;
+	background-color: $charleston-grey;
+	:hover {
+		background-color: $charleston-grey;
+	}
+}

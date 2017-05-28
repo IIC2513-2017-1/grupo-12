@@ -9,6 +9,11 @@
       <li class="<%= active_class('users', 'funded', ide) %>"><%= link_to "Financed", funded_user_path(current_user)%></li>
       <li class="<%= active_class('users', 'saved', ide) %>"><%= link_to "Bookmarks", saved_user_path(current_user)%></li>
     <%end %>
+      <li class="search-tab">
+        <%= form_tag(search_path, method: 'get') do %>
+          <%= search_field_tag 'search', nil, class: 'form-control search-box', placeholder: 'Search'  %>
+        <% end %>
+      </li>
   </ul>
   <ul class="navbar navbar-right">
     <% if logged_in? %>

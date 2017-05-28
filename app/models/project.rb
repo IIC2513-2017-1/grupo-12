@@ -15,6 +15,8 @@ class Project < ApplicationRecord
   validates_associated :comments
   validates_associated :donations
 
+  searchkick
+
   def saver?(user)
     savers.include?(user)
   end

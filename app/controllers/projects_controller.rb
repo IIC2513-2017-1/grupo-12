@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+     @title = "EXPLORE #{@projects.count} "+"project".pluralize(@projects.count).upcase
   end
 
   # GET /projects/1
@@ -92,6 +93,13 @@ class ProjectsController < ApplicationController
     # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
     @user.save_project(@project)
     redirect_to @project
+  end
+
+  def search
+    Project.reindex
+    @projects = Project.search params[:search]
+    @title = "#{@projects.count} "+"result".pluralize(@projects.count).upcase + " FOUND"
+    render "index"
   end
 
   def forget
