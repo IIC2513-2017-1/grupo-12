@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   include Secured
-  before_action :set_project, only: %i[show edit update destroy save forget]
+  before_action :set_project, only: %i[show edit update destroy save forget claim]
   before_action :project_params, only: %i[creat update]
   before_action :is_logged_in?, only: %i[new create edit update destroy]
 
@@ -113,6 +113,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @categories = @project.categories
     # render 'show_follow'
+  end
+
+  def claim
+    @project.finished = true
+    @project.save
+    redirect_to @project
   end
 
   private

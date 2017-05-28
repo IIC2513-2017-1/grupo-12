@@ -280,3 +280,10 @@ div.btn {
 .btn[value="Comment"]{
   background-color: #1bbba3;
 }
+
+.btn[value="Claim"]{
+  background-color: $mustard;
+  a{
+  color: $charleston-grey;
+  }
+}
