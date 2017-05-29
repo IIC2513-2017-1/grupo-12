@@ -1,0 +1,14 @@
+<% provide(:title, "Forgot password") %>
+
+<h1 class="title">Password Recovery</h1>
+
+<div id="login-form">
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, required: true, placeholder: "Email" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit", class: "user-btn" %>
+    </div>
+    <% end %>
+</div>
