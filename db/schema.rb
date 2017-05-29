@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20170529020626) do
     t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["project_id"], name: "index_pictures_on_project_id", using: :btree
+  end
+
   create_table "project_relationships", force: :cascade do |t|
     t.integer  "saver_id"
     t.integer  "saved_id"
@@ -107,5 +118,6 @@ ActiveRecord::Schema.define(version: 20170529020626) do
   add_foreign_key "comments", "users"
   add_foreign_key "donations", "projects"
   add_foreign_key "donations", "users"
+  add_foreign_key "pictures", "projects"
   add_foreign_key "projects", "users"
 end

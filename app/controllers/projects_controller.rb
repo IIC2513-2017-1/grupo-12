@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-     @title = "EXPLORE #{@projects.count} "+"project".pluralize(@projects.count).upcase
+    @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase
   end
 
   # GET /projects/1
@@ -38,10 +38,15 @@ class ProjectsController < ApplicationController
     @category_id = project_params[:category_ids]
     project_params.delete :category_ids
     @category = Category.find(project_params[:category_ids])
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.except(:images))
     @project.add_category(@category)
     respond_to do |format|
       if @project.save
+        if params[:images]
+          params[:images].each do |image|
+            Picture.create(image: image, project: @project)
+          end
+        end
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
@@ -98,8 +103,8 @@ class ProjectsController < ApplicationController
   def search
     Project.reindex
     @projects = Project.search params[:search]
-    @title = "#{@projects.count} "+"result".pluralize(@projects.count).upcase + " FOUND"
-    render "index"
+    @title = "#{@projects.count} " + 'result'.pluralize(@projects.count).upcase + ' FOUND'
+    render 'index'
   end
 
   def forget
@@ -116,14 +121,11 @@ class ProjectsController < ApplicationController
   end
 
   def claim
-    if @project.user_id == current_user.id and @project.funding_duration <= Date.today
+    if @project.user_id == current_user.id && @project.funding_duration <= Date.today
       @project.finished = true
       @project.save
-      current_user.increase_wallet(@project.donated)
-      redirect_to @project
-    else
-      redirect_to @project
     end
+    redirect_to @project
   end
 
   private
@@ -135,6 +137,6 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal).merge(user_id: current_user.id)
+    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal, images: []).merge(user_id: current_user.id)
   end
 end
