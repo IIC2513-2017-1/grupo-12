@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
   end
   get '/search', to: 'projects#search'
+  get '/claim', to: 'projects#claim'
   resources :donations, only: %i[new create]
   resources :relationships, only: %i[create destroy]
   resources :project_relationships, only: %i[create destroy]

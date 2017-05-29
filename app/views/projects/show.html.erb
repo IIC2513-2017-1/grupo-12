@@ -1,5 +1,3 @@
-
-
 <section class="title-container">
   <div class="title-item title-owner">
     <%= gravatar_for @project.user, 150 %>
@@ -22,8 +20,13 @@
     <div class="project-details">
       <li class="project-attr"><%= number_to_currency(@project.donated, :precision => 0) %></li>
       <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
+      <%if Date.today <= @project.funding_duration %>
       <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
       <li class="project-attr-desc">to go</li>
+      <%else%>
+       <li class="project-attr"><%= "Status" %></li>
+       <li class="project-attr-desc">Finished</li>
+      <%end%>
       <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %> </li>
       <li class="project-attr-desc">supporting this project</li>
       <li class="project-attr"><%= pluralize(@followers, 'users') %> </li>
@@ -33,18 +36,23 @@
         <li class="project-attr-desc"><%= @project.categories.map(&:name).to_a.join(", ")%></li>
         <%end%>
     </div>
-      <% if logged_in? %>
+      <% if logged_in?%>
         <div class="project-buttons">
-            <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
             <% if @project.savers.include? current_user%>
               <div class="btn" value="Unfollow"><%= link_to "Unfollow Project", forget_project_path%></div>
             <%else %>
               <div class="btn" value="Follow"><%= link_to "Follow Project", save_project_path%></div>
             <%end %>
             <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
-            <% if current_user == @project.user %>
-              <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
-            <% end %>
+            <%if not @project.finished%>
+              <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
+              <% if current_user == @project.user%>
+                <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
+                <%if Date.today >= @project.funding_duration %>
+                  <div class="btn" value="Claim"><%= link_to "Claim Project", {controller: "projects", action: "claim", id: @project.id}%></div>
+                <%end%>
+              <% end %>
+            <%end%>
         </div>
       <% end %>
   </div>
@@ -52,7 +60,7 @@
 
 <section class="comments">
   <h2 class="comments-title" id="comments-section">Comments</h2>
-  <% if logged_in? %>
+  <% if logged_in?%>
     <div class="comment-form">
       <%= render 'comment_form', {comment: @comment, project: @project}%>
     </div>
