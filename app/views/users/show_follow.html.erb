@@ -1,5 +1,5 @@
 <% provide(:title, @title) %>
-  <%= gravatar_for @user, 100 %>
+  <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
   <h1 class="page-title"><%= link_to @user.fullname, @user%></h1>
   <h2> <%=@title%> </h2>
 
