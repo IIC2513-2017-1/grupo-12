@@ -38,6 +38,13 @@
         </div>
       </div>
     </div>
+    <div class="picture-field">
+      <%#= f.file_field "images[]", type: :file, multiple: true, accept: 'image/jpeg, image/jpg, image/gif, image/png' %>
+      <%= f.fields_for :images do |builder| %>
+        <%= file_field_tag "images[]", type: :file, multiple: true %>
+      <% end %>
+      <%#= f.file_field "images[]", type: :file, multiple: true %>
+    </div>
     <div class="actions">
       <%= f.submit "Save Project", class: "create-btn" %>
       <div class="delete-btn">

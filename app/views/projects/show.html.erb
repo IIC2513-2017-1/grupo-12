@@ -14,7 +14,7 @@
 <section class="project-main">
   <div class="project-item project-image">
     <% if @project.pictures.count.positive?%>
-      <%= image_tag @project.pictures.first.image.url(:original), class: "project-img"%>
+      <%= image_tag @project.pictures.last.image.url(:original), class: "project-img"%>
     <% else %>
       <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
     <% end %>
