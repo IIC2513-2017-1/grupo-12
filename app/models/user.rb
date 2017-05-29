@@ -121,6 +121,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def increase_wallet(wallet2)
+    actual = wallet + wallet2
+    update_attribute(:wallet, actual)
+  end
+
   private
 
   def create_activation_digest
