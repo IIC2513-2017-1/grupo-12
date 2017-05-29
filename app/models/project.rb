@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   has_many :savers, through: :passive_project_relationships, source: :saver
   validates_associated :comments
   validates_associated :donations
-  accepts_nested_attributes_for :pictures
+  has_attached_file :picture
 
   searchkick
 

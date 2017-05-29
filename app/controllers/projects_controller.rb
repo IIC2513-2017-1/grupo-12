@@ -124,10 +124,8 @@ class ProjectsController < ApplicationController
     if @project.user_id == current_user.id && @project.funding_duration <= Date.today
       @project.finished = true
       @project.save
-      redirect_to @project
-    else
-      redirect_to @project
     end
+    redirect_to @project
   end
 
   private
@@ -139,6 +137,6 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal, :images => []).merge(user_id: current_user.id)
+    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal, images: []).merge(user_id: current_user.id)
   end
 end
