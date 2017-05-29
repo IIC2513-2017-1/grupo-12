@@ -38,6 +38,9 @@
         </div>
       </div>
     </div>
+    <div class="picture-field">
+      <%= f.file_field "images[]", type: :file, multiple: true, accept: 'image/jpeg, image/jpg, image/gif, image/png' %>
+    </div>
     <div class="actions">
       <%= f.submit "Create Project", class: "create-btn" %>
     </div>

@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :donations
+  has_many :pictures, dependent: :destroy
   has_many :categorizations
   has_many :categories, through: :categorizations
   has_many :passive_project_relationships, class_name:  'ProjectRelationship',
@@ -14,6 +15,7 @@ class Project < ApplicationRecord
   has_many :savers, through: :passive_project_relationships, source: :saver
   validates_associated :comments
   validates_associated :donations
+  accepts_nested_attributes_for :pictures
 
   searchkick
 
@@ -22,7 +24,7 @@ class Project < ApplicationRecord
   end
 
   def add_category(category)
-    categories << category unless categories.include?category
+    categories << category unless categories.include? category
   end
 
   def remove_category(category)
@@ -40,5 +42,4 @@ class Project < ApplicationRecord
   def remaining
     funding_goal - donated
   end
-
 end
