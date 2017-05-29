@@ -200,11 +200,13 @@ div.title-owner > img {
   flex: 0 3 55%;
   overflow: hidden;
   height: 400px;
-  padding: 10px 30px;
+  padding: 0;
+  box-shadow: 8px 8px 5px #888888;
+  border-radius: 5px;
+  width: 100%;
   img {
-     box-shadow: 8px 8px 10px #aaa;
-     opacity: 0.9;
-     width: 100%;
+    opacity: 0.8;
+    width: 100%;
   }
 }
 

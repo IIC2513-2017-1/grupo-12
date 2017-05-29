@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   include Secured
   before_action :set_project, only: %i[show edit update destroy save forget claim]
-  before_action :project_params, only: %i[creat update]
+  before_action :project_params, only: %i[create update]
   before_action :is_logged_in?, only: %i[new create edit update destroy]
 
   # GET /projects
@@ -66,6 +66,11 @@ class ProjectsController < ApplicationController
     @project.add_category(@category)
     respond_to do |format|
       if @project.update(project_params)
+        if params[:images]
+          params[:images].each do |image|
+            Picture.create(image: image, project: @project)
+          end
+        end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else

@@ -2,6 +2,13 @@
 
 /* forms */
 
+.form-container{
+  display:flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .title {
   position:relative;
 	font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
@@ -230,6 +237,18 @@ select#project_category_ids {
 div.category-field{
   width: 30%;
   margin-right:40px;
+}
+div.category-edit-field{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .category-field-title{
+    font-family: 'Ubuntu', sans-serif;
+    width:100px;
+  }
+  .category-select{
+    width: 140px;
+  }
 }
 
 div.date-field{

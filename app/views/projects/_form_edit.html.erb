@@ -1,4 +1,4 @@
-<%= form_for(project) do |f| %>
+<%= form_for project, html: { :multipart => true } do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-<div class="row">
+<div class="row form-container">
     <div class="field">
-      <%= f.text_field :brief, required: true, placeholder: "Project Title" %>
+      <%= f.text_field :brief, required: true, placeholder: "Project Title", :disabled => true %>
     </div>
     <div class="field">
       <%= f.text_area :description, placeholder: "Description" %>
-    </div>
-    <div class="field">
-      <%= f.text_field :funding_goal, required: true, placeholder: "Funding Goal"%>
     </div>
     <div class="group-field">
       <div class="category-field">
@@ -34,7 +31,7 @@
           Limit Date
         </div>
         <div class="date-select">
-          <%= f.date_select :funding_duration, order: [:day, :month, :year], start_year: min_date.year, default: min_date , required: true %>
+          <%= f.date_select :funding_duration, order: [:day, :month, :year], default: project.funding_duration, :disabled => true %>
         </div>
       </div>
     </div>
