@@ -63,6 +63,10 @@ h1.page-title{
   margin-bottom: 20px;
   font-family: 'Lato';
   margin-top: 0;
+  a{
+    text-decoration: none;
+    color: $red;
+  }
 }
 
 h1.brand {

@@ -2,7 +2,7 @@
 
   <div id="user-pic">
     <%#= gravatar_for @user, 150 %>
-    <%= image_tag @user.avatar.url(:medium),  alt: @user.fullname, class: "img-circle"%>
+    <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
   </div>
   <div id="user-title">
     <%= @user.fullname %>
@@ -27,6 +27,10 @@
     <div class="user_data">Biography Not Available</div>
   <% end %>
   <div class="user_data">Contact: <%= @user.email %></div>
+  <%# if @user.wallet > 0%>
+    <div class="user_data">Collected from projects: <%= @user.wallet %></div>
+  <%#end%>
+
   <% if !@user.birthdate.blank?%>
     <div class="user_data">Birthdate: <%= @user.birthdate %></div>
   <% end %>

@@ -22,11 +22,16 @@
 }
 
 .user-grid-item {
-	background-color: $chalk;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+	background-color: none;
 
   padding: 5px;
-  width: 150px;
-  height: 50px;
+  width: 210px;
+  height: 100px;
   margin: 20px;
 
   //line-height: 150px;
@@ -34,26 +39,25 @@
   font-weight: bold;
   text-align: center;
 
-	a {
-	  width: 100px;
-		text-decoration: none;
-		color: $charleston-grey;
-	}
-  h5.user-name{
-    color: $charleston-grey;
-    font-size: 15px;
-    margin: 0;
+  div.user-picture{
+    flex: 0 1 30%;
+    img{
+      height: 50px;
+      width: 50px;
+    }
 
   }
-  p.user-author{
-    color: $charleston-grey;
-    text-align: left;
-    font-size: 15px;
-  }
-  p.user-desc {
-    color: $gray;
-    font-size: 13px;
-    text-align: justify;
+  div.user-data{
+    flex: 0 4 80%;
+    a{
+      text-decoration: none;
+      color: $deep-blue;
+    }
+    span{
+      text-decoration: none;
+      color: $deep-blue;
+      font-size: 13px;
+    }
   }
 }
 
