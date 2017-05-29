@@ -21,7 +21,7 @@
       <li class="<%= active_class('projects', 'new') %>"><%= link_to "Create Project", new_project_path%></li>
       <li class="<%='nav-right-img ' + active_class('users', 'show', ide)%>">
         <a href="<%= user_path(current_user) %>">
-          <%= image_tag current_user.avatar.url(:thumb),  alt: current_user.fullname, class: "img-circle"%>
+          <%= image_tag current_user.avatar.url(:thumb), class: "img-circle"%>
           <span class="navbar-user"><%= current_user.fullname %></span>
         </a>
       </li>

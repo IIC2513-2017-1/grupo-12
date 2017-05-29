@@ -1,13 +1,12 @@
 <% provide(:title, @title) %>
   <%= gravatar_for @user, 100 %>
-  <h1 class="page-title"><%= @user.fullname %></h1>
-  <span><%= link_to "view my profile", @user %></span>
+  <h1 class="page-title"><%= link_to @user.fullname, @user%></h1>
+  <h2> <%=@title%> </h2>
 
-      <%= render 'shared/stats' %>
-      <ul>
-      <% if @users.any? %>
-          <% @users.each do |user| %>
-            <li><%= link_to user.fullname, user %></li>
-          <% end %>
-      <% end %>
-      </ul>
+<div class='user-grid-container'>
+  <div class='user-grid'>
+    <% @users.each do |user|%>
+      <%= render 'users/preview', user: user %>
+    <% end %>
+  </div>
+</div>

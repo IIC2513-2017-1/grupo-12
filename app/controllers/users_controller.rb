@@ -61,14 +61,14 @@ class UsersController < ApplicationController
   def destroy; end
 
   def following
-    @title = 'Following'
     @users = @user.following
+    @title = ("You are following #{@users.count} "+ 'user'.pluralize(@users.count)).upcase
     render 'show_follow'
   end
 
   def followers
-    @title = 'Followers'
     @users = @user.followers
+    @title = ("#{@users.count} "+'user'.pluralize(@users.count)+' following you').upcase
     render 'show_follow'
   end
 

@@ -1,8 +1,22 @@
 <div class='user-grid-item'>
-  <h5 class='user-name'>
-    <%= link_to user.fullname, user%>
-  </h5>
-  <%= render 'shared/user_stats', user: user%>
-  <p class='project-desc'>
-  </p>
+	<div class='user-picture'>
+		<%= image_tag user.avatar.url(:original), class: "img-circle"%>
+	</div>
+	<div class='user-data'>
+		<div class='user-name'>
+			<%= link_to user.fullname, user%>
+		</div>
+		<div clas='followers'>
+			<span>
+			<%= user.following.count %>
+      		following
+      		</span>
+      		<span>|
+      		</span>
+			<span>
+			<%= user.following.count %>
+      		followers
+      		</span>
+		</div>
+	</div>
 </div>

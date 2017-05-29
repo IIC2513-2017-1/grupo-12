@@ -2,7 +2,7 @@
 
   <div id="user-pic">
     <%#= gravatar_for @user, 150 %>
-    <%= image_tag @user.avatar.url(:medium),  alt: @user.fullname, class: "img-circle"%>
+    <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
   </div>
   <div id="user-title">
     <%= @user.fullname %>
