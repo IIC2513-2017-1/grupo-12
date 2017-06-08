@@ -31,6 +31,9 @@ form {
 
 #login-form {
   width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input {
@@ -101,7 +104,7 @@ form#new_user, form.edit_user {
 }
 
 input#user_firstname, input#user_lastname, input#user_password, input#user_password_confirmation{
-  width: 152px;
+  width: 161px;
 }
 
 input#user_email, input#user_description {
@@ -303,4 +306,9 @@ div.actions > .delete-btn {
   color: $baby-powder;
   text-decoration: none;
   line-height: 16px;
+}
+
+input[type="file"] {
+  width: 100%;
+  text-align: center; 
 }

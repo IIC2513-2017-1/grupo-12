@@ -1,8 +1,8 @@
 var tabindex = 1;
 $(document).on('turbolinks:load', function() {
-
+  var ratio = $('.slide').width/$('.slide').height;
   $('.slider').find('img').each(function(){
-    var imgClass = (this.width/this.height > 1) ? 'wide' : 'tall';
+    var imgClass = (this.width/this.height < ratio) ? 'wide' : 'tall';
     $(this).addClass(imgClass);
   });
   var windowWidthInit = $(".slider-wrap").width(),
