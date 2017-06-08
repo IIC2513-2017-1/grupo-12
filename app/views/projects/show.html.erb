@@ -12,12 +12,29 @@
 </section>
 
 <section class="project-main">
-  <div class="project-item project-image">
-    <% if @project.pictures.count.positive?%>
-      <%= image_tag @project.pictures.last.image.url(:original), class: "project-img"%>
-    <% else %>
-      <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
-    <% end %>
+  <div class="project-item project-image" id="content">
+      <%#= image_tag @project.pictures.last.image.url(:original), class: "project-img"%>
+			<div class="wrapper">
+				<div class="slider-wrap">
+					<div id="left" class="arrow pointer">L</div>
+					<div id="right" class="arrow pointer a-right">R</div>
+					<ul class="group"></ul>
+					<div class="slider group">
+            <% if @project.pictures.count.positive?%>
+              <% @project.pictures.each do |picture| %>
+  						  <div class="slide">
+                  <%= image_tag picture.image.url(:original), class: "project-img"%>
+						    </div>
+						  <% end %>
+            <% else %>
+              <div class="slide">
+                <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
+              </div>
+            <% end %>
+					</div>
+				</div>
+			</div>
+		</div>
   </div>
 
   <div class="project-item project-data">
