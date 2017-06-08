@@ -124,6 +124,7 @@ class ProjectsController < ApplicationController
     if @project.user_id == current_user.id && @project.funding_duration <= Date.today
       @project.finished = true
       @project.save
+      current_user.increase_wallet(@project.donated)
     end
     redirect_to @project
   end
