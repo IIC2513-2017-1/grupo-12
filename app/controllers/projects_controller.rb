@@ -7,8 +7,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
-    @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase
+    extra = ''
+    if params['category']
+      @projects = Categorization.where(category: params['category']).map(&:project)
+      extra = " about #{Category.find(params['category']).name}".upcase
+    else
+      @projects = Project.all
+    end
+    @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase + extra
   end
 
   # GET /projects/1

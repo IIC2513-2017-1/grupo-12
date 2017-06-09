@@ -17,6 +17,7 @@ class Project < ApplicationRecord
   validates_associated :donations
   has_attached_file :picture
 
+
   searchkick
 
   def saver?(user)
