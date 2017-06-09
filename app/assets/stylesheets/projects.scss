@@ -231,7 +231,7 @@ div.title-owner > img {
 .project-attr{
   list-style: none;
   font-size: 22px;
-  color: #63a232;
+  color: $success-green;
   font-weight: bold;
 }
 
@@ -264,11 +264,11 @@ div.btn {
 }
 
 .btn[value="Unfollow"]{
-  background-color: #d44d30;
+  background-color: $light-red;
   color: $baby-powder;
 }
 .btn[value="Follow"]{
-  background-color: #679d38;
+  background-color: $success-green;
 }
 
 .btn[value="Save"]{

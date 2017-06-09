@@ -1,0 +1,2 @@
+$(".comment-container").append("<div class='comment-item'><%= escape_javascript(render 'comment_preview', {comment: @comment, project: @project })%></div>");
+ $('.comment-container')[0].scrollIntoView(false);

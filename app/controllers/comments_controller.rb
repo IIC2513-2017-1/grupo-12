@@ -25,11 +25,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @project = @comment.project
     respond_to do |format|
       if @comment.save
         format.html { redirect_to project_path(@comment.project, anchor: 'comments-section'), notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        format.js { render "new_comment.js.erb"}
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
