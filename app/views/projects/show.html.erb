@@ -84,13 +84,15 @@
       </div>
       <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
       <%if not @project.finished%>
-      <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
-      <% if current_user == @project.user%>
-      <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
-      <%if Date.today >= @project.funding_duration %>
-      <div class="btn" value="Claim"><%= link_to "Claim Project", {controller: "projects", action: "claim", id: @project.id}%></div>
-      <%end%>
-      <% end %>
+        <%if Date.today <= @project.funding_duration %>
+          <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
+        <%end%>
+        <% if current_user == @project.user%>
+          <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
+          <%if Date.today >= @project.funding_duration %>
+            <div class="btn" value="Claim"><%= link_to "Claim Project", {controller: "projects", action: "claim", id: @project.id}%></div>
+          <%end%>
+        <% end %>
       <%end%>
     </div>
     <% end %>

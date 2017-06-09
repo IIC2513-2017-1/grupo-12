@@ -4,8 +4,12 @@ class DonationsController < ApplicationController
 
   # GET /donations/new
   def new
-    @donation = Donation.new
     @project = Project.find(params[:project_id])
+    if Date.today <= @project.funding_duration
+      @donation = Donation.new
+    else
+      redirect_to @project
+    end
   end
 
   # GET /donations/1/edit
