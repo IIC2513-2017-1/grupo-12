@@ -288,3 +288,30 @@ div.btn {
   color: $charleston-grey;
   }
 }
+
+
+// FILTER
+
+.title-elements{
+  display:flex;
+  width: 90%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  div {
+    width:30%;
+    &.form{
+      display:flex;
+      flex-direction: row;
+      span select{
+          width: 100%;
+      }
+      .actions input{
+        background-color: $deep-blue;
+        opacity: 0.9;
+        color: $baby-powder;
+      }
+    }
+  }
+
+}
