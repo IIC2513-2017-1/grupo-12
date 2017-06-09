@@ -202,11 +202,9 @@ div.title-owner > img {
   height: 400px;
   padding: 0;
   box-shadow: 8px 8px 5px #888888;
-  border-radius: 5px;
   width: 100%;
   img {
-    opacity: 0.8;
-    width: 100%;
+    opacity: 0.9;
   }
 }
 
@@ -240,6 +238,10 @@ div.title-owner > img {
 .project-attr-desc{
   margin-bottom: 20px;
   font-size: 16px;
+  &.category-links a {
+    text-decoration: none;
+    color: $dark-gray;
+  }
 }
 
 div.btn {
@@ -274,9 +276,9 @@ div.btn {
 }
 
 .btn[value="Edit"]{
-  background-color: $mustard;
+  background-color: $gray;
   a{
-  color: $charleston-grey;
+  color: $baby-powder;
   }
 }
 
@@ -289,4 +291,31 @@ div.btn {
   a{
   color: $charleston-grey;
   }
+}
+
+
+// FILTER
+
+.title-elements{
+  display:flex;
+  width: 90%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  div {
+    width:30%;
+    &.form{
+      display:flex;
+      flex-direction: row;
+      span select{
+          width: 100%;
+      }
+      .actions input{
+        background-color: $deep-blue;
+        opacity: 0.9;
+        color: $baby-powder;
+      }
+    }
+  }
+
 }

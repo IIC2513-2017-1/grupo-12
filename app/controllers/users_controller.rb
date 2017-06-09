@@ -19,7 +19,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @value = if current_user.following?(@user)
+               'Unfollow'
+             else
+               'Follow'
+             end
+  end
 
   def owned
     @title = 'Owned'
@@ -41,12 +47,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -62,13 +65,13 @@ class UsersController < ApplicationController
 
   def following
     @users = @user.following
-    @title = ("You are following #{@users.count} "+ 'user'.pluralize(@users.count)).upcase
+    @title = ("You are following #{@users.count} " + 'user'.pluralize(@users.count)).upcase
     render 'show_follow'
   end
 
   def followers
     @users = @user.followers
-    @title = ("#{@users.count} "+'user'.pluralize(@users.count)+' following you').upcase
+    @title = ("#{@users.count} " + 'user'.pluralize(@users.count) + ' following you').upcase
     render 'show_follow'
   end
 

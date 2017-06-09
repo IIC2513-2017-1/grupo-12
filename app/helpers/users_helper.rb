@@ -12,4 +12,15 @@ module UsersHelper
       image_tag(gravatar_url, alt: user.fullname, class: 'gravatar img-circle')
     end
   end
+
+  def following_button(user)
+    return unless current_user
+    return if user == current_user
+    following_relation = current_user.active_relationships.find_by(followed_id: user.id)
+    if following_relation
+      link_to('Unfollow', relationship_path(id: following_relation, format: :json), method: 'delete', remote: true)
+    else
+      link_to('Follow', relationships_path(id: user, format: :json), method: 'post', remote: true)
+    end
+  end
 end

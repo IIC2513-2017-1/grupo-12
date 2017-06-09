@@ -5,9 +5,16 @@
     <li class="<%= active_class('projects', 'index') %>"><%= link_to "Explore", projects_path%></li>
     <% if logged_in? %>
       <%ide = current_user.id%>
-      <li class="<%= active_class('users', 'owned', ide) %>"><%= link_to "My Projects", owned_user_path(current_user)%></li>
-      <li class="<%= active_class('users', 'funded', ide) %>"><%= link_to "Financed", funded_user_path(current_user)%></li>
-      <li class="<%= active_class('users', 'saved', ide) %>"><%= link_to "Bookmarks", saved_user_path(current_user)%></li>
+      <li class="dropdown <%= active_class('users', 'owned', ide)+active_class('users', 'funded', ide)+active_class('users', 'saved', ide) %>">
+        <span>Projects</span>
+        <div class="dropdown-content">
+          <%= link_to "My Projects", owned_user_path(current_user)%>
+          <%= link_to "Financed", funded_user_path(current_user)%>
+          <%= link_to "Bookmarks", saved_user_path(current_user)%>
+        </div>
+      </li>
+      <!--<li class="<%#= active_class('users', 'funded', ide) %>"><%#= link_to "Financed", funded_user_path(current_user)%></li>-->
+      <!--<li class="<%#= active_class('users', 'saved', ide) %>"><%#= link_to "Bookmarks", saved_user_path(current_user)%></li>-->
     <%end %>
       <li class="search-tab">
         <%= form_tag(search_path, method: 'get') do %>
@@ -19,13 +26,16 @@
     <% if logged_in? %>
       <%ide = current_user.id%>
       <li class="<%= active_class('projects', 'new') %>"><%= link_to "Create Project", new_project_path%></li>
-      <li class="<%='nav-right-img ' + active_class('users', 'show', ide)%>">
+      <li class="<%='dropdown nav-right-img ' + active_class('users', 'show', ide)%>">
         <a href="<%= user_path(current_user) %>">
           <%= image_tag current_user.avatar.url(:thumb), class: "img-circle", alt: ""%>
           <span class="navbar-user"><%= current_user.fullname %></span>
         </a>
+        <div class = "dropdown-content">
+          <%= link_to 'Settings', edit_user_path(current_user) %>
+          <%= link_to "Log out", logout_path, {method: :delete}%>          
+        </div>
       </li>
-      <li class='nav-right'><%= link_to "Log out", logout_path, {method: :delete}%></li>
     <% else %>
       <li class="<%='nav-right ' + active_class('sessions', 'new')%>"><%= link_to "Login", login_path%></li>
       <li class="<%='nav-right ' + active_class('users', 'new')%>"><%= link_to "Signup", signup_path%></li>

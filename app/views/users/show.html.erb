@@ -12,14 +12,8 @@
       <%= render 'shared/stats' %>
     </section>
   </div>
-  <div>
-    <% if logged_in?%>
-      <% if current_user.following?(@user) %>
-        <%= render 'shared/unfollow' %>
-      <% elsif current_user.id != @user.id %>
-        <%= render 'shared/follow' %>
-      <% end %>
-    <% end %>
+  <div id="user-follow-btn" class="btn" value="<%= @value %>">
+    <%= following_button(@user) %>
   </div>
   <% if !@user.description.blank?%>
     <div class="user_data">Biography: <%= @user.description %></div>
@@ -33,9 +27,4 @@
 
   <% if !@user.birthdate.blank?%>
     <div class="user_data">Birthdate: <%= @user.birthdate %></div>
-  <% end %>
-  <% if logged_in? && @user == current_user%>
-    <div>
-      <%= link_to 'Edit Profile', edit_user_path(@user) %>
-  </div>
   <% end %>

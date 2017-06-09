@@ -1,10 +1,10 @@
-
+<% provide(:title, "My Projects") %>
 
 
 <% if @projects.size != 0 %>
 <h1 class="page-title">THIS ARE YOUR PROJECTS</h1>
 <% else %>
-  <h1 class="page-title"><%= @user.fullname %> hasn't created any projects yet</h1>
+  <h1 class="page-title"><%= ("You haven't created any projects yet").upcase %> </h1>
 <% end %>
 <div class="button"><%= link_to "Start a Project!",new_project_path %></div>
 <% if @projects.size > 0 %>

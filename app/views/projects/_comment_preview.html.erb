@@ -1,6 +1,7 @@
 <li>
 	<div class="comment-main">
-		 <%= link_to(gravatar_for(comment.user, 150, :class => "profile-pic"), comment.user, :class => "profile-pic")%>
+		 <%#= link_to(gravatar_for(comment.user, 150, :class => "profile-pic"), comment.user, :class => "profile-pic")%>
+		 <a href="<%= user_path(comment.user)%>"><%= image_tag comment.user.avatar.url(:comment), class: "img-circle"%></a>
 		<div class="comment-square">
 			<div class="comment-content">
 				<span class="square-arrow"></span>

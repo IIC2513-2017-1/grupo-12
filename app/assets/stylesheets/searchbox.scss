@@ -3,11 +3,12 @@
 li.search-tab form{
 	margin: 0;
 	padding: 0;
+
   	display: flex;
   	justify-content: flex-start;
 	flex-direction: row;
 	width: 300px;
-	:hover {
+	&:hover {
 		background-color: $charleston-grey;
 	}
 
@@ -26,7 +27,11 @@ li.search-tab form{
 li.search-tab {
 	height: 50px;
 	background-color: $charleston-grey;
-	:hover {
+	&:hover {
 		background-color: $charleston-grey;
 	}
+}
+
+#search {
+	margin-left: 10px;
 }

@@ -1,12 +1,12 @@
 <div class='user-grid-item'>
 	<div class='user-picture'>
-		<%= image_tag user.avatar.url(:original), class: "img-circle"%>
+		<a href="<%= user_path%>"><%= image_tag user.avatar.url(:original), class: "img-circle"%><a>
 	</div>
 	<div class='user-data'>
 		<div class='user-name'>
 			<%= link_to user.fullname, user%>
 		</div>
-		<div clas='followers'>
+		<div class='followers'>
 			<span>
 			<%= user.following.count %>
       		following

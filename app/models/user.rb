@@ -34,9 +34,16 @@ class User < ApplicationRecord
 
   has_attached_file :avatar,
                     styles: {
-                      thumb: '40x40',
-                      small: '150x150>',
-                      medium: '200x200'
+                      thumb: '40x40#',
+                      comment: '70x70#',
+                      small: '150x150#',
+                      medium: '200x200#'
+                    },
+                    convert_options: {
+                      thumb: '-gravity center',
+                      comment: '-gravity center',
+                      small: '-gravity center',
+                      medium: '-gravity center'
                     },
                     content_type: { content_type: ['image/jpeg', 'image/gif', 'image/png'] },
                     default_url: '/default/default_avatar_:style.png'
@@ -59,6 +66,7 @@ class User < ApplicationRecord
   # Follows a user.
   def follow(other_user)
     following << other_user
+    active_relationships.find_by(followed: other_user)
   end
 
   # Unfollows a user.
@@ -73,6 +81,7 @@ class User < ApplicationRecord
 
   def save_project(project)
     saving << project unless saving.include? project
+    active_project_relationships.find_by(saved: project)
   end
 
   def forget_project(project)

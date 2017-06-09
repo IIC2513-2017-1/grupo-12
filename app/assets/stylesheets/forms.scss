@@ -31,6 +31,9 @@ form {
 
 #login-form {
   width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input {
@@ -94,6 +97,7 @@ input[type="submit"].create-btn:hover, .user-btn:hover{
 form#new_user, form.edit_user {
   div.group-field {
     display: flex;
+    align-items: center;
     :first-child {
       margin-right: 10px;
     }
@@ -101,7 +105,7 @@ form#new_user, form.edit_user {
 }
 
 input#user_firstname, input#user_lastname, input#user_password, input#user_password_confirmation{
-  width: 152px;
+  width: 161px;
 }
 
 input#user_email, input#user_description {
@@ -229,6 +233,16 @@ select#project_category_ids {
   div.group-field{
     display: flex;
     margin-bottom: 30px;
+    align-items: center;
+
+    select {
+      height: 41px;
+      margin: 10px 0;
+      border-radius: 4px;
+      cursor: pointer;
+      text-shadow:0px -1px 0px rgba(0,0,0,.5);
+      background-color: white;
+    }
     div{
       text-align: center;
     }
@@ -303,4 +317,9 @@ div.actions > .delete-btn {
   color: $baby-powder;
   text-decoration: none;
   line-height: 16px;
+}
+
+input[type="file"] {
+  width: 100%;
+  text-align: center;
 }

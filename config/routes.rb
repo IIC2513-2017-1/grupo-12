@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
   resources :projects do
     member do
-      get :savers, :save, :forget
+      get :savers
+      post :save
+      delete :forget
     end
   end
   get '/search', to: 'projects#search'

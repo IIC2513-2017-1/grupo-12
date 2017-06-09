@@ -1,79 +1,110 @@
+<% provide(:title, "Project: #{@project.brief}") %>
+
 <section class="title-container">
   <div class="title-item title-owner">
     <%= gravatar_for @project.user, 150 %>
     <div class="user">
-      <span>By <%= link_to @project.user.fullname, @project.user %></span>
+      <span>By
+        <%= link_to @project.user.fullname, @project.user %></span>
     </div>
   </div>
   <div class="title-item title-header">
-    <div class="project-title"> <h1 class="page-title"> <%= @project.brief %> </h1> </div>
-    <div class="project-desc"> <h3> <%= @project.description %> </h3> </div>
+    <div class="project-title">
+      <h1 class="page-title">
+        <%= @project.brief %>
+      </h1>
+    </div>
+    <div class="project-desc">
+      <h3>
+        <%= @project.description %>
+      </h3>
+    </div>
   </div>
 </section>
 
 <section class="project-main">
-  <div class="project-item project-image">
-    <% if @project.pictures.count.positive?%>
-      <%= image_tag @project.pictures.last.image.url(:original), class: "project-img"%>
-    <% else %>
-      <img src="http://lorempixel.com/600/400/cats/7" alt="because cats" class="project-img" />
-    <% end %>
+  <div class="project-item project-image" id="content">
+    <%#= image_tag @project.pictures.last.image.url(:original), class: "project-img"%>
+    <div class="wrapper">
+      <div class="slider-wrap">
+        <div id="left" class="arrow pointer">L</div>
+        <div id="right" class="arrow pointer a-right">R</div>
+        <ul class="group"></ul>
+        <% if @project.pictures.count.positive? %>
+        <div class="slider group">
+          <% @project.pictures.each do |picture| %>
+          <div class="slide">
+            <span class="centerer"></span>
+            <%= image_tag picture.image.url(:original), class: "project-img"%>
+          </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="slider group">
+          <% 4.times.each do |t| %>
+          <div class="slide">
+            <img src="<%= " /default/default_project_#{t}.jpg"%>" class="project-img"/>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
   <div class="project-item project-data">
     <div class="project-details">
       <li class="project-attr"><%= number_to_currency(@project.donated, :precision => 0) %></li>
       <li class="project-attr-desc">pledged of <%= number_to_currency(@project.funding_goal, :precision => 0) %> goal</li>
       <%if Date.today <= @project.funding_duration %>
-      <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
-      <li class="project-attr-desc">to go</li>
+        <li class="project-attr"><%= distance_of_time_in_words(Time.now, @project.funding_duration) %></li>
+        <li class="project-attr-desc">to go</li>
       <%else%>
-       <li class="project-attr"><%= "Status" %></li>
-       <li class="project-attr-desc">Finished</li>
+        <li class="project-attr"><%= "Status" %></li>
+        <li class="project-attr-desc">Finished</li>
       <%end%>
-      <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %> </li>
+      <li class="project-attr"><%= pluralize(@supporters, 'inverstor') %></li>
       <li class="project-attr-desc">supporting this project</li>
-      <li class="project-attr"><%= pluralize(@followers, 'users') %> </li>
+      <li id='followers-tag' class="project-attr"><%= pluralize(@followers, 'users') %></li>
       <li class="project-attr-desc">following this project</li>
       <%if !@project.categories.nil?%>
         <li class="project-attr">Related to</li>
-        <li class="project-attr-desc"><%= @project.categories.map(&:name).to_a.join(", ")%></li>
-        <%end%>
+        <li class="project-attr-desc category-links">
+            <%= raw (@project.categories.map {|cat| link_to(cat.name, projects_path(:category => cat.id))}).to_a.join(", ")%>
+        </li>
+      <%end%>
     </div>
-      <% if logged_in?%>
-        <div class="project-buttons">
-            <% if @project.savers.include? current_user%>
-              <div class="btn" value="Unfollow"><%= link_to "Unfollow Project", forget_project_path%></div>
-            <%else %>
-              <div class="btn" value="Follow"><%= link_to "Follow Project", save_project_path%></div>
-            <%end %>
-            <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
-            <%if not @project.finished%>
-              <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
-              <% if current_user == @project.user%>
-                <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
-                <%if Date.today >= @project.funding_duration %>
-                  <div class="btn" value="Claim"><%= link_to "Claim Project", {controller: "projects", action: "claim", id: @project.id}%></div>
-                <%end%>
-              <% end %>
-            <%end%>
+    <% if logged_in?%>
+      <div class="project-buttons">
+        <div id='boton' class='btn' value="<%= @default %>">
+          <%= following_project_button(@project)%>
         </div>
-      <% end %>
+        <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
+        <%if not @project.finished%>
+          <div class="btn" value="Save"><%= link_to "Support Project", new_donation_path(:project_id => @project.id)%></div>
+          <% if current_user == @project.user%>
+            <%if Date.today >= @project.funding_duration %>
+              <div class="btn" value="Claim"><%= link_to "Claim Project", {controller: "projects", action: "claim", id: @project.id}%></div>
+            <% end %>
+            <div class="btn" value="Edit"><%= link_to 'Settings', edit_project_path(@project) %></div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </section>
 
 <section class="comments">
-  <h2 class="comments-title" id="comments-section">Comments</h2>
-  <% if logged_in?%>
-    <div class="comment-form">
-      <%= render 'comment_form', {comment: @comment, project: @project}%>
-    </div>
-  <% end %>
-  <div class="comment-container">
-    <% @comments.each do |comment| %>
-      <div class="comment-item">
-        <%= render 'comment_preview', {comment: comment, project: @project}%>
-      </div>
-    <% end %>
+<h2 class="comments-title" id="comments-section">Comments</h2>
+<% if logged_in?%>
+<div class="comment-form">
+  <%= render 'comment_form', {comment: @comment, project: @project}%>
+</div>
+<% end %>
+<div class="comment-container">
+  <% @comments.each do |comment| %>
+  <div class="comment-item">
+    <%= render 'comment_preview', {comment: comment, project: @project}%>
   </div>
+  <% end %>
+</div>
 </section>

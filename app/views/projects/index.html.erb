@@ -1,9 +1,26 @@
+<% provide(:title, "#{@category} Projects") %>
 
+<div class="title-elements">
+  <div class="form">
+      <%= form_for(:category_filter, url: projects_path, method: :get) do |f| %>
+      <span class="field">
+        <% @options = Category.all.map { |a| [ a.name, a.id ] } %>
+        <% @options.unshift(["All", 0]) %>
+        <%= select_tag("category", options_for_select(@options)) %>
+      </span>
+      <span class="actions">
+        <%= f.submit "submit", class: "category-btn" %>
+      </span>
+      <% end %>
+  </div>
   <h1 class="page-title"><%=@title%></h1>
+  <div>
+  </div>
+</div>
 <div class='project-grid-container'>
   <div class='project-grid'>
     <% @projects.each do |project|%>
-      <%= render 'projects/preview', project: project %>
+    <%= render 'projects/preview', project: project %>
     <% end%>
   </div>
 </div>
