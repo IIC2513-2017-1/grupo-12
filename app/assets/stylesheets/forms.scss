@@ -2,6 +2,13 @@
 
 /* forms */
 
+.form-container{
+  display:flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .title {
   position:relative;
 	font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
@@ -24,6 +31,9 @@ form {
 
 #login-form {
   width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input {
@@ -94,7 +104,7 @@ form#new_user, form.edit_user {
 }
 
 input#user_firstname, input#user_lastname, input#user_password, input#user_password_confirmation{
-  width: 152px;
+  width: 161px;
 }
 
 input#user_email, input#user_description {
@@ -231,6 +241,18 @@ div.category-field{
   width: 30%;
   margin-right:40px;
 }
+div.category-edit-field{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .category-field-title{
+    font-family: 'Ubuntu', sans-serif;
+    width:100px;
+  }
+  .category-select{
+    width: 140px;
+  }
+}
 
 div.date-field{
   width: 70%;
@@ -284,4 +306,9 @@ div.actions > .delete-btn {
   color: $baby-powder;
   text-decoration: none;
   line-height: 16px;
+}
+
+input[type="file"] {
+  width: 100%;
+  text-align: center; 
 }

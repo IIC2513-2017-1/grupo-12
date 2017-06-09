@@ -2,6 +2,8 @@
 
 ## GRUPO 12 - Proyecto Semestral
 
+## *Dreamfunder*
+
 ### Integrantes
 
 Nombre             | GitHub          | Email
@@ -9,9 +11,15 @@ Nombre             | GitHub          | Email
 Vicente Fuenzalida | [@vjfuenzalida] | [vjfuenzalida@uc.cl]
 Juan Pablo Jofré   | [@jpjofre94]    | [jbjofre@uc.cl]
 
-### Aplicación en Heroku
+## Aplicación en Heroku
 
-Visita nuestra aplicación [aquí](https://grupo-12.herokuapp.com/).
+Visita nuestra aplicación [aquí](https://dreamfunder.herokuapp.com/).
+
+Puedes crear tu propia cuenta, o probar las funcionalidades con la siguiente cuenta:
+
+|      Correo       |  Contraseña  |
+|:-----------------:|:------------:|
+|  mail-1@mail.com  |    123123    |
 
 ### Versiones de Software
 

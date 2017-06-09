@@ -22,6 +22,7 @@
 
 # Ignore profile pictures
 public/users/
+public/pictures/
 
 # Ignore application configuration
 /config/application.yml
