@@ -238,6 +238,10 @@ div.title-owner > img {
 .project-attr-desc{
   margin-bottom: 20px;
   font-size: 16px;
+  &.category-links a {
+    text-decoration: none;
+    color: $dark-gray;
+  }
 }
 
 div.btn {
@@ -272,9 +276,9 @@ div.btn {
 }
 
 .btn[value="Edit"]{
-  background-color: $mustard;
+  background-color: $gray;
   a{
-  color: $charleston-grey;
+  color: $baby-powder;
   }
 }
 

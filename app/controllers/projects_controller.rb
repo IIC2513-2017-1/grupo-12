@@ -9,9 +9,16 @@ class ProjectsController < ApplicationController
   def index
     extra = ''
     if params['category']
-      @projects = Categorization.where(category: params['category']).map(&:project)
-      extra = " about #{Category.find(params['category']).name}".upcase
+      if params['category'].to_i.positive?
+        @category = Category.find(params['category']).name
+        @projects = Categorization.where(category: params['category']).map(&:project)
+        extra = " about #{@category}".upcase
+      else
+        @category = ''
+        @projects = Project.all
+      end
     else
+      @category = ''
       @projects = Project.all
     end
     @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase + extra

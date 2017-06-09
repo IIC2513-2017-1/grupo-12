@@ -1,4 +1,4 @@
-<% provide(:title, @title) %>
+<% provide(:title, @title.capitalize) %>
   <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
   <h1 class="page-title"><%= link_to @user.fullname, @user%></h1>
   <h2> <%=@title%> </h2>
