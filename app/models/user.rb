@@ -64,6 +64,7 @@ class User < ApplicationRecord
   # Follows a user.
   def follow(other_user)
     following << other_user
+    active_relationships.find_by(followed: other_user)
   end
 
   # Unfollows a user.
