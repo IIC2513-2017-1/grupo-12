@@ -14,10 +14,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    if current_user.saving?(@project)
-      @default = 'Unfollow'
-    else
-      @default = 'Follow'
+    if logged_in?
+      @default = if current_user.saving?(@project)
+                   'Unfollow'
+                 else
+                   'Follow'
+                 end
     end
     @comments = @project.comments
     @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
@@ -106,11 +108,11 @@ class ProjectsController < ApplicationController
     relation = current_user.save_project(@project)
     followers = @project.savers.count
     if relation
-      #@user = current_user
+      # @user = current_user
       # @comments = @project.comments
       # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
-      #@user.save_project(@project)
-      #redirect_to @project
+      # @user.save_project(@project)
+      # redirect_to @project
       respond_to do |format|
         format.json do
           render json: {
@@ -140,7 +142,7 @@ class ProjectsController < ApplicationController
     @user = current_user
     @user.forget_project(@project)
     followers = @project.savers.count
-    #redirect_to @project
+    # redirect_to @project
     respond_to do |format|
       format.json do
         render json: {

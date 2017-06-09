@@ -79,8 +79,8 @@
     </div>
     <% if logged_in?%>
     <div class="project-buttons">
-      <div id='boton' class='btn' value= '<%=@default%>' >
-        <%= following_button(@project)%>
+      <div id='boton' class='btn' value="<%= @default %>" >
+        <%= following_project_button(@project)%>
       </div>
       <div class="btn" value="Comment"><%= link_to "Comment", "#comments-section"%></div>
       <%if not @project.finished%>

@@ -32,8 +32,8 @@
           <span class="navbar-user"><%= current_user.fullname %></span>
         </a>
         <div class = "dropdown-content">
-          <%= link_to "Log out", logout_path, {method: :delete}%>
           <%= link_to 'Settings', edit_user_path(current_user) %>
+          <%= link_to "Log out", logout_path, {method: :delete}%>          
         </div>
       </li>
     <% else %>

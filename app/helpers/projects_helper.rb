@@ -1,5 +1,5 @@
 module ProjectsHelper
-  def following_button(project)
+  def following_project_button(project)
     return unless current_user
     following_relation = current_user.active_project_relationships.find_by(saved: project)
     if following_relation
