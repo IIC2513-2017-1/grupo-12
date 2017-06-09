@@ -34,7 +34,7 @@
           Limit Date
         </div>
         <div class="date-select">
-          <%= f.date_field :funding_duration, order: [:day, :month, :year], start_year: min_date.year, default: min_date, min: Date.today, required: true %>
+          <%= f.date_select :funding_duration, order: [:day, :month, :year], start_year: min_date.year, default: min_date, min: Date.today, required: true %>
         </div>
       </div>
     </div>
