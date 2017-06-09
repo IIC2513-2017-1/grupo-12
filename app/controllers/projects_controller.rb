@@ -14,6 +14,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if current_user.saving?(@project)
+      @default = 'Unfollow'
+    else
+      @default = 'Follow'
+    end
     @comments = @project.comments
     @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
     @supporters = @project.donations.pluck(:user_id).uniq.count
@@ -98,11 +103,30 @@ class ProjectsController < ApplicationController
   end
 
   def save
-    @user = current_user
-    # @comments = @project.comments
-    # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
-    @user.save_project(@project)
-    redirect_to @project
+    relation = current_user.save_project(@project)
+    followers = @project.savers.count
+    if relation
+      #@user = current_user
+      # @comments = @project.comments
+      # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }
+      #@user.save_project(@project)
+      #redirect_to @project
+      respond_to do |format|
+        format.json do
+          render json: {
+            saved: {
+              id: @project.id
+            },
+            saver: {
+              id: relation.id
+            },
+            followers: {
+              num: "#{followers} users".pluralize(followers)
+            }
+          }
+        end
+      end
+    end
   end
 
   def search
@@ -115,7 +139,20 @@ class ProjectsController < ApplicationController
   def forget
     @user = current_user
     @user.forget_project(@project)
-    redirect_to @project
+    followers = @project.savers.count
+    #redirect_to @project
+    respond_to do |format|
+      format.json do
+        render json: {
+          unfollowing: {
+            id: @project.id
+          },
+          followers: {
+            num: "#{followers} users".pluralize(followers)
+          }
+        }
+      end
+    end
   end
 
   def categories

@@ -78,6 +78,7 @@ class User < ApplicationRecord
 
   def save_project(project)
     saving << project unless saving.include? project
+    active_project_relationships.find_by(saved: project)
   end
 
   def forget_project(project)
