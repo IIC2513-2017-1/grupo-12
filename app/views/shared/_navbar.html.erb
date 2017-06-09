@@ -33,7 +33,7 @@
         </a>
         <div class = "dropdown-content">
           <%= link_to "Log out", logout_path, {method: :delete}%>
-          <%= link_to "Bookmarks", saved_user_path(current_user)%>
+          <%= link_to 'Settings', edit_user_path(current_user) %>
         </div>
       </li>
     <% else %>

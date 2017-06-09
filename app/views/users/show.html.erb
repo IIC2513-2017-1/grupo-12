@@ -34,8 +34,3 @@
   <% if !@user.birthdate.blank?%>
     <div class="user_data">Birthdate: <%= @user.birthdate %></div>
   <% end %>
-  <% if logged_in? && @user == current_user%>
-    <div>
-      <%= link_to 'Edit Profile', edit_user_path(@user) %>
-  </div>
-  <% end %>
