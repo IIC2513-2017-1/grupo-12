@@ -7,9 +7,9 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(default_url)}"
     if kwargs[:class]
       kwargs[:class] += ' gravatar img-circle'
-      return image_tag(gravatar_url, alt: user.fullname, class: kwargs[:class])
+      return image_tag(gravatar_url, class: kwargs[:class])
     else
-      image_tag(gravatar_url, alt: user.fullname, class: 'gravatar img-circle')
+      image_tag(gravatar_url, class: 'gravatar img-circle')
     end
   end
 

@@ -4,19 +4,18 @@ class Project < ApplicationRecord
   validates :funding_duration, presence: true, allow_blank: false
   validates :funding_goal, presence: true, allow_blank: false
   belongs_to :user
-  has_many :comments
-  has_many :donations
+  has_many :comments, dependent: :destroy
+  has_many :donations, dependent: :destroy
   has_many :pictures, dependent: :destroy
-  has_many :categorizations
+  has_many :categorizations, dependent: :destroy
   has_many :categories, through: :categorizations
   has_many :passive_project_relationships, class_name:  'ProjectRelationship',
                                            foreign_key: 'saved_id',
                                            dependent:   :destroy
-  has_many :savers, through: :passive_project_relationships, source: :saver
+  has_many :savers, through: :passive_project_relationships, source: :saver, dependent: :destroy 
   validates_associated :comments
   validates_associated :donations
   has_attached_file :picture
-
 
   searchkick
 
@@ -43,4 +42,5 @@ class Project < ApplicationRecord
   def remaining
     funding_goal - donated
   end
+
 end

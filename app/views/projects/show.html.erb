@@ -2,7 +2,7 @@
 
 <section class="title-container">
   <div class="title-item title-owner">
-    <%= gravatar_for @project.user, 150 %>
+    <a href="<%= user_path(@project.user) %>"><%= image_tag @project.user.avatar.url(:thumb), class: "img-circle"%></a>
     <div class="user">
       <span>By
         <%= link_to @project.user.fullname, @project.user %></span>

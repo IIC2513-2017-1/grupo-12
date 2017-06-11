@@ -18,7 +18,7 @@
     <%end %>
       <li class="search-tab">
         <%= form_tag(search_path, method: 'get') do %>
-          <%= search_field_tag 'search', nil, class: 'form-control search-box', placeholder: 'Search'  %>
+          <%= search_field_tag 'search', nil, class: 'form-control search-box', placeholder: 'Search Projects'  %>
         <% end %>
       </li>
   </ul>
@@ -33,7 +33,7 @@
         </a>
         <div class = "dropdown-content">
           <%= link_to 'Settings', edit_user_path(current_user) %>
-          <%= link_to "Log out", logout_path, {method: :delete}%>          
+          <%= link_to "Logout", logout_path, {method: :delete}%>
         </div>
       </li>
     <% else %>

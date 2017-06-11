@@ -1,6 +1,6 @@
 <div class='project-grid-item'>
   <h5 class='project-title'>
-    <%= link_to truncate(project.brief, :length => 40, :separator => ' '), project%>
+    <%= link_to truncate(project.brief, :length => 35, :separator => ' '), project%>
   </h5>
   <div class="meter-container">
   	<span class="meter nostripes">
@@ -20,4 +20,9 @@
   <p class='project-desc'>
     <%= truncate(project.description, :length => 230, :separator => ' ')  %>
   </p>
+  <% if project.pictures.first.nil? %>
+    <%= image_tag "/default/default_project_#{rand(0..3)}.jpg", class: "preview-img"%>
+  <% else %>
+    <%= image_tag project.pictures.first.image.url(:original), class: "preview-img"%>
+  <% end %>
 </div>

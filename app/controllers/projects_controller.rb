@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
     extra = ''
     if params['category']
       if params['category'].to_i.positive?
-        @category = Category.find(params['category']).name
+        cat = Category.find(params['category'])
+        @category = cat.name
         @projects = Categorization.where(category: params['category']).map(&:project)
         extra = " about #{@category}".upcase
       else
@@ -22,6 +23,11 @@ class ProjectsController < ApplicationController
       @projects = Project.all
     end
     @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase + extra
+    @default = if cat.nil?
+                 0
+               else
+                 cat.id
+               end
   end
 
   # GET /projects/1

@@ -1,5 +1,8 @@
 @import 'colors';
 
+
+// preview
+
 .project-grid-container {
   display: flex;
   justify-content: center;
@@ -27,10 +30,9 @@
 }
 
 .project-grid-item {
-	background-color: $chalk;
-
+	background-color: $project-background;
   padding: 5px;
-  width: 350px;
+  width: 370px;
   height: 200px;
   margin: 20px;
   //line-height: 150px;
@@ -53,23 +55,45 @@
   }
 
   p.project-author{
-    color: $dark-blue;
     text-align: left;
     padding: 4px 8px;
     margin: 0;
     font-size: 14px;
     a{
-      color: $dark-blue;
+      color: $licorice;
     }
   }
   p.project-desc {
-    color: $dark-gray;
+    color: $charleston-grey;
     font-size: 13px;
     padding: 8px;
     margin: 0;
     text-align: justify;
+    height: 101px;
   }
+
+  img.preview-img {
+    position: relative;
+    opacity: 0.4;
+    z-index: 2;
+    top: -202px;
+    left: -10px;
+    width: 380px;
+    height: 210px;
+    // width: 370px;
+    // height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  h5, .meter-container, p {
+    position: relative;
+    z-index: 3;
+  }
+
 }
+
+
 .button {
   border-radius: 4px;
   background-color: $dark-blue;
@@ -152,7 +176,7 @@ h3.project-desc{
       font-size: 15px;
       color: $deep-blue;
       font-weight: bold;
-      text-family: 'Sarala', sans-serif;
+      // font-family: 'Sarala', sans-serif;
   }
 }
 
@@ -302,20 +326,33 @@ div.btn {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  div {
-    width:30%;
-    &.form{
-      display:flex;
-      flex-direction: row;
+  span.field>select:hover {
+    cursor: pointer;
+  }
+  div.form{
+    flex: 0 1 20%;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-right: 30px;
+    span {
+      font-family: 'Lato';
+      font-size: 15px;
+      color: $deep-blue;
+      font-weight: 400;
+    }
+    form {
+      width: 100%;
+      margin: 0;
+      padding: 0;
       span select{
-          width: 100%;
-      }
-      .actions input{
-        background-color: $deep-blue;
+        width: 80%;
+        //background-color: $mustard;
         opacity: 0.9;
-        color: $baby-powder;
       }
     }
   }
-
+  h1 {
+    flex: 0 1 80%;
+    text-align: left;
+  }
 }
