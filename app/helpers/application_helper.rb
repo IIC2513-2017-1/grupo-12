@@ -16,4 +16,8 @@ module ApplicationHelper
       current_page?(controller: args[0], action: args[1]) ? 'active' : ''
     end
   end
+
+  def paginate(collection, params= {})
+    will_paginate collection, params.merge(:renderer => RemoteLinkPaginationHelper::LinkRenderer)
+  end
 end

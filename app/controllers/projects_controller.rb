@@ -22,6 +22,12 @@ class ProjectsController < ApplicationController
                else
                  cat.id
                end
+    respond_to do |format|
+      format.js do
+        render 'index.js.erb'
+      end
+      format.html { render :index }
+    end
     # @projects = Project.paginate(page: params[:page])
   end
 
@@ -148,7 +154,7 @@ class ProjectsController < ApplicationController
   def search
     Project.reindex
     @projects = Project.search params[:search]
-    @title = "#{@projects.count} " + 'result'.pluralize(@projects.count).upcase + " FOUND  FOR '#{params[:search].upcase}'" 
+    @title = "#{@projects.count} " + 'result'.pluralize(@projects.count).upcase + " FOUND  FOR '#{params[:search].upcase}'"
     render 'index'
   end
 
