@@ -8,19 +8,13 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     extra = ''
-    if params['category']
-      if params['category'].to_i.positive?
-        cat = Category.find(params['category'])
-        @category = cat.name
-        @projects = Categorization.where(category: params['category']).map(&:project)
-        extra = " about #{@category}".upcase
-      else
-        @category = ''
-        @projects = Project.all
-      end
-    else
-      @category = ''
-      @projects = Project.all
+    @category = ''
+    @projects = Project.paginate(page: params[:page])
+    if params['category'] && params['category'].to_i.positive?
+      cat = Category.find(params['category'])
+      @category = cat.name
+      @projects = Project.with_category(cat).paginate(page: params[:page])
+      extra = " about #{@category}".upcase
     end
     @title = "EXPLORE #{@projects.count} " + 'project'.pluralize(@projects.count).upcase + extra
     @default = if cat.nil?
@@ -28,6 +22,7 @@ class ProjectsController < ApplicationController
                else
                  cat.id
                end
+    # @projects = Project.paginate(page: params[:page])
   end
 
   # GET /projects/1
@@ -153,7 +148,7 @@ class ProjectsController < ApplicationController
   def search
     Project.reindex
     @projects = Project.search params[:search]
-    @title = "#{@projects.count} " + 'result'.pluralize(@projects.count).upcase + ' FOUND'
+    @title = "#{@projects.count} " + 'result'.pluralize(@projects.count).upcase + " FOUND  FOR '#{params[:search].upcase}'" 
     render 'index'
   end
 
