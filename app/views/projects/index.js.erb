@@ -1,0 +1,7 @@
+$(".project-grid").empty();
+<% @projects.each do |pt| %>
+  $(".project-grid").append("<%= escape_javascript(render partial: 'preview', locals: { project: pt }) %>");
+<% end %>
+
+$(".digg_pagination").empty();
+$(".digg_pagination").append("<%= escape_javascript(paginate @projects) %>");

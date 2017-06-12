@@ -12,12 +12,14 @@ class Project < ApplicationRecord
   has_many :passive_project_relationships, class_name:  'ProjectRelationship',
                                            foreign_key: 'saved_id',
                                            dependent:   :destroy
-  has_many :savers, through: :passive_project_relationships, source: :saver, dependent: :destroy 
+  has_many :savers, through: :passive_project_relationships, source: :saver, dependent: :destroy
   validates_associated :comments
   validates_associated :donations
   has_attached_file :picture
-
+  self.per_page = 6
   searchkick
+
+  scope :with_category, ->(category) { joins(:categorizations).where(categorizations: { category: category }) }
 
   def saver?(user)
     savers.include?(user)
@@ -42,5 +44,4 @@ class Project < ApplicationRecord
   def remaining
     funding_goal - donated
   end
-
 end
