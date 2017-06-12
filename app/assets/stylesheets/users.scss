@@ -154,3 +154,19 @@ input.follow-btn {
     }
   }
 }
+
+.user-project-container {
+  display: flex;
+  flex-direction: row;
+  .user-projects {
+    text-align: center;
+    flex: 0 1 50%;
+    h2 {
+
+    }
+    .project-grid {
+      justify-content: center;
+    }
+
+  }
+}

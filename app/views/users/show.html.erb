@@ -24,3 +24,25 @@
     <div class="user_data">Birthdate: <%= @user.birthdate.strftime('%v') %></div>
   </div>
 </div>
+<section class="user-project-container">
+  <div class= "user-projects">
+    <h2> Created by <%= @user.fullname%></h2>
+    <div class='project-grid-container'>
+      <div class='project-grid'>
+        <% @user.projects.each do |project|%>
+          <%= render 'projects/preview', project: project %>
+        <% end%>
+      </div>
+    </div>
+  </div>
+  <div class= "user-projects">
+    <h2> Supported by <%= @user.fullname%></h2>
+    <div class='project-grid-container'>
+      <div class='project-grid'>
+        <% @funded.each do |project|%>
+          <%= render 'projects/preview', project: project %>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</section>

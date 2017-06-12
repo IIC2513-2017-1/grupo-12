@@ -25,6 +25,7 @@ class UsersController < ApplicationController
              else
                'Follow'
              end
+    @funded = funded
   end
 
   def owned
