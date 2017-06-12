@@ -1,30 +1,26 @@
 <% provide(:title, @user.firstname) %>
 
-  <div id="user-pic">
-    <%#= gravatar_for @user, 150 %>
-    <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
+<div id="user-information">
+  <div class="user-board">
+    <div id="user-pic">
+      <%= image_tag @user.avatar.url(:medium), class: "img-circle"%>
+    </div>
+    <div id="user-title">
+      <%= @user.fullname %>
+    </div>
+    <div>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    </div>
+    <div id="user-follow-btn" class="btn" value="<%= @value %>">
+      <%= following_button(@user) %>
+    </div>
   </div>
-  <div id="user-title">
-    <%= @user.fullname %>
-  </div>
-  <div>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </div>
-  <div id="user-follow-btn" class="btn" value="<%= @value %>">
-    <%= following_button(@user) %>
-  </div>
-  <% if !@user.description.blank?%>
+  <div id="user-attributes">
     <div class="user_data">Biography: <%= @user.description %></div>
-  <% else %>
-    <div class="user_data">Biography Not Available</div>
-  <% end %>
-  <div class="user_data">Contact: <%= @user.email %></div>
-  <%# if @user.wallet > 0%>
-    <div class="user_data">Collected from projects: <%= @user.wallet %></div>
-  <%#end%>
-
-  <% if !@user.birthdate.blank?%>
-    <div class="user_data">Birthdate: <%= @user.birthdate %></div>
-  <% end %>
+    <div class="user_data">Contact: <%= mail_to @user.email %></div>
+    <div class="user_data">Collected from projects: <%= number_to_currency(@user.wallet, :precision => 0) %></div>
+    <div class="user_data">Birthdate: <%= @user.birthdate.strftime('%v') %></div>
+  </div>
+</div>

@@ -65,13 +65,13 @@ class UsersController < ApplicationController
 
   def following
     @users = @user.following
-    @title = ("You are following #{@users.count} " + 'user'.pluralize(@users.count)).upcase
+    @title = ("Is following #{@users.count} " + 'user'.pluralize(@users.count)).upcase
     render 'show_follow'
   end
 
   def followers
     @users = @user.followers
-    @title = ("#{@users.count} " + 'user'.pluralize(@users.count) + ' following you').upcase
+    @title = ("Has #{@users.count} " + 'follower'.pluralize(@users.count)).upcase
     render 'show_follow'
   end
 

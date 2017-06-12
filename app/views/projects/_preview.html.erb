@@ -1,28 +1,30 @@
-<div class='project-grid-item'>
-  <h5 class='project-title'>
-    <%= link_to truncate(project.brief, :length => 35, :separator => ' '), project%>
-  </h5>
-  <div class="meter-container">
-  	<span class="meter nostripes">
-      <%percentage = project.percentage%>
-      <% if percentage > 100 %>
-        <% max_width = 100 %>
-      <% else %>
-        <% max_width = percentage %>
-      <% end %>
-		  <span style="width: <%=max_width%>%"><span></span></span>
-	  </span>
-    <span class="meter-percentage"><%= percentage %>%</span>
+<% if !@project.nil? %>
+  <div class='project-grid-item'>
+    <h5 class='project-title'>
+      <%= link_to truncate(project.brief, :length => 35, :separator => ' '), project%>
+    </h5>
+    <div class="meter-container">
+    	<span class="meter nostripes">
+        <%percentage = project.percentage%>
+        <% if percentage > 100 %>
+          <% max_width = 100 %>
+        <% else %>
+          <% max_width = percentage %>
+        <% end %>
+  		  <span style="width: <%=max_width%>%"><span></span></span>
+  	  </span>
+      <span class="meter-percentage"><%= percentage %>%</span>
+    </div>
+    <p class='project-author'>
+      <%= link_to "By " + project.user.fullname, project.user%>
+    </p>
+    <p class='project-desc'>
+      <%= truncate(project.description, :length => 230, :separator => ' ')  %>
+    </p>
+    <% if project.pictures.first.nil? %>
+      <%= image_tag "/default/default_project_#{rand(0..3)}.jpg", class: "preview-img"%>
+    <% else %>
+      <%= image_tag project.pictures.first.image.url(:original), class: "preview-img"%>
+    <% end %>
   </div>
-  <p class='project-author'>
-    <%= link_to "By " + project.user.fullname, project.user%>
-  </p>
-  <p class='project-desc'>
-    <%= truncate(project.description, :length => 230, :separator => ' ')  %>
-  </p>
-  <% if project.pictures.first.nil? %>
-    <%= image_tag "/default/default_project_#{rand(0..3)}.jpg", class: "preview-img"%>
-  <% else %>
-    <%= image_tag project.pictures.first.image.url(:original), class: "preview-img"%>
-  <% end %>
-</div>
+<% end %>

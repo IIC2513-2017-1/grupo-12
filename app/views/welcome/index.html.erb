@@ -2,12 +2,14 @@
 <% provide(:title, 'Home') %>
 <h1 class="page-title" id="welcome-msg">WELCOME TO </h1> <h1 class=brand>DreamFunder</h1>
 <div class="project-grid-container" id='most-valuable'>
-  <div class ="project-grid welcome">
-    <h1 class="page-title">Most followed</h1>
-    <%= render 'projects/preview', project: @pmax %>
-  </div>
-  <div class ="project-grid welcome">
-    <h1 class="page-title">Investor's favourite</h1>
-    <%= render 'projects/preview', project: @smax %>
-  </div>
+  <% if !@pmax.nil? && !@pmax.nil? %>
+    <div class ="project-grid welcome">
+      <h1 class="page-title">Most followed</h1>
+      <%= render 'projects/preview', project: @pmax %>
+    </div>
+    <div class ="project-grid welcome">
+      <h1 class="page-title">Investor's favourite</h1>
+      <%= render 'projects/preview', project: @smax %>
+    </div>
+  <% end %>
 </div>

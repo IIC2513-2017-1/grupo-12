@@ -56,6 +56,14 @@ class User < ApplicationRecord
     name.split.map(&:capitalize).join(' ')
   end
 
+  def description
+    self[:description].presence || 'Not Available.'
+  end
+
+  def birthdate
+    self[:birthdate].presence || 'Not available.'
+  end
+
   # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

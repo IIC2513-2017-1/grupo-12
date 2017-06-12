@@ -134,3 +134,23 @@ input.follow-btn {
     padding: 5px 0px;
     cursor: pointer;
 }
+
+
+// PROFILE (SHOW)
+
+#user-information {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  .user-board {
+    justify-content: center;
+    align-items: center;
+    #user-pic {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
