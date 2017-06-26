@@ -43,7 +43,7 @@ gem 'json', '~> 1.8', '>= 1.8.3'
 # Use paperclip for file management
 gem 'paperclip', '~> 5.0.0'
 
-gem 'fog-google'
+gem 'fog'
 
 gem "figaro"
 
