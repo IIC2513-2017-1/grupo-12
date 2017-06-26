@@ -2,16 +2,17 @@ srand(100)
 
 # USER CREATION
 
-User.create!(firstname: 'Vicente', lastname: 'Fuenzalida',
+u = User.create!(firstname: 'Vicente', lastname: 'Fuenzalida',
              email: 'vjfuenzalida@uc.cl', birthdate: Date.parse('13-10-1994'),
              password: '123123', password_confirmation: '123123',
              activated: true, activated_at: Time.zone.now)
 
-User.create(firstname: 'Juan Pablo', lastname: 'Jofré', email: 'jbjofre@uc.cl',
+uu = User.create(firstname: 'Juan Pablo', lastname: 'Jofré', email: 'jbjofre@uc.cl',
             birthdate: Date.parse('28-5-1994'),
             password: '123123', password_confirmation: '123123',
             activated: true, activated_at: Time.zone.now)
-
+u.generate_token_and_save
+uu.generate_token_and_save
 # Total: 27 users
 
 # CATEGORIES

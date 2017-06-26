@@ -143,6 +143,13 @@ class User < ApplicationRecord
     update_attribute(:wallet, actual)
   end
 
+  def generate_token_and_save
+    loop do
+      self.token = SecureRandom.hex(64)
+      break if save
+    end
+  end
+
   private
 
   def create_activation_digest
