@@ -55,7 +55,7 @@
     text-align: left;
   }
 
-  p.project-author{
+  p.project-author, p.project-donation{
     text-align: left;
     padding: 4px 8px;
     margin: 0;
@@ -64,13 +64,23 @@
       color: $licorice;
     }
   }
+
+  p.project-donation{
+    color: $dark-red;
+    background-color: rgba(#e0e0e0, 0.69);
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+
   p.project-desc {
     color: $charleston-grey;
     font-size: 13px;
     padding: 8px;
     margin: 0;
+    width: 100%;
     text-align: justify;
-    height: 52%;
+    height: auto;
+    max-height: 52%;
     background-color: rgba(#e0e0e0, 0.69);
     border-radius: 5px;
   }

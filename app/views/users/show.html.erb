@@ -44,7 +44,7 @@
       <div class='project-grid-container'>
         <div class='project-grid'>
           <% @funded.each do |project|%>
-            <%= render 'projects/preview', project: project %>
+            <%= render 'projects/preview', project: project, donated: @user.amount_donated_for(project) %>
           <% end%>
         </div>
       </div>

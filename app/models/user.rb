@@ -65,12 +65,9 @@ class User < ApplicationRecord
   end
 
   def bday
-    birthdate.presence ? @user.birthdate.strftime('%v') : 'Not available.'
-  end
+    birthdate.presence ? birthdate.strftime('%v') : 'Not available.'
+  end # Returns the hash digest of the given string.
 
-
-
-  # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -96,6 +93,10 @@ class User < ApplicationRecord
   def save_project(project)
     saving << project unless saving.include? project
     active_project_relationships.find_by(saved: project)
+  end
+
+  def amount_donated_for(project)
+    donations.where(project: project).sum(:amount)
   end
 
   def forget_project(project)

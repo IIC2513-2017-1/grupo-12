@@ -17,6 +17,12 @@
   <p class='project-author'>
     <%= link_to "By " + project.user.fullname, project.user%>
   </p>
+  <% if defined? donated %>
+    <p class='project-donation'>
+      You have donated <%= number_to_currency(donated, :precision => 0) %>
+      to this project.
+    </p>
+  <% end %>
   <p class='project-desc'>
     <%= truncate(project.description, :length => 230, :separator => ' ')  %>
   </p>
