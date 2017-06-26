@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DonationsController < ApplicationController
   include Secured
   before_action :is_logged_in?, only: %i[new create]
@@ -18,9 +20,16 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    @project = @donation.project
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to project_path(@donation.project), notice: 'Donation was successfully created.' }
+        if @project.remaining.negative? && !@project.achieved
+          @project.update achieved: true
+          User.donors_of(@project).each do |user|
+            NotificationMailer.goal_reached(@project, user).deliver_now
+          end
+        end
+        format.html { redirect_to project_path(@project), notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: @donation }
       else
         format.html { render :new }
@@ -41,5 +50,4 @@ class DonationsController < ApplicationController
   def donation_params
     params.require(:donation).permit(:project_id, :amount).merge(user: current_user)
   end
-
 end

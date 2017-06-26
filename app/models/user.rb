@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   attr_accessor :activation_token, :reset_token
   before_save { email.downcase! }
@@ -49,6 +51,8 @@ class User < ApplicationRecord
                     default_url: '/default/default_avatar_:style.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   validates_attachment_file_name :avatar, matches: [/png\z/, /jpe?g\z/]
+
+  scope :donors_of, ->(project) { joins(:donations).where(donations: { project: project }).distinct }
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname

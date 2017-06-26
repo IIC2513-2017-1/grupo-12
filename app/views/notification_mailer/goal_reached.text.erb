@@ -1,0 +1,6 @@
+Dreamfunder
+
+Dear <%= @user.fullname %>, the project called "<%= @project.brief %>" has reached
+it's goal, with a total of <%= number_to_currency(@project.donated, :precision => 0) %> collected.
+
+Visit this <%= link_to "page", project_url(@project) %> to check the project status!
