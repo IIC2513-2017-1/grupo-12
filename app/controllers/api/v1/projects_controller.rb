@@ -1,16 +1,22 @@
+# frozen_string_literal: true
+
 module Api::V1
   class ProjectsController < ApiController
-    before_action: :authenticate
+    before_action :authenticate
 
     def index
       @projects = Project.all
     end
 
     def create
-      #@project = Project.new(project_params)
+      # @project = Project.new(project_params)
+      puts project_params
       @project = @current_user.projects.build(project_params)
-      return if @project.save
-      render json: { errors: @project.errors }, status: :unprocessable_entity
+      if @project.save
+        render json: { status: 200, link: project_url(@project) }
+      else
+        render json: { errors: @project.errors }, status: :unprocessable_entity
+      end
     end
 
     private

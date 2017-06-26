@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api::V1
   class ApiController < ActionController::API
     include ActionController::HttpAuthentication::Token::ControllerMethods
@@ -9,6 +11,5 @@ module Api::V1
         @current_user = User.find_by(token: token)
       end
     end
-  end
   end
 end
