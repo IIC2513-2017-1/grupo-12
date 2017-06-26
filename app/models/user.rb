@@ -64,9 +64,11 @@ class User < ApplicationRecord
     self[:description].presence || 'Not Available.'
   end
 
-  def birthdate
-    self[:birthdate].presence || 'Not available.'
+  def bday
+    birthdate.presence ? @user.birthdate.strftime('%v') : 'Not available.'
   end
+
+
 
   # Returns the hash digest of the given string.
   def self.digest(string)
