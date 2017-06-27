@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :projects, only: [:index, :create]
       post '/telegram', to: 'telegram#handle'
+      get '/telegram', to: 'telegram#activate'
     end
   end
 

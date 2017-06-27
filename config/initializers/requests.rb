@@ -13,11 +13,12 @@ class Telegram
   def send_message(chat_id, text)
     api_url = @path + '/sendMessage'
     data = { "chat_id": chat_id, "text": text }
-    req = @client.request_async(:post,
-                                api_url,
-                                query: nil,
-                                body: data,
-                                extheader: { "content_type": 'application/json' })
+    # NEED TO CHANGE IT FOR ASYNCHRONOUS REQUESTS!!!!
+    req = @client.request(:post,
+                          api_url,
+                          query: nil,
+                          body: data,
+                          extheader: { "content_type": 'application/json' })
     # loop do
     # break if req.finished?
     # print '.'
