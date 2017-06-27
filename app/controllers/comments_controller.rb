@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   include Secured
   before_action :set_comment, only: %i[show edit update destroy]
@@ -28,8 +30,19 @@ class CommentsController < ApplicationController
     @project = @comment.project
     respond_to do |format|
       if @comment.save
+        text = "The project '#{@project.brief}' has a new comment on it: \n"
+        text += "#{@comment.user.fullname}: '#{@comment.content}'\n"
+        text += "Visit it here to know more: #{project_url(@project)}"
+        registry = []
+        User.donors_of(@project).with_telegram.each do |user|
+          BOT.send_message(user.chat_id, text)
+          registry << user.id
+        end
+        @project.savers.with_telegram.each do |user|
+          BOT.send_message(user.chat_id, text) unless registry.include?(user.id)
+        end
         format.html { redirect_to project_path(@comment.project, anchor: 'comments-section'), notice: 'Comment was successfully created.' }
-        format.js { render "new_comment.js.erb"}
+        format.js { render 'new_comment.js.erb' }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

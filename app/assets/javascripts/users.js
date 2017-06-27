@@ -21,3 +21,18 @@ $(document).on('turbolinks:load', function () {
       console.log(data);
     });
 });
+
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  var $button = $(element).attr("value");
+  $temp.val($button).select();
+  document.execCommand("copy");
+  $temp.remove();
+  $(element).text("Copied to clipboard!");
+  $(element).css("backgroundColor", "#63a232");
+  setTimeout(function() {
+    $(element).text("Copy Token");
+    $(element).css("backgroundColor", "rgb(85, 85, 85)");
+  }, 500);
+}

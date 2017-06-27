@@ -25,5 +25,26 @@ Rails.application.routes.draw do
   resources :project_relationships, only: %i[create destroy]
   resources :comments, only: %i[index new create show]
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [:index, :create, :show] do
+        member do
+          post :save
+          delete :forget
+        end
+      end
+      resources :users, only: [:show, :create] do
+        member do
+          patch :update
+        end
+      end
+      resources :donations, only: [:create]
+      resources :comments, only: [:create]
+      post '/telegram', to: 'telegram#handle'
+      get '/telegram', to: 'telegram#activate'
+    end
+  end
+
   get '*path' => redirect('/')
+
 end

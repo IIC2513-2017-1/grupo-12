@@ -53,6 +53,7 @@ class User < ApplicationRecord
   validates_attachment_file_name :avatar, matches: [/png\z/, /jpe?g\z/]
 
   scope :donors_of, ->(project) { joins(:donations).where(donations: { project: project }).distinct }
+  scope :with_telegram, -> { where.not(chat_id: nil) }
 
   # Returns Full name in the format: 'Firstname Lastname'
   def fullname
@@ -148,6 +149,13 @@ class User < ApplicationRecord
   def increase_wallet(wallet2)
     actual = wallet + wallet2
     update_attribute(:wallet, actual)
+  end
+
+  def generate_token_and_save
+    loop do
+      self.token = SecureRandom.hex(64)
+      break if save
+    end
   end
 
   private

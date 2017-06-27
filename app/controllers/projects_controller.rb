@@ -128,6 +128,11 @@ class ProjectsController < ApplicationController
     relation = current_user.save_project(@project)
     followers = @project.savers.count
     if relation
+      unless @project.user.chat_id.nil?
+        text = "#{current_user.fullname} bookmarked your project '#{@project.brief}'!\n"
+        text += "Check his/her profile here: #{user_url(current_user)}"
+        BOT.send_message(@project.user.chat_id, text)
+      end
       # @user = current_user
       # @comments = @project.comments
       # @donated = @project.donations.map(&:amount).inject(0) { |sum, x| sum + x }

@@ -1,3 +1,5 @@
+@import "colors";
+
 .project-grid-container#most-valuable {
   display: flex;
   justify-content: center;
@@ -32,4 +34,8 @@
     text-align: center;
   }
 
+}
+
+p.news {
+  color: $deep-blue;
 }
