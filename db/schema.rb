@@ -112,7 +112,9 @@ ActiveRecord::Schema.define(version: 20170626100159) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.integer  "wallet",              default: 0
+    t.string   "token"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
 
   add_foreign_key "comments", "projects"
