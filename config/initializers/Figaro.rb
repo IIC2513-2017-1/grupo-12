@@ -1,1 +1,1 @@
-Figaro.require_keys('GMAIL_USERNAME', 'GMAIL_PASSWORD', 'BOT_TOKEN', 'APP_URL')
+Figaro.require_keys('GMAIL_USERNAME', 'GMAIL_PASSWORD', 'BOT_TOKEN')

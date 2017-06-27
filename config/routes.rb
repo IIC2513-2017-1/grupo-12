@@ -25,11 +25,10 @@ Rails.application.routes.draw do
   resources :project_relationships, only: %i[create destroy]
   resources :comments, only: %i[index new create show]
 
-  post '/telegram', to: 'telegram#handle'
-
   namespace :api do
     namespace :v1 do
       resources :projects, only: [:index, :create]
+      post '/telegram', to: 'telegram#handle'
     end
   end
 

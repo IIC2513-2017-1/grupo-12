@@ -5,7 +5,7 @@ class Telegram
   def initialize
     @path = "https://api.telegram.org/bot#{ENV['BOT_TOKEN']}"
     @client = HTTPClient.new
-    @url = 'https://dreamfunder.herokuapp.com/'
+    @url = 'https://dreamfunder.herokuapp.com/api/v1/'
     @hook = 'telegram'
     set_webhook
   end
