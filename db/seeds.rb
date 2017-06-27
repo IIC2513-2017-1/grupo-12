@@ -2,7 +2,7 @@ srand(100)
 
 # USER CREATION
 
-u = User.create!(firstname: 'Vicente', lastname: 'Fuenzalida',
+u = User.create(firstname: 'Vicente', lastname: 'Fuenzalida',
              email: 'vjfuenzalida@uc.cl', birthdate: Date.parse('13-10-1994'),
              password: '123123', password_confirmation: '123123',
              activated: true, activated_at: Time.zone.now)
