@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       end
       resources :donations, only: [:create]
       resources :comments, only: [:create]
+      post '/telegram', to: 'telegram#handle'
+      get '/telegram', to: 'telegram#activate'
     end
   end
 

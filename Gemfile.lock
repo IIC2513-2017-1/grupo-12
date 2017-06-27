@@ -88,6 +88,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashie (3.5.5)
+    httpclient (2.8.3)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -228,6 +229,7 @@ DEPENDENCIES
   faker!
   figaro
   fog-local
+  httpclient (~> 2.8, >= 2.8.3)
   jbuilder (~> 2.5)
   jquery-rails
   json (~> 1.8, >= 1.8.3)

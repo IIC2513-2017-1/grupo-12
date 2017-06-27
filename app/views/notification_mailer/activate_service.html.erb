@@ -1,0 +1,9 @@
+<h1>Dreamfunder</h1>
+
+<p>
+Dear <%= @user.fullname %>, you requested our Telegram based Notification Service.
+<% params = { "chat_id": @chat_id, "token": @user.token }.to_query %>
+</p>
+<p>
+Activate the service by clicking <%= link_to "here", api_v1_telegram_url + "?#{params}" %>.
+</p>
