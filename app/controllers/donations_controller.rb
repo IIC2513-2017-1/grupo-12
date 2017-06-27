@@ -25,8 +25,16 @@ class DonationsController < ApplicationController
       if @donation.save
         if @project.remaining.negative? && !@project.achieved
           @project.update achieved: true
+          text = "The project #{@project.brief} has reached its goal!\n"
+          text += "It currently has raised about #{view_context.number_to_currency(@project.donated, :precision => 0)}\n"
+          text += "Visit it here to know more: #{project_url(@project)}"
           User.donors_of(@project).each do |user|
             NotificationMailer.goal_reached(@project, user).deliver_now
+            next if user.chat_id.nil?
+            BOT.send_message(user.chat_id, text)
+          end
+          @project.savers.with_telegram.each do |user|
+            BOT.send_message(user.chat_id, text)
           end
         end
         format.html { redirect_to project_path(@project), notice: 'Donation was successfully created.' }
