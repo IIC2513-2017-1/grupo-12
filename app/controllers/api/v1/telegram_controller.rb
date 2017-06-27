@@ -2,7 +2,7 @@
 
 module Api::V1
   class TelegramController < ApiController
-    before_action :authenticate
+    skip_before_action :verify_authenticity_token
     def handle
       puts params
       puts "HERE COMES THE ID"
