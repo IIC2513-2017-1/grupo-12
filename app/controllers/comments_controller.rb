@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         text = "The project '#{@project.brief}' has a new comment on it: \n"
-        text += "#{@comment.user.fullname}: '#{@comment.content}'\n"
+        text += "#{@comment.user.fullname}: '#{@comment.content.strip()}'\n"
         text += "Visit it here to know more: #{project_url(@project)}"
         registry = []
         User.donors_of(@project).with_telegram.each do |user|

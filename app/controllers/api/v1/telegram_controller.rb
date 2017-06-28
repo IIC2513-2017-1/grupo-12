@@ -10,10 +10,14 @@ module Api::V1
       if params[:token] && params[:chat_id]
         token = params[:token]
         chat_id = params[:chat_id]
-        current_user = User.find_by(token: token)
-        current_user.update_attribute(:chat_id, chat_id.to_i)
+        user = User.find_by(token: token)
+        user.update_attribute(:chat_id, chat_id.to_i)
         BOT.send_message(chat_id, 'Notifications are now enabled!')
-        render json: { status: 200, link: root_url }
+        bot.client.request(:get, 'https://dreamfunder-bot.herokuapp.com/validations',
+                           query: { "chat_id": chat_id, "token": user.token },
+                           body: nil,
+                           extheader: { "content_type": 'application/json' })
+        redirect_to root_url
       end
     end
 
