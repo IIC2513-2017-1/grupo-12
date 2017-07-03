@@ -34,6 +34,9 @@ class CommentsController < ApplicationController
         text += "#{@comment.user.fullname}: '#{@comment.content.strip()}'\n"
         text += "Visit it here to know more: #{project_url(@project)}"
         registry = []
+        if !@project.user.chat_id.nil?
+          BOT.send_message(@project.user.chat_id, text)
+        end
         User.donors_of(@project).with_telegram.each do |user|
           BOT.send_message(user.chat_id, text)
           registry << user.id

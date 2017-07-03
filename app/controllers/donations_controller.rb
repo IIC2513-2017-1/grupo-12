@@ -28,6 +28,9 @@ class DonationsController < ApplicationController
           text = "The project #{@project.brief} has reached its goal!\n"
           text += "It currently has raised about #{view_context.number_to_currency(@project.donated, :precision => 0)}\n"
           text += "Visit it here to know more: #{project_url(@project)}"
+          if !@project.user.chat_id.nil?
+            BOT.send_message(@project.user.chat_id, text)
+          end
           User.donors_of(@project).each do |user|
             NotificationMailer.goal_reached(@project, user).deliver_now
             next if user.chat_id.nil?
