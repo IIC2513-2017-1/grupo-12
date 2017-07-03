@@ -29,10 +29,11 @@ cats = Category.count
   birthday = Faker::Date.birthday(18, 45)
   email = "mail-#{n + 1}@mail.com"
   password = '123123'
-  User.create!(firstname: firstname, lastname: lastname, email: email,
+  n = User.create!(firstname: firstname, lastname: lastname, email: email,
                password: password, birthdate: birthday,
                password_confirmation: password, activated: true,
                activated_at: Time.zone.now)
+  n.generate_token_and_save
 end
 
 # PROJECT CREATION
