@@ -1,0 +1,1950 @@
+/* line 7, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+section.comments {
+  overflow: hidden;
+  width: 600px;
+}
+
+/* line 12, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.comment-item > img {
+  height: 35px;
+  width: 35px;
+  vertical-align: middle;
+  margin-bottom: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 50%;
+  border-color: #2b2c28;
+}
+
+/* line 24, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+div.comment-item > li {
+  color: #333333;
+  height: 100px;
+  position: relative;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 598px;
+  perspective-origin: 299px 71px;
+  transform-origin: 299px 71px;
+  border-top: 0px none #333333;
+  border-right: 0px none #333333;
+  border-left: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 1px;
+  outline: #333333 none 0px;
+  padding: 10px 0px;
+}
+
+/* line 43, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.comment-main {
+  color: #333333;
+  height: 69px;
+  position: relative;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 598px;
+  perspective-origin: 299px 34.5px;
+  transform-origin: 299px 34.5px;
+  border: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 0px 0px 10px;
+  outline: #333333 none 0px;
+}
+
+/*#DIV_13*/
+/* line 60, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+a.profile-pic {
+  color: #199adc;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none solid #199adc;
+  text-rendering: optimizelegibility;
+  border: 0px none #199adc;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #199adc none 0px;
+}
+
+/*#A_14*/
+/* line 72, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+img.profile-pic {
+  color: #199adc;
+  cursor: pointer;
+  display: block;
+  height: 70px;
+  left: 0px;
+  position: absolute;
+  text-align: left;
+  text-decoration: none solid #199adc;
+  text-rendering: optimizelegibility;
+  top: 0px;
+  width: 70px;
+  perspective-origin: 35px 35px;
+  transform-origin: 35px 35px;
+  border: 0px none #199adc;
+  border-radius: 50%;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #199adc none 0px;
+}
+
+/*#IMG_15*/
+/* line 93, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.comment-square {
+  box-shadow: #e6e6e6 3px 3px 3px 0px;
+  clear: both;
+  color: #333333;
+  float: right;
+  height: 75px;
+  position: relative;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 505px;
+  perspective-origin: 253.5px 29.5px;
+  transform-origin: 253.5px 29.5px;
+  background: white none repeat scroll 0% 0%/auto padding-box border-box;
+  border: 1px solid #cccccc;
+  border-radius: 3px 3px 3px 3px;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 10px 0px 0px;
+  outline: #333333 none 0px;
+}
+
+/*#DIV_16*/
+/* line 115, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.comment-content {
+  color: #333333;
+  height: 41px;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 481px;
+  perspective-origin: 252.5px 28.5px;
+  transform-origin: 252.5px 28.5px;
+  border: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #333333 none 0px;
+  padding: 8px 12px;
+}
+
+/* line 131, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.square-arrow {
+  background-position: -38px -7659px;
+  color: #333333;
+  display: block;
+  height: 15px;
+  left: -10px;
+  position: absolute;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  top: 10px;
+  width: 10px;
+  perspective-origin: 5px 7.5px;
+  transform-origin: 5px 7.5px;
+  background: transparent url(https://cdn2.f-cdn.com/img/sprite-icons.png?46&amp;v=d5abe806b7a1349737961757737b963a&amp;m=2) repeat scroll -38px -7659px/auto padding-box border-box;
+  border: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #333333 none 0px;
+}
+
+/*#SPAN_18*/
+/* line 152, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+p.comment-author {
+  color: #333333;
+  float: left;
+  height: 16px;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 102px;
+  perspective-origin: 51px 8px;
+  transform-origin: 51px 8px;
+  border: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 0px;
+  outline: #333333 none 0px;
+}
+
+/*#P_19*/
+/* line 169, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+p.comment-author > a {
+  color: #199adc;
+  cursor: pointer;
+  display: block;
+  float: left;
+  height: 16px;
+  text-align: left;
+  text-decoration: none solid #199adc;
+  text-rendering: optimizelegibility;
+  width: 174px;
+  perspective-origin: 37px 8px;
+  transform-origin: 37px 8px;
+  border: 0px none #199adc;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 0px 10px 0px 0px;
+  outline: #199adc none 0px;
+}
+
+/* line 188, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+p.comment-date {
+  color: #888888;
+  float: right;
+  height: 16px;
+  text-align: right;
+  text-decoration: none solid #888888;
+  text-rendering: optimizelegibility;
+  width: 150px;
+  perspective-origin: 39.5px 8px;
+  transform-origin: 39.5px 8px;
+  border: 0px none #888888;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 0px;
+  outline: #888888 none 0px;
+}
+
+/*#P_22*/
+/* line 205, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+.spacer {
+  clear: both;
+  color: #333333;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 481px;
+  perspective-origin: 240.5px 5px;
+  transform-origin: 240.5px 5px;
+  border: 0px none #333333;
+  font: normal normal normal 13px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #333333 none 0px;
+  padding: 0px 0px 10px;
+}
+
+/*#DIV_23*/
+/* line 221, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+p.content-body {
+  color: #333333;
+  height: 15px;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  width: 481px;
+  perspective-origin: 240.5px 7.5px;
+  transform-origin: 240.5px 7.5px;
+  border: 0px none #333333;
+  font: italic normal normal 12px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  margin: 0px;
+  outline: #333333 none 0px;
+}
+
+/* line 237, /home/vicente/web/grupo-12/app/assets/stylesheets/comments.scss */
+p.content-body > span {
+  color: #333333;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-decoration: none solid #333333;
+  text-rendering: optimizelegibility;
+  word-wrap: break-word;
+  border: 0px none #333333;
+  font: italic normal normal 12px/normal Arial, Verdana, sans-serif;
+  list-style: none outside none;
+  outline: #333333 none 0px;
+}
+/* line 4, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+html {
+  margin: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* line 10, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* line 16, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  background-color: white;
+  min-height: 100%;
+}
+/* line 24, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+body #welcome {
+  font-family: 'Sarala', sans-serif;
+}
+/* line 27, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+body h1 {
+  font-size: 50px;
+  color: #d44d30;
+  text-align: center;
+}
+
+/* line 34, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+header {
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  z-index: 5;
+}
+
+/* line 42, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+main {
+  align-self: center;
+  padding-top: 70px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  min-height: 100%;
+}
+
+/* line 52, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.flexbox-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  /* works with row or column */
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* line 64, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  width: 100%;
+  background-color: #b9b9b9;
+  text-align: center;
+  margin-top: 40px;
+}
+/* line 74, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+footer p {
+  margin: 3px;
+  font-size: 12px;
+}
+
+/* line 80, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+h1.page-title {
+  color: #ff6f69;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-family: 'Lato';
+  margin-top: 0;
+}
+/* line 86, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+h1.page-title a {
+  text-decoration: none;
+  color: #d44d30;
+}
+
+/* line 92, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+h1.brand {
+  font-family: 'Lobster';
+  font-size: 100px;
+  font-weight: normal;
+  margin: 20px 0;
+  color: #183c58;
+}
+
+/* line 100, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* line 108, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.simple-btn {
+  opacity: .99;
+  background: #555555;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0px 1px 6px rgba(0, 125, 255, 0.5);
+  border: 1px solid #4d4e4d;
+  border-radius: 4px;
+  color: #eee;
+  width: 240px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  height: 25px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  text-align: center;
+  line-height: 25px;
+}
+/* line 125, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.simple-btn a {
+  margin: auto;
+  text-decoration: none;
+  color: #eee;
+}
+
+/* line 132, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.simple-btn:hover {
+  background: #333333;
+  transform: scaleX(0.97);
+  border: 1px solid #313432;
+  border-radius: 3px;
+  color: #eee;
+  -webkit-transition: all 0.40s ease-out;
+  transition: all 0.40s ease-out;
+}
+/* line 142, /home/vicente/web/grupo-12/app/assets/stylesheets/commons.scss */
+.simple-btn:hover a {
+  transform: scaleX(1.1);
+}
+/* forms */
+/* line 5, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.form-container {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 12, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.title {
+  position: relative;
+  font-family: 'Myriad Pro','Helvetica Neue', Helvetica;
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.5);
+  color: #444;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* line 23, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form {
+  background: none;
+  margin: 20px auto 0;
+  padding: 10px;
+}
+
+/* line 32, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+#login-form {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 39, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input {
+  display: block;
+  font-size: 14px;
+  width: 240px;
+  margin: 10px auto;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+/* line 50, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input {
+  opacity: 0.5;
+}
+
+/* line 54, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input:hover, input:focus {
+  color: #3270a2;
+  border: 1px solid #3270a2;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.25), inset 0px 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* line 61, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input[type="email"]:focus, input[type="password"]:focus {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0px 1px 15px rgba(0, 125, 255, 0.5);
+  border: 1px solid #3270a2;
+  outline: none;
+}
+
+/* line 69, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.actions {
+  width: 260px;
+}
+
+/* line 74, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input[type="submit"].create-btn, .user-btn {
+  opacity: .99;
+  background: #3270a2;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0px 1px 6px rgba(0, 125, 255, 0.5);
+  border: 1px solid #0a5378;
+  border-radius: 4px;
+  color: #eee;
+  cursor: pointer;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* line 84, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input[type="submit"].create-btn:hover, .user-btn:hover {
+  background: #183c58;
+  width: 230px;
+  border: 1px solid #082e41;
+  border-radius: 3px;
+  color: #eee;
+  -webkit-transition: all 0.40s ease-out;
+  transition: all 0.40s ease-out;
+}
+
+/* line 97, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_user div.group-field, form.edit_user div.group-field {
+  display: flex;
+  align-items: center;
+}
+/* line 100, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_user div.group-field :first-child, form.edit_user div.group-field :first-child {
+  margin-right: 10px;
+}
+
+/* line 106, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input#user_firstname, input#user_lastname, input#user_password, input#user_password_confirmation {
+  width: 161px;
+}
+
+/* line 110, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input#user_email, input#user_description {
+  width: 332px;
+}
+
+/* line 114, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input#user_description {
+  height: 40px;
+}
+
+/* line 119, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form.new_user, form.edit_user {
+  width: 350px;
+}
+/* line 121, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form.new_user div, form.edit_user div {
+  width: 100%;
+}
+
+/* line 126, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+p#new-user {
+  text-align: center;
+}
+/* line 128, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+p#new-user a {
+  text-decoration: none;
+  color: #183c58;
+}
+
+/* line 137, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+h2#comments-section {
+  padding-left: 10px;
+}
+
+/* line 141, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.comment-form {
+  margin-right: 10px;
+}
+
+/* line 145, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_comment {
+  background: none;
+  margin: 20px auto 0;
+  padding: 10px 0px;
+  text-align: right;
+}
+/* line 150, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_comment div.field {
+  margin-right: 10px;
+}
+/* line 152, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_comment div.field textarea {
+  resize: none;
+  height: 70px;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+/* line 166, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.comment-actions {
+  width: 100%;
+  margin: 0;
+  height: 60px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+/* line 174, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input.btn[value="Post"] {
+  width: 100px;
+  font-size: 18px;
+  padding: 5px 0;
+  height: 35px;
+}
+
+/* line 180, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input.btn[value="Post"]:hover {
+  border: 0;
+  width: 120px;
+}
+
+/* line 188, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_project, form.edit_project {
+  background: none;
+  margin: 20px auto 0;
+  padding: 10px 0px;
+  text-align: left;
+  width: 40%;
+}
+/* line 194, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_project div, form.edit_project div {
+  width: 100%;
+}
+/* line 197, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_project div.field, form.edit_project div.field {
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+/* line 200, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+form#new_project div.field label, form.edit_project div.field label {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* line 206, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input#project_brief, #project_description, #project_funding_goal {
+  width: 100%;
+}
+
+/* line 209, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+select#project_category_ids {
+  width: 100%;
+}
+
+/* line 213, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.date-field select {
+  margin-left: 5px;
+}
+
+/* line 217, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+#project_description {
+  resize: none;
+  height: 70px;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  color: #2b2c28;
+  padding: 10px 8px 10px 8px;
+  border-radius: 5px;
+  opacity: 0.5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid #666;
+}
+
+/* line 232, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+#new_project div.group-field, .edit_project div.group-field {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+/* line 237, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+#new_project div.group-field select, .edit_project div.group-field select {
+  height: 41px;
+  margin: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+  background-color: white;
+}
+
+/* line 249, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.category-field {
+  margin-right: 30px;
+}
+
+/* line 253, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.category-select {
+  display: flex;
+  height: 61px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-direction: column;
+  border-style: none;
+}
+/* line 261, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.category-select .category-option {
+  display: block;
+  width: 150px;
+  height: 60px;
+  padding: 10px 0;
+  max-width: 180px;
+}
+/* line 267, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.category-select .category-option input {
+  display: inline;
+  text-align: left;
+  width: 15%;
+  position: relative;
+}
+/* line 273, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.category-select .category-option label {
+  text-align: left;
+  position: relative;
+  display: inline;
+  width: 80%;
+  vertical-align: middle;
+}
+
+/* line 284, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.date-field .date-select {
+  display: flex;
+  width: auto;
+  flex-direction: row;
+}
+/* line 288, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.date-field .date-select select#project_funding_duration_3i {
+  flex: 1 0 25%;
+}
+/* line 291, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.date-field .date-select select#project_funding_duration_2i {
+  flex: 3 0 45%;
+}
+/* line 294, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.date-field .date-select select#project_funding_duration_1i {
+  flex: 2 0 30%;
+}
+
+/* line 299, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.field-title {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+/* line 304, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 310, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+div.actions > .delete-btn {
+  text-align: center;
+  margin-top: 100px;
+  width: 30%;
+  height: 36px;
+  opacity: .99;
+  background: #aa3631;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0px 1px 6px rgba(0, 125, 255, 0.5);
+  border: 1px solid #600707;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* line 323, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+.delete-btn > a {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 14px;
+  padding: 10px 0;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  color: #fcfcfc;
+  text-decoration: none;
+  line-height: 16px;
+}
+
+/* line 336, /home/vicente/web/grupo-12/app/assets/stylesheets/forms.scss */
+input[type="file"] {
+  width: 100%;
+  text-align: center;
+}
+/* Reset ----------- */
+/* line 4, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 10, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 13, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+img {
+  border: 0;
+}
+
+/* line 17, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.left {
+  float: left;
+}
+
+/* line 20, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.right {
+  float: right;
+}
+
+/* line 23, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 28, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.pointer {
+  cursor: pointer;
+}
+
+/* line 31, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* line 37, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.pad {
+  padding: 1em;
+}
+
+/* Slider ----------- */
+/* line 43, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* line 50, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap img {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 53, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap img .wide {
+  height: auto;
+  width: 100%;
+}
+/* line 57, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap img .tall {
+  width: auto;
+  height: 100%;
+}
+
+/* line 62, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider {
+  width: 9999em;
+  position: relative;
+  left: 0px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 70, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slide {
+  position: relative;
+  height: 100%;
+  background: #fcfcfc;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* line 79, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap .arrow {
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  padding: .5em 1em;
+  color: #2b2c28;
+  margin: 1em;
+  -webkit-transition: all .3s ease;
+  display: none;
+}
+
+/* line 91, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s ease;
+}
+
+/* line 95, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.a-right {
+  right: 0;
+}
+
+/* line 98, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap > ul {
+  position: absolute;
+  z-index: 2;
+  bottom: 0%;
+  left: 45%;
+}
+
+/* line 104, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap > ul li {
+  float: left;
+  width: 15px;
+  height: 15px;
+  padding: 1px;
+  margin: 0 .5em;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+}
+
+/* line 115, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.slider-wrap > ul li:hover {
+  -webkit-transition: all .3s ease;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 119, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.circle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  z-index: 2;
+  -webkit-transition: all .3s ease;
+}
+
+/* line 128, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+.circle:hover {
+  -webkit-transition: all .3s ease;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Smartphones ----------- */
+@media only screen and (max-width: 30em) {
+  /* line 135, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+  .wrapper {
+    width: 95%;
+  }
+
+  /* line 138, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+  img {
+    max-width: 100%;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 62em) {
+  /* line 145, /home/vicente/web/grupo-12/app/assets/stylesheets/gallery.scss */
+  .wrapper {
+    width: 100%;
+  }
+}
+/* line 3, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container {
+  background-color: #2b2c28;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 8, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  align-items: center;
+  vertical-align: middle;
+  height: 100%;
+}
+/* line 17, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  height: 100%;
+  text-align: center;
+  float: left;
+}
+/* line 27, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li a {
+  color: white;
+  padding-right: 8px;
+  padding-left: 10px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  line-height: 50px;
+}
+/* line 38, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li:hover:not(.active) {
+  background-color: #131515;
+}
+/* line 42, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.active {
+  background-color: #ffcc5c;
+}
+/* line 45, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.active a {
+  color: #2b2c28;
+}
+/* line 50, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown {
+  height: 50px;
+}
+/* line 53, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* line 57, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown span {
+  padding-right: 8px;
+  padding-left: 10px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  line-height: 50px;
+}
+/* line 66, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown span:hover {
+  cursor: pointer;
+}
+/* line 71, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2b2c28;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* line 80, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown .dropdown-content a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+/* line 84, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar li.dropdown .dropdown-content a:hover {
+  background-color: #131515;
+}
+/* line 94, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+/* line 103, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li {
+  padding: 0 8px;
+}
+/* line 107, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown {
+  max-width: 250px;
+  display: block;
+}
+/* line 111, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* line 116, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown a {
+  padding-right: 16px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* line 124, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown a img {
+  vertical-align: middle;
+  height: 40px;
+}
+/* line 129, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown a .navbar-user {
+  margin-left: 5px;
+}
+/* line 134, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container ul.navbar-right li.nav-right-img.dropdown .dropdown-content {
+  max-width: 250px;
+  display: none;
+  position: absolute;
+  background-color: #2b2c28;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* line 147, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container .dropdown:hover:not(.active) {
+  background-color: #131515;
+}
+/* line 151, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container .dropdown.active {
+  background-color: #ffcc5c;
+  display: block;
+}
+/* line 154, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container .dropdown.active span {
+  color: #2b2c28;
+}
+/* line 160, /home/vicente/web/grupo-12/app/assets/stylesheets/navbar.scss */
+nav.navbar-container #brand a {
+  font-family: 'Lobster', cursive;
+  font-size: 26px;
+}
+/* line 3, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination {
+  background: white;
+  cursor: default;
+  margin-top: 30px;
+  /* self-clearing method: */
+}
+
+/* line 8, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  padding: 0.2em 0.5em;
+  display: block;
+  float: left;
+  margin-right: 1px;
+}
+
+/* line 13, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination .disabled {
+  color: #999999;
+  border: 1px solid #dddddd;
+}
+
+/* line 16, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background: #3270a2;
+  color: white;
+  border: 1px solid #3270a2;
+}
+
+/* line 22, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination a {
+  text-decoration: none;
+  color: #183c58;
+  border: 1px solid #9aafe5;
+}
+
+/* line 26, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination a:hover, .digg_pagination a:focus {
+  color: #183c58;
+  border-color: #183c58;
+}
+
+/* line 29, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination .page_info {
+  background: #3270a2;
+  color: white;
+  padding: 0.4em 0.6em;
+  width: 22em;
+  margin-bottom: 0.3em;
+  text-align: center;
+}
+
+/* line 36, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination .page_info b {
+  color: #183c58;
+  background: #6aa6ed;
+  padding: 0.1em 0.25em;
+}
+
+/* line 40, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+.digg_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* line 46, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+* html .digg_pagination {
+  height: 1%;
+}
+
+/* line 48, /home/vicente/web/grupo-12/app/assets/stylesheets/pagination.scss */
+*:first-child + html .digg_pagination {
+  overflow: hidden;
+}
+/* line 3, /home/vicente/web/grupo-12/app/assets/stylesheets/progress_bar.scss */
+.meter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 20px;
+}
+
+/* line 11, /home/vicente/web/grupo-12/app/assets/stylesheets/progress_bar.scss */
+.meter-percentage {
+  flex: 0 1 15%;
+  margin: 0;
+  font-size: 15px;
+  color: #183c58;
+  display: inline;
+}
+
+/* line 20, /home/vicente/web/grupo-12/app/assets/stylesheets/progress_bar.scss */
+.meter {
+  height: 80%;
+  /* Can be anything */
+  padding: 10px 0px;
+  margin-left: 8px;
+  flex: 0 8 85%;
+  padding-top: 0;
+  background: #555;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  padding: 0px;
+  -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+/* line 37, /home/vicente/web/grupo-12/app/assets/stylesheets/progress_bar.scss */
+.meter > span {
+  display: block;
+  height: 100%;
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #2bc253;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2bc253), color-stop(1, #54f054));
+  background-image: -moz-linear-gradient(center bottom, #2bc253 37%, #54f054 69%);
+  -webkit-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 79, /home/vicente/web/grupo-12/app/assets/stylesheets/progress_bar.scss */
+.nostripes > span > span, .nostripes > span:after {
+  -webkit-animation: none;
+  background-image: none;
+}
+/* line 6, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-container {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* line 12, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  padding: 0;
+  margin: 0 10px;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+/* line 32, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item {
+  background-color: rgba(212, 205, 215, 0.24);
+  padding: 5px;
+  width: 370px;
+  height: 200px;
+  margin: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}
+/* line 45, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item a {
+  width: 100px;
+  text-decoration: none;
+  color: #183c58;
+}
+/* line 51, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item h5.project-title {
+  margin: 10px 10px;
+  font-size: 18px;
+  text-align: left;
+}
+/* line 57, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item p.project-author {
+  text-align: left;
+  padding: 4px 8px;
+  margin: 0;
+  font-size: 14px;
+}
+/* line 62, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item p.project-author a {
+  color: #131515;
+}
+/* line 66, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item p.project-desc {
+  color: #2b2c28;
+  font-size: 13px;
+  padding: 8px;
+  margin: 0;
+  text-align: justify;
+  height: 101px;
+}
+/* line 75, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item img.preview-img {
+  position: relative;
+  opacity: 0.4;
+  z-index: 2;
+  top: -202px;
+  left: -10px;
+  width: 380px;
+  height: 210px;
+  border-radius: 10px;
+  padding: 5px;
+}
+/* line 89, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-grid-item h5, .project-grid-item .meter-container, .project-grid-item p {
+  position: relative;
+  z-index: 3;
+}
+
+/* line 97, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.button {
+  border-radius: 4px;
+  background-color: #3270a2;
+  border: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  width: 200px;
+  height: 60px;
+  margin: 0;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+/* line 111, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.button a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: #fcfcfc;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 60px;
+}
+
+/* line 122, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.button a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+/* line 131, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.button:hover a {
+  padding-right: 25px;
+}
+
+/* line 135, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.button:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* line 141, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+h3.project-desc {
+  margin: 0px 8em;
+  text-align: center;
+}
+
+/* line 150, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-frame {
+  margin: 20px;
+  border-radius: 2%;
+  padding: 30px 0px;
+}
+
+/* line 157, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-container {
+  width: 100%;
+  display: flex;
+}
+
+/* line 162, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-owner {
+  flex: 0 1 20%;
+  height: 50px;
+  padding: 0;
+  padding-top: 5px;
+  display: block;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 20px;
+}
+/* line 171, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-owner div.user {
+  padding-top: 3px;
+}
+/* line 174, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-owner div.user > span, .title-owner div.user span > a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #183c58;
+  font-weight: bold;
+}
+
+/* line 183, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+div.title-owner > img {
+  height: 50px;
+  width: 50px;
+}
+
+/* line 187, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-owner > p {
+  float: left;
+}
+
+/* line 191, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-header {
+  flex: 0 1 70%;
+  margin-right: 60px;
+}
+/* line 194, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-header h1 {
+  text-align: left;
+  margin: 10px 0px;
+  padding-top: 10px;
+  font-size: 45px;
+  color: #183c58;
+}
+/* line 201, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-header h3 {
+  font-size: 15px;
+  color: #2b2c28;
+  margin: 0;
+  text-align: justify;
+}
+
+/* line 209, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-main {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 10px;
+  height: 400px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* line 218, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-item {
+  margin: 0 10px;
+  padding: 10px 15px;
+}
+
+/* line 223, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-image {
+  flex: 0 3 55%;
+  overflow: hidden;
+  height: 400px;
+  padding: 0;
+  box-shadow: 8px 8px 5px #888888;
+  width: 100%;
+}
+/* line 230, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-image img {
+  opacity: 0.9;
+}
+
+/* line 235, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-data {
+  flex: 0 2 45%;
+  display: flex;
+  flex-direction: row;
+}
+/* line 239, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-data > * {
+  list-style: none;
+  font-family: 'Open Sans';
+}
+
+/* line 245, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-details {
+  width: 100%;
+}
+
+/* line 249, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-buttons {
+  width: 100%;
+  text-align: right;
+  padding: 0 30px;
+}
+
+/* line 255, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-attr {
+  list-style: none;
+  font-size: 22px;
+  color: #63a232;
+  font-weight: bold;
+}
+
+/* line 262, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-attr-desc {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+/* line 265, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.project-attr-desc.category-links a {
+  text-decoration: none;
+  color: #333333;
+}
+
+/* line 271, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+div.btn {
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  display: block;
+  font-size: 20px;
+  width: 200px;
+  padding: 0px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+/* line 281, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+div.btn a {
+  text-decoration: none;
+  color: #fcfcfc;
+  line-height: 40px;
+  width: 100%;
+  display: block;
+}
+
+/* line 290, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Unfollow"] {
+  background-color: #d44d30;
+  color: #fcfcfc;
+}
+
+/* line 294, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Follow"] {
+  background-color: #63a232;
+}
+
+/* line 298, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Save"] {
+  background-color: #3270a2;
+}
+
+/* line 302, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Edit"] {
+  background-color: #555555;
+}
+/* line 304, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Edit"] a {
+  color: #fcfcfc;
+}
+
+/* line 309, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Comment"] {
+  background-color: #1bbba3;
+}
+
+/* line 313, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Claim"] {
+  background-color: #ffcc5c;
+}
+/* line 315, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.btn[value="Claim"] a {
+  color: #2b2c28;
+}
+
+/* line 323, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/* line 329, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements span.field > select:hover {
+  cursor: pointer;
+}
+/* line 332, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements div.form {
+  flex: 0 1 20%;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-right: 30px;
+}
+/* line 337, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements div.form span {
+  font-family: 'Lato';
+  font-size: 15px;
+  color: #183c58;
+  font-weight: 400;
+}
+/* line 343, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements div.form form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* line 347, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements div.form form span select {
+  width: 80%;
+  opacity: 0.9;
+}
+/* line 354, /home/vicente/web/grupo-12/app/assets/stylesheets/projects.scss */
+.title-elements h1 {
+  flex: 0 1 80%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+/* line 3, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+li.search-tab form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 300px;
+}
+/* line 11, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+li.search-tab form:hover {
+  background-color: #2b2c28;
+}
+/* line 15, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+li.search-tab form .search-box {
+  width: 100%;
+  display: inline;
+  height: 20%;
+  margin: 5px 10px;
+  background-color: #fcfcfc;
+  opacity: 0.9;
+}
+
+/* line 27, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+li.search-tab {
+  height: 50px;
+  background-color: #2b2c28;
+}
+/* line 30, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+li.search-tab:hover {
+  background-color: #2b2c28;
+}
+
+/* line 35, /home/vicente/web/grupo-12/app/assets/stylesheets/searchbox.scss */
+#search {
+  margin-left: 10px;
+}
+/* line 2, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-container {
+  display: flex;
+  text-decoration: none;
+}
+
+/* line 7, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0;
+  margin: 0 10px;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+}
+
+/* line 24, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 240px;
+  height: 110px;
+  margin: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+/* line 40, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item div.user-picture {
+  flex: 0 1 30%;
+}
+/* line 42, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item div.user-picture img {
+  height: 50px;
+  width: 50px;
+}
+/* line 48, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item div.user-data {
+  flex: 0 4 80%;
+}
+/* line 50, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item div.user-data a {
+  text-decoration: none;
+  color: #183c58;
+}
+/* line 54, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-grid-item div.user-data span {
+  text-decoration: none;
+  color: #2b2c28;
+  font-size: 13px;
+}
+
+/* line 62, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+div.user_data {
+  font-family: 'Sarala', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+/* line 66, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+div.user_data.token {
+  font-size: 10px;
+  width: 30px;
+}
+
+/* line 72, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.img-circle {
+  border-radius: 50%;
+}
+
+/* line 76, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+section.stats ul {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+  overflow: hidden;
+  align-items: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 85, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+section.stats ul li {
+  float: left;
+  height: 30px;
+  text-align: center;
+  display: table;
+}
+/* line 90, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+section.stats ul li a {
+  color: #183c58;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* line 95, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+section.stats ul li a:hover {
+  color: #aa3631;
+}
+/* line 100, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+section.stats ul li:first-child {
+  padding-right: 15px;
+}
+
+/* line 104, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+div#user-title {
+  font-size: 35px;
+}
+
+/* line 108, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+ul.follow-stats {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 113, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+li.follow-stats {
+  list-style: none;
+  text-align: left;
+  font-size: 10px;
+  display: inline;
+}
+
+/* line 121, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+input.follow-btn[value="Unfollow"] {
+  background-color: #ff6f69;
+  opacity: 1;
+  color: #fcfcfc;
+  font-size: 20px;
+}
+
+/* line 127, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+input.follow-btn[value="Follow"] {
+  opacity: 1;
+  background-color: #88d8b0;
+  font-size: 20px;
+}
+
+/* line 132, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+input.follow-btn {
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  display: inline-block;
+  width: 100px;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+/* line 145, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+#user-information {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+/* line 152, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+#user-information .user-board {
+  justify-content: center;
+  align-items: center;
+}
+/* line 155, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+#user-information .user-board #user-pic {
+  justify-content: center;
+  width: 100%;
+}
+
+/* line 162, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-project-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* line 166, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-project-container .user-projects {
+  text-align: center;
+  flex: 0 1 50%;
+}
+/* line 172, /home/vicente/web/grupo-12/app/assets/stylesheets/users.scss */
+.user-project-container .user-projects .project-grid {
+  justify-content: center;
+}
+/* line 3, /home/vicente/web/grupo-12/app/assets/stylesheets/welcome.scss */
+.project-grid-container#most-valuable {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: 800px;
+  margin-top: 20px;
+  height: 100%;
+}
+/* line 10, /home/vicente/web/grupo-12/app/assets/stylesheets/welcome.scss */
+.project-grid-container#most-valuable h1 {
+  margin-bottom: 0px;
+}
+
+/* line 15, /home/vicente/web/grupo-12/app/assets/stylesheets/welcome.scss */
+.project-grid.welcome {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  padding: 0;
+  margin: 0 30px;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: center;
+}
+/* line 33, /home/vicente/web/grupo-12/app/assets/stylesheets/welcome.scss */
+.project-grid.welcome h1 {
+  text-align: center;
+}
+
+/* line 39, /home/vicente/web/grupo-12/app/assets/stylesheets/welcome.scss */
+p.news {
+  color: #183c58;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */

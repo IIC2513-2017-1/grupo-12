@@ -13,7 +13,7 @@ Juan Pablo Jofré   | [@jpjofre94]    | [jbjofre@uc.cl]
 
 ## Aplicación en Heroku
 
-Visita nuestra aplicación [aquí](https://dreamfunder.herokuapp.com/).
+Visita nuestra aplicación [aquí](https://dreamfunder-uc.herokuapp.com/).
 
 Puedes crear tu propia cuenta, o probar las funcionalidades con la siguiente cuenta:
 

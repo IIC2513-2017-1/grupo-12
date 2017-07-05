@@ -39,7 +39,7 @@ module Api::V1
       end
       unless message.nil?
         if message == '/start'
-          text = "Welcome to dreamfunder.herokuapp.com!\n\n"
+          text = "Welcome to dreamfunder-uc.herokuapp.com!\n\n"
           text += "If you want to receive notifications from your projects, use the command /activate followed by the email you registered in Dreamfunder.\n"
           text += 'Example: /activate myemail@gmail.com'
           BOT.send_message(chat_id, text)
