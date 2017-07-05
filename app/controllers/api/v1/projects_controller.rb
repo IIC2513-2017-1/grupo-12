@@ -2,7 +2,7 @@
 
 module Api::V1
   class ProjectsController < ApiController
-    before_action :authenticate, only: [:create, :save, :forget]
+    before_action :authenticate, only: %i[create save forget]
 
     def index
       @projects = Project.all
@@ -12,7 +12,15 @@ module Api::V1
       # @project = Project.new(project_params)
       @project = @current_user.projects.build(project_params)
       if @project.save
-        #render json: { status: 200, link: project_url(@project) }
+        cats = params[:category_ids]&.map! { |c| c.to_i }
+        unless cats.nil?
+          cats.delete(0)
+          categories = Category.where(id: cats)
+          categories.each do |cat|
+            @project.add_category(cat)
+          end
+        end
+        render json: { status: 200, link: project_url(@project) }
       else
         render json: { errors: @project.errors }, status: :unprocessable_entity
       end
@@ -41,7 +49,7 @@ module Api::V1
     private
 
     def project_params
-      params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal, images: [])
+      params.require(:project).permit(:brief, :description, :funding_duration, :funding_goal, images: [], category_ids: [])
     end
   end
 end

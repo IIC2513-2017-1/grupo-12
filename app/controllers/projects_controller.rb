@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   include Secured
   before_action :set_project, only: %i[show edit update destroy save forget claim]
@@ -52,33 +54,43 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @min_date = Date.today + 20.days
+    @categories = []
   end
 
   # GET /projects/1/edit
   def edit
     @min_date = Date.today + 20.days
+    @categories = @project.categories
   end
 
   # POST /projects
   # POST /projects.json
   def create
-    @category_id = project_params[:category_ids]
+    # @category_id = project_params[:category_ids]
     project_params.delete :category_ids
-    @category = Category.find(project_params[:category_ids])
+    # @category = Category.find(project_params[:category_ids])
     @project = Project.new(project_params.except(:images))
-    @project.add_category(@category)
-    respond_to do |format|
-      if @project.save
-        if params[:images]
-          params[:images].each do |image|
+    # @project.add_category(@category)
+    cat_ids = project_params[:category_ids]&.map(&:to_i)
+    if cat_ids.nil?
+      redirect_to new_project_path, notice: 'Choose at least one category!'
+    else
+      puts cat_ids
+      categories = Category.where(id: cat_ids)
+      categories.each do |cat|
+        @project.add_category(cat)
+      end
+      respond_to do |format|
+        if @project.save
+          params[:images]&.each do |image|
             Picture.create(image: image, project: @project)
           end
+          format.html { redirect_to @project, notice: 'Project was successfully created.' }
+          format.json { render :show, status: :created, location: @project }
+        else
+          format.html { render :new }
+          format.json { render json: @project.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -93,10 +105,8 @@ class ProjectsController < ApplicationController
     @project.add_category(@category)
     respond_to do |format|
       if @project.update(project_params)
-        if params[:images]
-          params[:images].each do |image|
-            Picture.create(image: image, project: @project)
-          end
+        params[:images]&.each do |image|
+          Picture.create(image: image, project: @project)
         end
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
@@ -207,6 +217,6 @@ class ProjectsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
-    params.require(:project).permit(:category_ids, :brief, :description, :funding_duration, :funding_goal, images: []).merge(user_id: current_user.id)
+    params.require(:project).permit(:brief, :description, :funding_duration, :funding_goal, images: [], category_ids: []).merge(user_id: current_user.id)
   end
 end

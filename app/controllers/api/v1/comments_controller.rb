@@ -10,10 +10,20 @@ module Api::V1
       render json: { errors: @comment.errors }, status: :unprocessable_entity
     end
 
+    def index
+      @comments = Project.find(comment_params[:project_id].to_i).comments
+      render json: @comments
+    end
+
+    def show
+      @comment = Comment.find(comment_params[:id].to_i)
+      render json: @comment
+    end
+
     private
 
     def comment_params
-      params.require(:comment).permit(:project_id, :content)
+      params.permit(:project_id, :content, :id)
     end
   end
 end

@@ -26,7 +26,16 @@
           Category
         </div>
         <div class="category-select">
-          <%= f.collection_select :category_ids, Category.all, :id, :name%>
+          <%#= f.collection_check_boxes(:category_ids, Category.all, :id, :name,
+          {:selected => @project.category_ids, :include_blank => false}, {:multiple => true}) %>
+          <%index = 1%>
+          <% Category.all.each do |cat| %>
+            <div class= "category-option">
+              <%= gen_input(index, cat, @categories).html_safe %>
+              <%= gen_label(index, cat.name).html_safe %>
+              <% index += 1%>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="date-field">

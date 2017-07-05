@@ -32,14 +32,19 @@ Rails.application.routes.draw do
           post :save
           delete :forget
         end
+        resources :comments, only: [:index, :new, :create, :show]
       end
       resources :users, only: [:show, :create] do
         member do
           patch :update
         end
       end
+      post 'users/:id/follow', to: 'users#follow'
+      post 'users/:id/unfollow', to: 'users#unfollow'
+      get 'users/:id/followers', to: 'users#followers'
+      get 'users/:id/following', to: 'users#following'
       resources :donations, only: [:create]
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :show]
       post '/telegram', to: 'telegram#handle'
       get '/telegram', to: 'telegram#activate'
     end
