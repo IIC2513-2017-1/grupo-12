@@ -48,8 +48,6 @@ img {
 }
 
 .slider-wrap img {
-	max-width:100%;
-	max-height:100%;
 	display: inline-block;
 	vertical-align: middle;
 	.wide {
@@ -71,7 +69,6 @@ img {
 }
 .slide {
 	position: relative;
-	width: 680px;
 	height: 100%;
 	background: $baby-powder;
 	display: flex;

@@ -4,6 +4,7 @@ $(document).on('turbolinks:load', function() {
   $('.slider').find('img').each(function(){
     var imgClass = (this.width/this.height < ratio) ? 'wide' : 'tall';
     $(this).addClass(imgClass);
+    $(this).css({'width' : $(".slider-wrap").width()});
   });
   var windowWidthInit = $(".slider-wrap").width(),
     slides = $(".slider .slide").length,
@@ -37,8 +38,8 @@ $(document).on('turbolinks:load', function() {
     var windowWidth = $(".slider-wrap").width();
     if ($(this).attr("id") === "right") {
       if (tabindex === slides) {
-        tabindex = 1
-        move = "+=" + windowWidth * (slides - 1);
+        tabindex = 1;
+        move = "+=" + windowWidth * (slides -1 );
       } else {
         tabindex = tabindex + 1;
         move = "-=" + windowWidth;
@@ -46,7 +47,7 @@ $(document).on('turbolinks:load', function() {
     } else {
       if (tabindex === 1) {
         tabindex = slides;
-        move = "-=" + windowWidth * (slides - 1);
+        move = "-=" + windowWidth * (slides -1);
       } else {
         tabindex = tabindex - 1;
         move = "+=" + windowWidth;
