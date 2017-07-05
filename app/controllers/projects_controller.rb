@@ -98,21 +98,26 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
-    unless @project.categories.first.nil?
-      @project.remove_category(@project.categories.first)
-    end
-    @category = Category.find(project_params[:category_ids])
-    @project.add_category(@category)
-    respond_to do |format|
-      if @project.update(project_params)
-        params[:images]&.each do |image|
-          Picture.create(image: image, project: @project)
+    cat_ids = project_params[:category_ids]&.map(&:to_i)
+    if cat_ids.nil?
+      redirect_to edit_project_path(@project), notice: 'Choose at least one category!'
+    else
+      puts cat_ids
+      categories = Category.where(id: cat_ids)
+      categories.each do |cat|
+        @project.add_category(cat)
+      end
+      respond_to do |format|
+        if @project.update(project_params)
+          params[:images]&.each do |image|
+            Picture.create(image: image, project: @project)
+          end
+          format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+          format.json { render :show, status: :ok, location: @project }
+        else
+          format.html { render :edit }
+          format.json { render json: @project.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
   end
